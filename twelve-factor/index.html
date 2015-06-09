@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>12 Factor Apps - Ray's Blog</title>
+  <meta name="author" content="Raymond Sapida">
+
+  
+  <meta name="description" content="I was researching the ideas behind the 12 factor app and I learned a lot about deploying an application. Codebase The main idea behind this factor is &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://raysapida.github.io/twelve-factor/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ray's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-57189071-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Ray's Blog</a></h1>
+  
+    <h2>All About Web Development</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="raysapida.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">12 Factor Apps</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-29T00:00:00-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I was researching the ideas behind the 12 factor app and I learned a lot about deploying an application.</p>
+
+<ol>
+<li><h3>Codebase</h3>
+
+<p>The main idea behind this factor is using a version control system and that one app corresponds to one codebase. Codebases should not share code and if it does, they should be refactored into a shared library that can be included with dependencies.</p></li>
+<li><h3>Dependencies</h3>
+
+<p>Manage dependencies within an app and for a Rails application, this can be done through the Gemfile with locked versions.</p></li>
+<li><h3>Config</h3>
+
+<p>The configuration should be separate from the code and preferrably set in the environment&rsquo;s variables. For a Rails app, there&rsquo;s an explicit directory where configurations can be defined but this definition does not include routes or other internal configurations. Does this mean that the configurations in the yaml files should not be stated? This <a href="http://blog.doismellburning.co.uk/2014/10/06/twelve-factor-config-misunderstandings-and-advice/">article</a> cleared up some of those things for me. Things like the secret key and database configuration can be managed from the command line or with a <code>config/secrets.yml</code> that&rsquo;s not added to a repository. I still had more questions about managing secret keys outside of Rails with engines like Devise. I searched more and found answers in <a href="https://github.com/plataformatec/devise/issues/2554">one</a> of Devise&rsquo;s issues page. I still need to do more research into this because it sounds specific to what an app is using.</p></li>
+<li><h3>Backing Services</h3>
+
+<p>These services include the database, messaging and cache systems. The main idea behind this is that each service should be loosely coupled with the app and that would enable a deployment to easily swap them. My only experience with this so far is through database configurations.</p></li>
+<li><h3>Build, Release, Run</h3>
+
+<p>This factor encourages the separation betweem the build, release, and run stages. The build stage occurs during deployment, the release stage combines the build stage with configurations, and the run stage occurs while the environment is proccessing requests. I&rsquo;m still figuring out the best way to do this for a Rails app. Most of the articles I&rsquo;ve read used scripts to simplify these stages.</p></li>
+<li><h3>Processes</h3>
+
+<p>Each process should be stateless, share nothing with each other, and persistent data should be stored in a database. Specifically, the state is transfered in requests and not stored in the web server. From my understanding, these states don&rsquo;t apply to sessions which are stored in clients as cookies. This concept seems to go in line with a REST applications and helps with scaling the application.</p></li>
+<li><h3>Port Binding</h3>
+
+<p>The app should be self-contained and should not depend on runtime execution. It listens to requests and sends data through the port bindings. Along with processes, this one seems to be similar to a REST application and Rails can usually do this for free.</p></li>
+<li><h3>Concurrency</h3>
+
+<p>The application should be thread-safe or support concurrency meaning multiple processes could be added. I&rsquo;m still struggling with the idea of what kind of code is thread-safe in Rails and how Rails implements concurrency. I&rsquo;ve read that Rails uses concurrency by making sure that threads don&rsquo;t share the same data when they&rsquo;re run or lock them when they do to reduce interference but I don&rsquo;t know where this happens in the framework.</p></li>
+<li><h3>Disposability</h3>
+
+<p>Apps should have a fast startup and graceful shutdown. The former implies that less data or processes would be needed for the application to start and the latter implies that the app won&rsquo;t need a specific process every time it shuts down. Both parts make concurrent requests more effective and durable from errors. Specific implementations of this would include blocking a new request if the older one is still going or reconnecting  when the connection is lost.</p></li>
+<li><h3>Dev/prod parity</h3>
+
+<p>This involves keeping development and production as similar as possible. This helps with continuous deployment by keeping changes small so they can be pushed to development quickly, having developers work on both stages, and keeping the tools/dependencies as similar as possible. For example, the development side should use the same type of database and the environment could be handled by a virtual machine through vagrant to make sure that everything works on the same machine.</p></li>
+<li><h3>Logs</h3>
+
+<p>Treating logs as an event stream enables them to be stored in a third party service instead of a specific log file. This is useful when the app is deployed to multiple places and all the logs would be handle by one service.</p></li>
+<li><h3>Admin Processes</h3>
+
+<p>Administration processes like migrations should be handled as a one off process and in an identical environment as production. This is usually done through deployment scripts. I&rsquo;m still learning how to deploy an app effectively so this one is still a work in progress.</p></li>
+</ol>
+
+
+<h2>Further questions</h2>
+
+<ul>
+<li>Why adding the ruby gem foreman into the Gemfile is not recommended?</li>
+<li>How does Unicorn interact with Rack Applications ?</li>
+<li>What are the major differences between Unicorn, Thin , Puma and other Rack web servers ?</li>
+<li>How does concurrency and thread-safe work in a Rails?</li>
+<li>How to configure a deployment through environment variables?</li>
+<li>What are the best practices for deploying a Rails application?</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Raymond Sapida</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-11-29T00:00:00-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://raysapida.github.io/twelve-factor/" data-via="" data-counturl="http://raysapida.github.io/twelve-factor/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/deploying-to-heroku/" title="Previous Post: Deploying to Heroku">&laquo; Deploying to Heroku</a>
+      
+      
+        <a class="basic-alignment right" href="/further-questions/" title="Next Post: Further Questions">Further Questions &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/thinkful-front-end-developer-course/">Going Through Thinkful's Front End Course</a>
+      </li>
+    
+      <li class="post">
+        <a href="/preparing-a-resume/">Preparing a Resume</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vim-snippets-cheatsheet/">Snippets Cheat Sheet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vim-cheatsheet/">Vim Cheat Sheet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/going-thrugh-tutorials/">Learning From Tutorials</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/raysapida">@raysapida</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'raysapida',
+            count: 31,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Raymond Sapida -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'raysapida';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

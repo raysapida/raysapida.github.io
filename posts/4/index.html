@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ray's Blog</title>
+  <meta name="author" content="Raymond Sapida">
+
+  
+  <meta name="description" content="I&rsquo;m finally sitting down and trying to look into the questions that built up from the past week Why adding the ruby gem foreman into the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://raysapida.github.io/posts/4/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ray's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-57189071-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Ray's Blog</a></h1>
+  
+    <h2>All About Web Development</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="raysapida.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/further-questions/">Further Questions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-30T00:00:00-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;m finally sitting down and trying to look into the questions that built up from the past week</p>
+
+<ul>
+<li><h3>Why adding the ruby gem foreman into the Gemfile is not recommended?</h3>
+
+<p>This ruby gem is used for organizing apps with multiple components and uses a Procfile. The Procfile lists which processes foreman is suppose to manage. Heroku has an <a href="https://devcenter.heroku.com/articles/procfile#process-types-as-templates">article</a> that provides further details on Procfiles and the github page for foreman also has an extensive <a href="http://ddollar.github.io/foreman/">manual</a>. What jumped out the most from the foreman manual were the flags for port and concurrency which managed how many workers would be used for each process. From the heroku article , the most basic command in the Procfile was <code>bundle exec rails server -p $PORT</code> but more processes can be added. From what I can find, Heroku didn&rsquo;t suggest adding foreman into the Gemfile because its already added by default.</p></li>
+<li><h3>How does Unicorn interact with Rack Applications ?</h3>
+
+<p>I found an <a href="https://blog.engineyard.com/2010/everything-you-need-to-know-about-unicorn">article</a> that clarified the features that Unicorn has. There was also another article on how they can be configured at <a href="https://www.digitalocean.com/community/tutorials/how-to-optimize-unicorn-workers-in-a-ruby-on-rails-app">Digitial Ocean</a>. Both articles wrote about the advantages of using Unicorn but I didn&rsquo;t start seeing how it could be implemented until I looked at the <a href="http://guides.rubyonrails.org/initialization.html#loading-rails-rack-lib-rack-server-rb">guide</a> for the Rails Initialization Process. At the end of the guide, it mentioned that the process would be handed off to the specific server implementaion and that led me to the <a href="http://bogomips.org/unicorn.git/tree/lib/unicorn/http_server.rb">Unicorn::HttpServer</a> class. I&rsquo;m not sure how the process goes after it reaches this point, but I&rsquo;ll read the source code more in detail to find out. I do know from the comments that a server could be run using <code>HttpServer::run</code>. In the future, I want to write a blog post that extends the guide to how Unicorn would handle the last line <code>server.run wrapped_app, options, &amp;blk</code>.</p></li>
+<li><h3>What are the major differences between Unicorn, Thin , Puma and other Rack web servers ?</h3>
+
+<p>This <a href="https://www.digitalocean.com/community/tutorials/a-comparison-of-rack-web-servers-for-ruby-web-applications">article</a> was a great start on figuring out the differences between the servers. The answer produced even more questions though. Specifically on what is NGINX, Mongrel&rsquo;s parser, Event Machine network I/O library, and the specifics of Rack middleware for HTTP requests.</p></li>
+<li><h3>How does concurrency and thread-safe work in a Rails?</h3>
+
+<p>I started looking at stackoverflow to find out what <a href="http://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference">concurrency</a> and <a href="http://stackoverflow.com/questions/261683/what-is-meant-by-thread-safe-code">thread-safe</a> means. There was also another <a href="http://stackoverflow.com/questions/15184338/how-to-know-what-is-not-thread-safe-in-ruby">post</a> on what isn&rsquo;t thread safe in Ruby. Rails has a specific <a href="http://www.sitepoint.com/config-threadsafe/">configuration</a> that is turned on by default and this <a href="http://tenderlovemaking.com/2012/06/18/removing-config-threadsafe.html">post</a> went into through an indepth discussion about what that configuration did. The most interesting parts was when he said that &ldquo;We know that loading the framework isn’t threadsafe, so the strategy is to load it all up before any threads are ready to handle requests&rdquo; and that the <code>@allow_concurrency</code> option turns off a Rack Middleware called <code>Rack::Lock</code>. Again, this opened up more questions about the difference between multi-threaded servers and multi-process servers along with the difference between eager loading and lazy loading.</p>
+
+<pre><code>  def threadsafe!
+      @preload_frameworks = true
+      @cache_classes      = true
+      @dependency_loading = false
+      @allow_concurrency  = true
+      self
+  end
+</code></pre></li>
+<li><h3>How to configure a deployment through environment variables?</h3>
+
+<p>After finding two articles about it from <a href="http://railsapps.github.io/rails-environment-variables.html">railsapps</a> and <a href="http://www.gotealeaf.com/blog/managing-environment-configuration-variables-in-rails">tealeaf</a>, the best ways I read to manage environment variables centers around two gems; <a href="https://github.com/laserlemon/figaro">figaro</a> and <a href="https://github.com/bkeepers/dotenv-deployment">dotenv-development</a>. Both use a separate file, <code>.env</code> and <code>application.yml</code> respectively, that can be used to set environment variables and should not added to the public repository.</p></li>
+<li><h3>What are the best practices for deploying a Rails application?</h3>
+
+<p>There were many articles about this and I found that the best practices revolve around where you&rsquo;re deploying to and the specific requirements for your app. A common thread I found was using a tool to standardize the process like <a href="http://capistranorb.com/documentation/overview/what-is-capistrano/">capistrano</a>, <a href="https://www.getchef.com/chef/">chef</a>, or <a href="http://puppetlabs.com/">puppet</a>.</p></li>
+</ul>
+
+
+<h2>Even more questions</h2>
+
+<ul>
+<li>What is NGINX?</li>
+<li>What is Mongrel&rsquo;s parser?</li>
+<li>What is Event Machine network I/O library and how does it work?</li>
+<li>How does Rack middleware and Rack in general work with Ruby web applications?</li>
+<li>What is the difference between multi-threaded servers and multi-process servers?</li>
+<li>What is the difference between eager loading and lazy loading?</li>
+<li>How could I use capistrano, chef or puppet ?</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/twelve-factor/">12 Factor Apps</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-29T00:00:00-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was researching the ideas behind the 12 factor app and I learned a lot about deploying an application.</p>
+
+<ol>
+<li><h3>Codebase</h3>
+
+<p>The main idea behind this factor is using a version control system and that one app corresponds to one codebase. Codebases should not share code and if it does, they should be refactored into a shared library that can be included with dependencies.</p></li>
+<li><h3>Dependencies</h3>
+
+<p>Manage dependencies within an app and for a Rails application, this can be done through the Gemfile with locked versions.</p></li>
+<li><h3>Config</h3>
+
+<p>The configuration should be separate from the code and preferrably set in the environment&rsquo;s variables. For a Rails app, there&rsquo;s an explicit directory where configurations can be defined but this definition does not include routes or other internal configurations. Does this mean that the configurations in the yaml files should not be stated? This <a href="http://blog.doismellburning.co.uk/2014/10/06/twelve-factor-config-misunderstandings-and-advice/">article</a> cleared up some of those things for me. Things like the secret key and database configuration can be managed from the command line or with a <code>config/secrets.yml</code> that&rsquo;s not added to a repository. I still had more questions about managing secret keys outside of Rails with engines like Devise. I searched more and found answers in <a href="https://github.com/plataformatec/devise/issues/2554">one</a> of Devise&rsquo;s issues page. I still need to do more research into this because it sounds specific to what an app is using.</p></li>
+<li><h3>Backing Services</h3>
+
+<p>These services include the database, messaging and cache systems. The main idea behind this is that each service should be loosely coupled with the app and that would enable a deployment to easily swap them. My only experience with this so far is through database configurations.</p></li>
+<li><h3>Build, Release, Run</h3>
+
+<p>This factor encourages the separation betweem the build, release, and run stages. The build stage occurs during deployment, the release stage combines the build stage with configurations, and the run stage occurs while the environment is proccessing requests. I&rsquo;m still figuring out the best way to do this for a Rails app. Most of the articles I&rsquo;ve read used scripts to simplify these stages.</p></li>
+<li><h3>Processes</h3>
+
+<p>Each process should be stateless, share nothing with each other, and persistent data should be stored in a database. Specifically, the state is transfered in requests and not stored in the web server. From my understanding, these states don&rsquo;t apply to sessions which are stored in clients as cookies. This concept seems to go in line with a REST applications and helps with scaling the application.</p></li>
+<li><h3>Port Binding</h3>
+
+<p>The app should be self-contained and should not depend on runtime execution. It listens to requests and sends data through the port bindings. Along with processes, this one seems to be similar to a REST application and Rails can usually do this for free.</p></li>
+<li><h3>Concurrency</h3>
+
+<p>The application should be thread-safe or support concurrency meaning multiple processes could be added. I&rsquo;m still struggling with the idea of what kind of code is thread-safe in Rails and how Rails implements concurrency. I&rsquo;ve read that Rails uses concurrency by making sure that threads don&rsquo;t share the same data when they&rsquo;re run or lock them when they do to reduce interference but I don&rsquo;t know where this happens in the framework.</p></li>
+<li><h3>Disposability</h3>
+
+<p>Apps should have a fast startup and graceful shutdown. The former implies that less data or processes would be needed for the application to start and the latter implies that the app won&rsquo;t need a specific process every time it shuts down. Both parts make concurrent requests more effective and durable from errors. Specific implementations of this would include blocking a new request if the older one is still going or reconnecting  when the connection is lost.</p></li>
+<li><h3>Dev/prod parity</h3>
+
+<p>This involves keeping development and production as similar as possible. This helps with continuous deployment by keeping changes small so they can be pushed to development quickly, having developers work on both stages, and keeping the tools/dependencies as similar as possible. For example, the development side should use the same type of database and the environment could be handled by a virtual machine through vagrant to make sure that everything works on the same machine.</p></li>
+<li><h3>Logs</h3>
+
+<p>Treating logs as an event stream enables them to be stored in a third party service instead of a specific log file. This is useful when the app is deployed to multiple places and all the logs would be handle by one service.</p></li>
+<li><h3>Admin Processes</h3>
+
+<p>Administration processes like migrations should be handled as a one off process and in an identical environment as production. This is usually done through deployment scripts. I&rsquo;m still learning how to deploy an app effectively so this one is still a work in progress.</p></li>
+</ol>
+
+
+<h2>Further questions</h2>
+
+<ul>
+<li>Why adding the ruby gem foreman into the Gemfile is not recommended?</li>
+<li>How does Unicorn interact with Rack Applications ?</li>
+<li>What are the major differences between Unicorn, Thin , Puma and other Rack web servers ?</li>
+<li>How does concurrency and thread-safe work in a Rails?</li>
+<li>How to configure a deployment through environment variables?</li>
+<li>What are the best practices for deploying a Rails application?</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/deploying-to-heroku/">Deploying to Heroku</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-26T00:00:00-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;ve recently deployed an <a href="https://github.com/raysapida/mustached-octo-robot">app</a> I was working on to Heroku and the process of matching the development environment to the production environment was very interesting. Heroku itself provided an <a href="https://devcenter.heroku.com/articles/getting-started-with-rails4">article</a> to set up a Rails app and an additonal <a href="https://devcenter.heroku.com/articles/rails-unicorn">article</a> to set up a unicorn server.</p>
+
+<h3>The two specific gems I added to the Gemfile</h3>
+
+<ul>
+<li><a href="https://rubygems.org/gems/unicorn">unicorn</a></li>
+<li><a href="https://github.com/heroku/rails_12factor">rails_12factor</a> which includes the gems <a href="https://github.com/heroku/rails_stdout_logging">rails_stdout_logging</a> and <a href="https://github.com/heroku/rails_serve_static_assets">rails_serve_static_assets</a></li>
+</ul>
+
+
+<p>The rails_12factor gem enables the app to improve on two factors in the <a href="http://12factor.net/">12 factor app</a>; treating logs as an event stream instead of writing them to a single file and serving static assets through Rails instead of a proxy server. This was my first experience with the term twelve factor app and I&rsquo;m taking the time to learn as much as I can about it before writing any more on the topic.</p>
+
+<p>To use the unicorn gem, I added a file to <code>config/unicorn.rb</code> and I used the basic configuration that heroku provided. The default web server in rails, Webrick, can only handle one request at a time so a different server is needed in production. From my understanding, Unicorn emulates a thread safe app by prioritizing fast requests over slower ones.</p>
+
+<p>The biggest problem I came across was applying the database migrations to the Heroku database. Running <code>heroku run rake db:migrate</code> produced an error and it might have been because I started the app from an older version of Rails. The older migrations could have started conflicting. As a workaround, I switched my development database to Posgresql, ran the migrations on my computer, and pushed the schema through the command  <code>heroku pg:push &lt;LOCAL DB&gt; &lt;HEROKU DB&gt;</code>.</p>
+
+<h3>Further questions I had</h3>
+
+<ul>
+<li>What are the practical ramifications of the 12 factors to a web developer ?</li>
+<li>Why shouldn&rsquo;t I add the ruby gem foreman into the Gemfile ?</li>
+<li>How does Unicorn interact with Rack Applications ?</li>
+<li>What are the major differences between Unicorn, Thin , Puma and other Rack web servers ?</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/favorite-ruby-gem/">My Favorite Ruby Gem</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-25T00:00:00-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If I could tell myself one thing when I first started learning about Ruby and Rails, I would say use <a href="https://github.com/pry/pry">pry</a>. There are so many tutorials that I stopped halfway through because I couldn&rsquo;t debug it properly and Pry ended up helping me with most of them. In Rails, I&rsquo;ve used <code>binding.pry</code> so much that I sometimes leave it as a comment in case I have to go through it again. The only misstep I&rsquo;ve had while using it is including <code>binding.pry</code> directly into a <code>for</code> or <code>while</code> loop. In that case, each <code>step</code> usually goes through one iteration of the loop and using the <code>finish</code> command does the same thing.</p>
+
+<p>Also, since I&rsquo;ve started doing coding challenges like <a href="http://exercism.io/">exercism</a> and <a href="codewars.com">codewars</a>, I&rsquo;ve used Pry to explore what I can do when solving problems. What I love the most about using it is that I can create a variable with the methods I&rsquo;m using, <code>cd</code> into it, and use the <code>ls</code> command to view all the methods available. I could then use the <code>?</code> or <code>show-doc</code> commands to explore what each method can do. While learning how to use methods, I have a hard time figuring out how the object I pass changes and which methods could then be called on it. In my first iteration, I usually group methods by the type of object they become since the most common type of errors I&rsquo;ve had are <code>ArgumentError</code> and <code>TypeError</code>.  As an added benefit, I could try out any code I want to write in the Pry before adding it to my project. That way, I could be sure that a problem exists somewhere other than the code I&rsquo;m working on.</p>
+
+<p>I was introduced to both of these approaches in Rails Conference videos I&rsquo;ve seen from YouTube and if either interest you, you can follow the following links below to learn more about it.</p>
+
+<p><a href="https://www.youtube.com/watch?v=D9j_Mf91M0I">Ruby Conf 2013 - REPL driven development with Pry by Conrad Irwin</a></p>
+
+<p><a href="https://www.youtube.com/watch?v=4hfMUP5iTq8">RailsConf 2014 - Debugger Driven Developement with Pry by Joel Turnbull</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/setup/">Setup in the Beginning</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-24T00:00:00-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When I first started learning , the biggest hurdle I had to overcome was setting up my computer. A lot of online courses had ways to try out code in the browser but I had to learn how to create a similar set up on my own computer at some point. <a href="http://railsinstaller.org/en">RailsInstaller</a> was a good start for me. I had and still use a Windows laptop. On a recent Ruby Rogues <a href="http://devchat.tv/ruby-rogues/181-rr-rubyinstaller-with-luis-lavena">episode</a>, it&rsquo;s creator Luis Lavena said that he wanted to help users that used Windows and I mention it because his project was a big help for me. Eventually though, I wanted to use the same tools as the tutorials I was following and include gems that weren&rsquo;t available for Windows. The solution came with <a href="https://www.vagrantup.com/">Vagrant</a>. I found enough tutorials online and treehouse has a specific course for it that it was enough for me to give it a try.</p>
+
+<p>There was a specific <a href="https://www.virtualbox.org/ticket/11709">bug</a> on VirtualBox version 4.2.12 that I encountered but that was the only big problem I had when installing it. I was also having difficulties using existing vagrant boxes that other people have pubished on github until <a href="http://www.barryclark.co/">Barry Clark</a> sent me a link for a rails development <a href="https://github.com/gofullstack/cocoon">box</a> that finally worked.</p>
+
+<p>Using vagrant forced me to become more familiar with the command line but it gave me access to tools like rvm which I appreciate now more than ever. I&rsquo;ve read that a Gemfile is really all you need with a Ruby project but I kept on having so many issues with different gems that it was easier to isolate projects using gemsets instead. I think that when you&rsquo;re starting to learn something, the best thing is to minimize the number of things you have to look into to isolate problems. I knew that it would have been amazing to understand what was happening between the gems, but it was better to prioritize learning ruby programming and rails configuration.</p>
+
+<p>The last thing I needed to remember when I started was balancing when it was time to go deeper into the subject matter or opt for an easier solution. As a beginner, it was easy to feel like I wasn&rsquo;t being productive and ultimitely feel overwhelmed by what I was getting myself in to. I needed to be my own coach as a consequence of that. I pushed myself when I was really getting behind and went easy when I knew that I was starting to become too discouraged. I think that this is something fundamental to anyone teaching themselves, they learn more about their own motivations and what can sustain them for the next sprint.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/overview/">Overview of What I've Been Learning</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-22T00:00:00-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When I first started learning about web development, I took a crash course on the basics through Treehouse courses and website articles. I googled my way through what interested me and specific parts that I didn&rsquo;t understand. Once I knew what something was, I moved on to the the next part. I didn&rsquo;t become an expert at it, but I knew the basic idea of what that technology did. For example, I learned that HTML was a markup language organizing the structure of the page, CSS was responsible for the design aspects, JavaScript was responsible for behavior, back-end languages structured what a server sends to the browser, and databases like Postgresql stored information that users could access at a later time.</p>
+
+<h2>HTML</h2>
+
+<p>By diving a little more into the those parts, I learned that HTML had other subsets. There are a variety of tags that defines form inputs, links, captions and <a href="http://www.w3schools.com/tags/">more</a>. One of the most important aspects of HTML is the domain model object because that&rsquo;s how libraries like jQuery interact with the page. HTML5 has a broad definition because along with new tags that were introduced like <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code>, it also standardized connections like websockets and server-sent events. Right now, I&rsquo;m still becoming familiar with what counts as HTML5 exactly.</p>
+
+<h2>CSS</h2>
+
+<p>When it comes to CSS, I found that they have pre processors like <a href="http://sass-lang.com/">SASS</a> and <a href="http://lesscss.org/">LESS</a> that make browser/vendor prefixes easier to use  and introduced libraries as mixins. They organized css into something more manageable for front-end developers. I also learned about front-end frameworks like <a href="http://getbootstrap.com/">Bootstrap</a>, <a href="http://foundation.zurb.com/">Foundation</a>, and <a href="http://bourbon.io/">Bourbon</a>. The first two introduces additional markup to the html and interacts with their library while the latter functions as an extended mixin libray. This means that instead of adding markups for the page, you identify it in the scss file so that it can be processed into css. The first two makes the framework easier to implement in the beginning but the latter makes a clearer separation between design and the DOM.</p>
+
+<h2>JavaScript</h2>
+
+<p>Javascript has been the most difficult part to learn for me. There are a variety of libraries and frameworks that you could use. The one that I&rsquo;ve used the most is <a href="http://jquery.com/">jQuery</a> but I&rsquo;m trying to learn one of the popular frameworks that I&rsquo;ve seen mentioned so much; <a href="https://angularjs.org/">Angular</a>, <a href="http://emberjs.com/">Ember</a>, and <a href="http://backbonejs.org/">Backbone</a>. Starting with any of them sort of feels like learning two languages at once but it will start making more sense later on.</p>
+
+<h2>Ruby on Rails</h2>
+
+<p>I delved deepest into this specific back end language. Most of my time has been devoted to learning Ruby on Rails. With that said, I&rsquo;m more familiar with what they offer by default; jQuery, SASS, and MySQL. I chose Ruby on Rails because I found that there were more current resources that I could use to learn on my own and it was easier for me to understand how the methods work because of the syntax. It&rsquo;s easier to create a simple CRUD site with Rails and it allowed me to delve deeper into what was happening when I needed to instead of learning it all at once.</p>
+
+<h2>Databases</h2>
+
+<p>Most of what I know about databases is hidden behind ActiveRecord and Oject Relational Mapping in Rails. I know how to create migrations, include associations, and adding indexes but I haven&rsquo;t had to interact with MySQL or PostgreSQL directly. I&rsquo;ve been able to connect it with Rails using its associated gems and I&rsquo;m still learning how to optimize Rails queries to the databases. Taking baby steps with gems like <a href="https://github.com/flyerhzm/bullet">bullet</a> has been a good start.</p>
+
+<h2>Conclusion</h2>
+
+<p>After all this, I understand that knowing what something does is very different from being able to use it. Keeping a good overview stored in the back of my mind helps me makes sense of what I&rsquo;m doing though. Also, instead of using other markup languages like <a href="http://haml.info/">Haml</a> or compilers like <a href="http://coffeescript.org/">Coffescript</a>, I&rsquo;ve stuck with HTML and Javascript because it helps me understand what I&rsquo;m creating. Once, I&rsquo;m completely comfortable with both, I&rsquo;ll start making the switch to increase my productivity.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/5">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/3">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/thinkful-front-end-developer-course/">Going Through Thinkful's Front End Course</a>
+      </li>
+    
+      <li class="post">
+        <a href="/preparing-a-resume/">Preparing a Resume</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vim-snippets-cheatsheet/">Snippets Cheat Sheet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vim-cheatsheet/">Vim Cheat Sheet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/going-thrugh-tutorials/">Learning From Tutorials</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/raysapida">@raysapida</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'raysapida',
+            count: 31,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Raymond Sapida -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'raysapida';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

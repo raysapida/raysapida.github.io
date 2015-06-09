@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Vim Cheat Sheet - Ray's Blog</title>
+  <meta name="author" content="Raymond Sapida">
+
+  
+  <meta name="description" content="Lately, I&rsquo;ve been envious of graphic text editors and the way they navigate
+through project files. I&rsquo;ve been doing a lot of tutorial &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://raysapida.github.io/vim-cheatsheet/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ray's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-57189071-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Ray's Blog</a></h1>
+  
+    <h2>All About Web Development</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="raysapida.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Vim Cheat Sheet</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-02T00:00:00-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Lately, I&rsquo;ve been envious of graphic text editors and the way they navigate
+through project files. I&rsquo;ve been doing a lot of tutorial projects in Ruby and
+Javascript along with cloning documentation from github as a reference offline.
+I downloaded <a href="https://atom.io/">atom</a> to accomplish this but I&rsquo;m sacrificing the
+speed of working with a vim/tmux setup. After watching Upcase&rsquo;s latest Weekly
+Iteration on Vim, I decided to try achieving a deeper understanding of Vim&rsquo;s
+capabilities.</p>
+
+<h2><a href="http://www.sitepoint.com/effective-rails-development-vim/">Rails Vim commands</a></h2>
+
+<ul>
+<li><p><code>:PluginInstall</code> - Install Vundle plugins</p></li>
+<li><p><code>gf</code> - Go to File</p></li>
+<li><p><code>CTRL + o</code> - Go back to the previous file</p></li>
+<li><p><code>CTRL + i</code> - Go forward in visited files</p></li>
+<li><p><code>:jumps</code> - List visited files</p></li>
+<li><p><code>RcontrollerJump</code> - to relevant controller, as if you are in a model file, and you want to jump to its controller.</p></li>
+<li><p><code>RmodelJump</code> - to the model</p></li>
+<li><p><code>RviewJust</code> - add the name of the view like (index, show, edit) to jump to the relevant view.</p></li>
+<li><p><code>RunittestJump</code> - to the relevant unit test.</p></li>
+<li><p><code>RfunctionaltestJump</code> - to the relevant test.</p></li>
+<li><p><code>RintegrationtestJump</code> - to the integration test, integration spec, or cucumber feature specified.</p></li>
+<li><p><code>RspecJump</code> - to the given spec.</p></li>
+<li><p><code>RmigrationUse</code> - tab completion to choose from the available migrations and jump to one of them.</p></li>
+<li><p><code>RschemaJump</code> - to the project schema.</p></li>
+<li><p><code>RmailerJump</code> - to the given mailer.</p></li>
+<li><p><code>RhelperJump</code> - to the given helper.</p></li>
+<li><p><code>RjavascriptJump</code> - to given JavaScript or CoffeScript file.</p></li>
+<li><p><code>RstylesheetJump</code> - to given stylesheet.</p></li>
+<li><p><code>RtaskJump</code> - to given task.</p></li>
+<li><p><code>RlibJump</code> - to given lib, if no arguments specified it jumps to the Gemfile.</p></li>
+<li><p><code>RlayoutJump</code> - to the layout of the current controller.</p></li>
+<li><p><code>:RV</code> - Open files in vertical split windows</p></li>
+<li><p><code>:RS</code> - Open files in horizontal splits</p></li>
+<li><p><code>:RT</code> - Open files in new tabs</p></li>
+<li><p><code>:RD</code> - Open files in current buffer</p></li>
+<li><p><code>:Rgenerate migration add_something_to_tablename</code></p></li>
+<li><p><code>:Rserver</code>, <code>:Rserver!</code> and <code>:Rserver!-</code> - Running, Restarting, and Killing the Serve</p></li>
+<li><p><code>:Rpreview</code> - Open the correct URL for the current file</p></li>
+</ul>
+
+
+<h2><a href="https://github.com/thoughtbot/vim-rspec">Vim-rspec</a></h2>
+
+<ul>
+<li><p><code>map &lt;Leader&gt;t :call RunCurrentSpecFile()&lt;CR&gt;</code></p></li>
+<li><p><code>map &lt;Leader&gt;s :call RunNearestSpec()&lt;CR&gt;</code></p></li>
+<li><p><code>map &lt;Leader&gt;l :call RunLastSpec()&lt;CR&gt;</code></p></li>
+<li><p><code>map &lt;Leader&gt;a :call RunAllSpecs()&lt;CR&gt;</code></p></li>
+</ul>
+
+
+<h2>Vim plugins to checkout</h2>
+
+<ul>
+<li><p><a href="https://github.com/garbas/vim-snipmate">vim-snipmate</a> - Creates code
+templates</p></li>
+<li><p><a href="https://github.com/rking/ag.vim">ag.vim</a> - Searching similar to grep and ack</p></li>
+<li><p><a href="https://github.com/tomtom/tcomment_vim">tcomment_vim</a> - A plugin to comment
+out blocks of code</p></li>
+<li><p><a href="https://github.com/ecomba/vim-ruby-refactoring">vim-ruby-refactoring</a> -
+Shortcuts for common ruby refactoring techniques</p></li>
+<li><p><a href="https://github.com/tpope/vim-bundler">vim-bundler</a> - Ability to run bundler
+from vim</p></li>
+</ul>
+
+
+<h2>Commands I&rsquo;ve learned</h2>
+
+<ul>
+<li><p><code>gem pristine --all --only-executables</code></p></li>
+<li><p><code>rails _4.1.0_ new respond_to_4.</code></p></li>
+<li><p><code>gem install rails -v "~&gt;4.0.0"</code></p></li>
+<li><p><code>rake paperclip:refresh:missing_styles</code></p></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Raymond Sapida</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-05-02T00:00:00-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://raysapida.github.io/vim-cheatsheet/" data-via="" data-counturl="http://raysapida.github.io/vim-cheatsheet/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/going-thrugh-tutorials/" title="Previous Post: Learning from tutorials">&laquo; Learning from tutorials</a>
+      
+      
+        <a class="basic-alignment right" href="/vim-snippets-cheatsheet/" title="Next Post: Snippets Cheat Sheet">Snippets Cheat Sheet &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/thinkful-front-end-developer-course/">Going Through Thinkful's Front End Course</a>
+      </li>
+    
+      <li class="post">
+        <a href="/preparing-a-resume/">Preparing a Resume</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vim-snippets-cheatsheet/">Snippets Cheat Sheet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vim-cheatsheet/">Vim Cheat Sheet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/going-thrugh-tutorials/">Learning From Tutorials</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/raysapida">@raysapida</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'raysapida',
+            count: 31,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Raymond Sapida -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'raysapida';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

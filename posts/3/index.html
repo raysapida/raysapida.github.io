@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ray's Blog</title>
+  <meta name="author" content="Raymond Sapida">
+
+  
+  <meta name="description" content="Basic Commands The ls command list the contents of the current directory. A more detailed form would be ls -la which lists the contents along with &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://raysapida.github.io/posts/3/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ray's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-57189071-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Ray's Blog</a></h1>
+  
+    <h2>All About Web Development</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="raysapida.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/essential-commands/">Commands I Needed to Start Using the Command Line</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-03-15T00:00:00-07:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Basic Commands</h2>
+
+<p>The <a href="http://ss64.com/bash/ls.html">ls</a> command list the contents of the current directory. A more detailed
+  form would be <code>ls -la</code> which lists the contents along with their file permissions.</p>
+
+<p>The <a href="http://ss64.com/bash/cd.html">cd</a> command lets you move back and forth from folders by adding the
+  folder name afterwards. <code>cd ..</code> lets you move back by one folder and <code>cd -</code>
+lets you jump back and forth between the last changed spots.</p>
+
+<p>The <a href="http://ss64.com/bash/mkdir.html">mkdir</a> command makes a folder while <a href="http://ss64.com/bash/rmdir.html">rmdir</a> removes an empty folder.</p>
+
+<p><a href="http://ss64.com/bash/cp.html">cp</a> can copy files where the the first group is the target and the second
+  group is the destination.</p>
+
+<p><a href="http://ss64.com/bash/mv.html">mv</a> moves files and works similarly to <code>cp</code> except the first group is
+  deleted afterwards.</p>
+
+<p>The <a href="http://ss64.com/bash/rm.html">rm</a> command deletes a file and passing in additional flags like <code>rm
+  -rf</code> would delete a whole folder along with its contents.</p>
+
+<h2>Useful Commands</h2>
+
+<p><a href="http://ss64.com/bash/man.html">man</a> followed by another command would show the complete help
+  section on how to use that command. Whenever I&rsquo;m lost or forgot how to use a
+particular command, I would use this to figure out how it works.</p>
+
+<p><a href="http://ss64.com/bash/sudo.html">sudo</a> can be prepended to other commands that need super user
+  permission to execute.</p>
+
+<p><a href="http://ss64.com/bash/chmod.html">chmod</a> can change the file permissions of a file enabling you to edit or use
+  thE FIle.</p>
+
+<p><a href="http://ss64.com/bash/grep.html">grep</a> lets you search through the file&rsquo;s or output&rsquo;s contents using a regular
+  expression. There are other commands that other people use to perform the same
+function but this is the most common one.</p>
+
+<p><a href="http://ss64.com/bash/head.html">head</a> and <a href="http://ss64.com/bash/tail.html">tail</a> - Shows the first of last ten lines for a file or output.
+  They&rsquo;re useful for logs and when piping a string of commands.</p>
+
+<p><a href="http://guides.rubyonrails.org/command_line.html">rails</a> has their own set of
+  commands along with
+<a href="http://edgeguides.rubyonrails.org/active_record_migrations.html#running-migrations">rake</a> commands for migrations. I end up using <a href="http://guides.rubyonrails.org/command_line.html#rails-console">rails
+console</a> the most
+when debugging a problem or exploring an application.</p>
+
+<h2>Optional Commands</h2>
+
+<p><a href="http://docs.vagrantup.com/v2/cli/up.html">vagrant up</a> and <a href="http://docs.vagrantup.com/v2/cli/ssh.html">vagrant ssh</a> - I had a lot of trouble with setting up a development environment since I had a Windows 8 laptop. I
+learned that <a href="https://www.vagrantup.com/">Vagrant</a> was the easiest way to start
+using a virtual machine at the time and I started with the <a href="https://github.com/rails/rails-dev-box">rails dev box</a>.</p>
+
+<p><a href="https://rvm.io/rvm/cli">rvm</a> was how I managed my environments and it helped
+  me separate incompatible gems. A Gemfile should manage most of
+these but I had trouble figuring out where errors were coming from when
+installing gems and this was an easier solution at the time.</p>
+
+<p><a href="http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html">vim</a> - I started with vim because I couldn&rsquo;t figure out how to share
+  folders between the virtual machine and the local machine but I ended up
+enjoying being able to quickly switch between the editor and shell so much that I stuck
+with it.</p>
+
+<p><a href="https://robots.thoughtbot.com/a-tmux-crash-course">tmux</a> - I began learning this on an Upcase trail and using it finally
+  convinced me to install a Linux distribution. It became more evident that developing in a virtual
+machine was the bottleneck for me when I became comfortable
+enough in a tmux session, especially when running tests.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/reading-the-rails-4-way/">Reading the Rails 4 Way - Part 1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-02-20T00:00:00-08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>20</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When I was getting deeper into reading <a href="https://pragprog.com/book/achbd/the-rspec-book">The Rspec
+Book</a> a few weeks ago, I found
+that I had difficulties when it came to information that wasn&rsquo;t included in the
+<a href="http://guides.rubyonrails.org/">rails guides</a>. I picked up <a href="https://leanpub.com/tr4w">The Rails 4
+Way</a> to rectify that. The book felt more like
+documentation while I was reading it and that&rsquo;s very intentional. The breadth and
+depth was impressive and I wanted to get a book that I could carry with me as a
+physical documentation of the framework. I knew before reading it that I
+couldn&rsquo;t memorize everything the book had to offer so I read it like I would
+when I read Google Map directions, finding the general routes I needed and
+making a mental note for things that I didn&rsquo;t need to know now but would
+definitely look into once I reached that landmark.</p>
+
+<p>The first chapter dealt with a rails environment and configuration. Most of it
+dealt with things I learned from other sources but I was introduced into the
+specifics of bundler and other configuration details. This is the section I
+learned to add gems into the vendor directory which I wanted to do because I
+recently learned about ctags from Upcase&rsquo;s vim trail. This enabled me to jump
+around my app figuring out how methods are called throughout the application.
+The next three chapters after that were also refreshers on routes, REST in
+Rails, and controllers.</p>
+
+<p>There were five full chapters that dealt with active record split into general
+active record uses, migrations, associations, validations and advance active
+record uses. Active record deals with so many parts of Rails that I remember looking at the
+source code before and not getting where to begin. The book delved into the
+database adapters for the most common relational databases and how Rails
+interprets the types of data they use. During the rest of the chapters, what
+stood out to me the most where how callback were used in the model, how
+associations are made particularly polymorphic associations, and using indexes.</p>
+
+<p>The tenth chapter dealt with the action view part of Rails and introduced the
+decent exposure gem. Most of it was a refresher dealing with methods available
+in the view diretory, using partials, and rendering objects or collections. The
+most useful part I learned was the <code>assigns</code> instance variable which shows what
+is being communicated between the controller and view.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/specifcs-about-testing/">Learning Specifics About Testing</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-02-18T00:00:00-08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;ve been working through the testing trails in upcase for test doubles and
+testing fundamentals. The most difficult part for me was understanding mocks and spies along with how to
+structure them to make sure the right behavior is being tested. I&rsquo;ve
+written unit tests and a few acceptance tests in the past but I&rsquo;ve never used
+test doubles before the upcase trail. I had to research the differences between
+fakes, dummies, stubs, spies and mocks. Upcase provided an
+<a href="http://www.martinfowler.com/bliki/TestDouble.html">aricle</a> by Martin Fowler as
+an introduction to those ideas. From my understanding, the advantages
+of using test doubles are clarity and speed. The unit tests should already tests
+that the proper answers are being given in the model or controller level which
+makes stubs a good way to improve them. Mocks ensure that specific method calls
+are being used and spies take that a step further by recording how the method
+calls are used. For example, spies could say that a method call was used twice
+instead of the expected once.</p>
+
+<p>I&rsquo;ve learned the definitions for different kinds of testing; unit,
+integration, feature, and functional tests. Unit tests are for a small subset of the
+application and I closely associate it with tests for a specific controller or
+model. Integration tests go from end to end and I&rsquo;ve used it to test that
+logging in to an application or using the user interface. Functional tests are
+integration tests that actually run the application from end to end similar to
+making sure that an email is sent when a person is trying to recover a forgotten
+password. Feature tests are for things that change the functionality of the
+application like changing a status update from text only to including image
+attachments.</p>
+
+<p>I&rsquo;m also still getting used to rspec and capybara. The most prevalent comments I would receive from the
+exercises were the different shortcuts people use in their tests and other
+improvements on readability to make sure that the reader can better understand
+the intent behind the tests. Most of my
+tests in the past was using Minitest because it was included by default and
+it was the framework most of the tutorials I followed use; it&rsquo;s the testing framework included with the exercism
+exercises and the Treehouse tutorials for the Treebook application. I&rsquo;ve never
+really thought of tests outside unit testing but I&rsquo;m appreciating what testing
+adds to the application. I&rsquo;m starting to see why tests can function as
+documentation instead of comments and how bugs can be recreated to better
+understand where edge cases are coming from.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/january/">My Month of January, the Cliff Notes Version</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-02-06T00:00:00-08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I spent most of January working on exercism challenges and refamiliarizing myself with Rails. I haven&rsquo;t been able to pair program with other people yet and online
+exercises have been the only way I&rsquo;ve gotten feedback for the programs I&rsquo;ve written. It&rsquo;s been a good way to learn more about design patterns and subtleties in the Ruby language. Out of all the exercises there, I enjoyed the one about Binary Search Trees the most. Another user on the site turned me towards using the Null Object Pattern and my research into the topic led me to an <a href="http://devblog.avdi.org/2011/05/30/null-objects-and-falsiness/">article</a> that illustrated how it could be used in Ruby. In the end, I ended up with code that looked like this:</p>
+
+<pre><code class="ruby">class Bst
+  attr_accessor :left, :right, :data
+
+  def initialize(data)
+    @data = data
+    @left = NullObject.new
+    @right = NullObject.new
+  end
+
+  def insert(number)
+    if number &gt; @data
+      in_right(number)
+    elsif number &lt;= @data
+      in_left(number)
+    end
+  end
+
+  def each(&amp;block)
+    left.each(&amp;block)
+    block.call(data)
+    right.each(&amp;block)
+  end
+
+  private
+
+  def in_right(number)
+    right.insert(number) or @right = Bst.new(number)
+  end
+
+  def in_left(number)
+    left.insert(number) or @left = Bst.new(number)
+  end
+end
+class NullObject
+  def data
+    nil
+  end
+
+  def insert(*)
+    false
+  end
+
+  def each(*)
+    self
+  end
+end
+</code></pre>
+
+<p>The exercism website also had challenges that involved other data structures
+like linked lists and matrices. I&rsquo;ve been reading more and more about how to
+become job ready as a programmer and there have been a lot of advice on being
+familiar with common data structures and how to implement them as well as
+recognizing the <a href="http://bigocheatsheet.com/">Big-O</a> complexities of different algorithms. I&rsquo;ve mostly been teaching
+myself and I know that I need to spend time on subjects that other programmers
+would have been exposed to in school. I want to do my best to expose my
+ignorance now.</p>
+
+<p> I&rsquo;ve also started a membership at <a href="upcase.com">upcase</a> so that I could become
+more familiar with the tools that Ruby on Rails developers use. I&rsquo;ve learned
+more about how to use vim and testing use rspec/capybara. I&rsquo;m amazed by how
+efficient I could be using while vim and how easy it could be to learn when I&rsquo;m
+pointed in the right direction. I&rsquo;ve neglected how to write my own tests in the
+past and I&rsquo;m trying to remedy that by learning how to use the tools other
+developers employ. Currently, I&rsquo;m also trying to learn how to use tmux in one of
+upcase&rsquo;s new trails.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/reading/">Jumpstarting the New Year Through Books</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-12-31T00:00:00-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When I started learning more and more about Rails, I became very aware that my programming skills in Ruby was lacking. I would read the code examples and I would find many methods and concepts that I repeatedly had to look up online in order to understand. I started to panic a little bit then because I was afraid that what I was doing wasn&rsquo;t working and that I wasn&rsquo;t internalizing what I was learning.  A lot of times I feel like I&rsquo;m fumbling around trying to find a way to reach out and find something to hold on to and effectively learn. The main way I&rsquo;ve been doing this is through code challenges and tutorials but I&rsquo;ve been finding that there is a huge gap between the code that I was writing and the code that I would read on open source projects.</p>
+
+<p>Because of that gap, I&rsquo;ve been reading as many Ruby Books as I can. This past month, I&rsquo;ve gone through <a href="http://www.amazon.com/Program-Second-Edition-Facets-Series/dp/1934356360">Learn to Program</a>, <a href="http://www.amazon.com/The-Well-Grounded-Rubyist-David-Black/dp/1617291692">Well-Grounded Rubyist</a>, <a href="http://www.amazon.com/Metaprogramming-Ruby-Program-Like-Facets/dp/1941222129">Metaprogramming Ruby 2: Program Like the Ruby Pros</a> and I&rsquo;m also halfway through <a href="http://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional-Series/dp/0321584104">Eloquent Ruby</a>. These four books had a lot of intersections and they were a great starting point for the techniques that I was coming across while trying to read open source code. Along with those books, I&rsquo;ve also read <a href="http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X">Secrets of the Javascript Ninja</a> so that I could learn more about the Web API/DOM and how Javascript fits into that picture. A lot of the tutorials I&rsquo;ve been finding uses Javascript extensively and my lack of understanding in that subject was becoming a bigger problem.</p>
+
+<p>Because of these issues, I decided that December was the month that I would hunker down and challenge these glaring holes in my understanding. I dove deeper into Ruby and Javascript than I have before and ensured that I knew as much as I could before I buried myself even more into the various frameworks I was running across. Most of this renewed enthusiasm towards the language instead of the framework was because I was hearing over and over again about people learning frameworks without knowing what problems those frameworks were trying to solve.</p>
+
+<p>In my head, I have a clearer picture of Ruby&rsquo;s object model and order for it&rsquo;s method lookup. I have a clearer idea of how an object inherits it&rsquo;s methods and how monkeypatching works. I&rsquo;ve learned more about the techniques Rubyist use in their code including <code>method_missing</code> and the <code>eval</code> family to create scopes or get around them. I&rsquo;ve gone through them too quickly to fully understand their importance but I&rsquo;m going to use what I&rsquo;ve learned to understand the open source projects that I&rsquo;m using.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/todo-list/">What's Still on My Todo List</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-12-01T00:00:00-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>There are a lot of resources I need to go through and many things I need to learn. I&rsquo;m aiming to go through a big chunk of them this month and start better habits before the new year.</p>
+
+<h2>Continuous Todo List</h2>
+
+<ul>
+<li><a href="http://ejohn.org/blog/write-code-every-day/">Code everyday</a> inspired by <a href="http://jenniferdewalt.com/">Jennifer Dewalt</a>.</li>
+<li>Better git commit messages</li>
+<li>Contribute to open source tools that I&rsquo;ve been using, possibly using <a href="http://24pullrequests.com/">24pullrequests</a>.</li>
+</ul>
+
+
+<h2>General Todo List</h2>
+
+<ul>
+<li>Learn more about Rspec and fixtures/factories.</li>
+<li>Learn about functional programming through JavaScript and see how it can be applied with Ruby&rsquo;s procs and lambdas.</li>
+<li>Learn how to use Linux commands like <code>tar</code> and <code>grep</code> effectively.</li>
+</ul>
+
+
+<h2>Books to read</h2>
+
+<ul>
+<li>Pragmatic Programmer</li>
+<li>Mythical Man Month</li>
+<li>Learn to Program</li>
+<li>Secrets of the Javascript Ninja</li>
+<li>Well Grounded Rubyist</li>
+<li>Metaprogramming Ruby: Program Like the Ruby Pros</li>
+<li>Practical Object-Oriented Design in Ruby: An Agile Primer</li>
+<li>Ruby Science</li>
+<li>The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends</li>
+</ul>
+
+
+<h2>Even more questions</h2>
+
+<ul>
+<li>What is NGINX?</li>
+<li>What is Mongrel&rsquo;s parser?</li>
+<li>What is Event Machine network I/O library and how does it work?</li>
+<li>How does Rack middleware and Rack in general work with Ruby web applications?</li>
+<li>What is the difference between multi-threaded servers and multi-process servers?</li>
+<li>What is the difference between eager loading and lazy loading?</li>
+<li>How could I use capistrano, chef or puppet ?</li>
+<li>What is the difference between authentication and authorization in a Rails app?</li>
+<li>What is and how does garbage collection work in Ruby?</li>
+<li>How does the Rails asset pipeline differ from other pipelines in frameworks like Middleman ?</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/4">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/2">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/thinkful-front-end-developer-course/">Going Through Thinkful's Front End Course</a>
+      </li>
+    
+      <li class="post">
+        <a href="/preparing-a-resume/">Preparing a Resume</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vim-snippets-cheatsheet/">Snippets Cheat Sheet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vim-cheatsheet/">Vim Cheat Sheet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/going-thrugh-tutorials/">Learning From Tutorials</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/raysapida">@raysapida</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'raysapida',
+            count: 31,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Raymond Sapida -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'raysapida';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

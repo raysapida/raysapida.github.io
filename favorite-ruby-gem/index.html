@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Favorite Ruby Gem - Ray's Blog</title>
+  <meta name="author" content="Raymond Sapida">
+
+  
+  <meta name="description" content="If I could tell myself one thing when I first started learning about Ruby and Rails, I would say use pry. There are so many tutorials that I stopped &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://raysapida.github.io/favorite-ruby-gem/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ray's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-57189071-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Ray's Blog</a></h1>
+  
+    <h2>All About Web Development</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="raysapida.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">My Favorite Ruby Gem</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-25T00:00:00-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>If I could tell myself one thing when I first started learning about Ruby and Rails, I would say use <a href="https://github.com/pry/pry">pry</a>. There are so many tutorials that I stopped halfway through because I couldn&rsquo;t debug it properly and Pry ended up helping me with most of them. In Rails, I&rsquo;ve used <code>binding.pry</code> so much that I sometimes leave it as a comment in case I have to go through it again. The only misstep I&rsquo;ve had while using it is including <code>binding.pry</code> directly into a <code>for</code> or <code>while</code> loop. In that case, each <code>step</code> usually goes through one iteration of the loop and using the <code>finish</code> command does the same thing.</p>
+
+<p>Also, since I&rsquo;ve started doing coding challenges like <a href="http://exercism.io/">exercism</a> and <a href="codewars.com">codewars</a>, I&rsquo;ve used Pry to explore what I can do when solving problems. What I love the most about using it is that I can create a variable with the methods I&rsquo;m using, <code>cd</code> into it, and use the <code>ls</code> command to view all the methods available. I could then use the <code>?</code> or <code>show-doc</code> commands to explore what each method can do. While learning how to use methods, I have a hard time figuring out how the object I pass changes and which methods could then be called on it. In my first iteration, I usually group methods by the type of object they become since the most common type of errors I&rsquo;ve had are <code>ArgumentError</code> and <code>TypeError</code>.  As an added benefit, I could try out any code I want to write in the Pry before adding it to my project. That way, I could be sure that a problem exists somewhere other than the code I&rsquo;m working on.</p>
+
+<p>I was introduced to both of these approaches in Rails Conference videos I&rsquo;ve seen from YouTube and if either interest you, you can follow the following links below to learn more about it.</p>
+
+<p><a href="https://www.youtube.com/watch?v=D9j_Mf91M0I">Ruby Conf 2013 - REPL driven development with Pry by Conrad Irwin</a></p>
+
+<p><a href="https://www.youtube.com/watch?v=4hfMUP5iTq8">RailsConf 2014 - Debugger Driven Developement with Pry by Joel Turnbull</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Raymond Sapida</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-11-25T00:00:00-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://raysapida.github.io/favorite-ruby-gem/" data-via="" data-counturl="http://raysapida.github.io/favorite-ruby-gem/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/setup/" title="Previous Post: Setup in the beginning">&laquo; Setup in the beginning</a>
+      
+      
+        <a class="basic-alignment right" href="/deploying-to-heroku/" title="Next Post: Deploying to Heroku">Deploying to Heroku &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/thinkful-front-end-developer-course/">Going Through Thinkful's Front End Course</a>
+      </li>
+    
+      <li class="post">
+        <a href="/preparing-a-resume/">Preparing a Resume</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vim-snippets-cheatsheet/">Snippets Cheat Sheet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vim-cheatsheet/">Vim Cheat Sheet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/going-thrugh-tutorials/">Learning From Tutorials</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/raysapida">@raysapida</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'raysapida',
+            count: 31,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Raymond Sapida -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'raysapida';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

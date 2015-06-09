@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Rspec Quick Reference - Ray's Blog</title>
+  <meta name="author" content="Raymond Sapida">
+
+  
+  <meta name="description" content="I&rsquo;ve been working to rewrite the test suite for one of the apps I&rsquo;ve made from
+Minitest/Fixtures to Rspec/Factory Girl. My favorite thing &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://raysapida.github.io/rspec-quick-ref/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ray's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-57189071-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Ray's Blog</a></h1>
+  
+    <h2>All About Web Development</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="raysapida.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Rspec Quick Reference</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-04-02T00:00:00-07:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I&rsquo;ve been working to rewrite the test suite for one of the apps I&rsquo;ve made from
+Minitest/Fixtures to Rspec/Factory Girl. My favorite thing about Minitest is
+that it&rsquo;s simple to understand since it&rsquo;s just Ruby, but I wanted to explore what
+Rspec has to offer. I&rsquo;ve seen alot of
+Rspec in the open source projects I&rsquo;ve looked into and in many of the tutorials
+I follow. Even though the syntax is easy to understand, using it to code was
+harder than I thought. I started a quick reference sheet from cheat sheats I
+found on the internet and the documentation for the gems. They don&rsquo;t give a full
+explanation on what they do, but I found that the syntax is expressive enough
+that being able to see an example is enough to use it.</p>
+
+<h2>Structure</h2>
+
+<pre><code>describe &lt;class&gt; do
+  it "description of what happens" do 
+    &lt;setup code&gt;
+    &lt;exercise code&gt;
+    &lt;expectation code&gt;
+    &lt;cleanup code&gt;
+  end
+end
+</code></pre>
+
+<h2>Setup code</h2>
+
+<pre><code>before { &lt;setup code&gt; }
+let( &lt;variable&gt; ) { &lt;object instantiate&gt; }
+
+## Test doubles
+book = double("book")
+book = instance_double("book")
+allow(book).to receive(:title).and_return("The Rspec Book")
+allow_any_instance_of(Widget).to receive(:name).and_return("Wibble")
+spy("invitation")
+instance_spy("invitation")
+class_spy("invitation")
+object_spy("invitation")
+</code></pre>
+
+<h2>Exercise code</h2>
+
+<pre><code>## Model Tests from shoulda-matchers gem documentation
+
+it { should &lt;should-matchers code&gt; }
+
+allow_value('http://foo.com', 'http://bar.com/baz').for(:website_url)
+validate_confirmation_of(:email)
+validate_length_of(:password).is_at_least(10).on(:create)
+validate_numericality_of(:age).only_integer
+validate_presence_of(:password)
+belong_to(:organization)
+accept_nested_attributes_for(:mirrors).allow_destroy(true)
+have_many(:friends)
+have_one(:partner)
+have_and_belong_to_many(:awards)
+
+## Controller Tests
+
+get :new
+
+Article.should_receive(:new).with(title: 'The New Article Title').and_return(article)
+post :create, message: { title: 'The New Article Title' }
+
+article.should_receive(:save)
+post :create
+
+article.stub(:save)
+post :create
+response.should redirect_to(action: 'index')
+flash[:notice].should eq('The article was saved successfully.')
+
+## Feature Tests with Capybara
+
+visit book_path
+fill_in 'Email', :with =&gt; 'user@example.com'
+click_on "Submit"
+click_link('Link Text')
+choose('A Radio Button')
+check('A Checkbox')
+uncheck('A Checkbox')
+find_field('First Name').value
+find_link('Hello').visible?
+find_button('Send').click
+</code></pre>
+
+<h2>Expectation code</h2>
+
+<pre><code>expect(&lt;expectation code&gt;).to      eq(&lt;value&gt;)
+expect(&lt;expectation code&gt;).not_to  eq(&lt;value&gt;)
+
+## Paired with spy
+
+expect(invitation).to have_received(:accept).with(mailer)
+
+# Values that can be used 
+
+be_true
+be_false
+be_nil
+match /regex/
+start_with 
+end_with
+match_array [array]
+be_a_kind_of &lt;class name&gt;
+be_an_instance_of &lt;class name&gt;
+have(&lt;number&gt;).things
+have_at_least(&lt;number&gt;).things
+have_at_most(&lt;number&gt;).things
+raise_error &lt;optional error&gt;
+
+## Controller specific
+
+assigns[:article].should be_a_new Article
+response.should render_template :new
+</code></pre>
+
+<h2>Thoughtbot articles on testing</h2>
+
+<p>I&rsquo;ve been reading about testing philosophies and watching tutorials on
+TDD. I&rsquo;ve been going through a lot of the blog posts on the thoughtbot because I
+started learning about Rspec in general from their Upcase trails and using many
+of their tools. These are a few of the articles I&rsquo;ve read that helped me get a
+grip on the way people test and the terms they use.</p>
+
+<ul>
+<li><a href="https://robots.thoughtbot.com/back-to-basics-writing-unit-tests-first">Unit
+Tests</a></li>
+<li><a href="https://robots.thoughtbot.com/how-we-test-rails-applications">How to test Rails apps</a></li>
+<li><a href="https://robots.thoughtbot.com/mystery-guest">Mystery Guest</a></li>
+<li><a href="https://robots.thoughtbot.com/how-to-stub-external-services-in-tests">Stub External
+Services</a></li>
+<li><a href="https://robots.thoughtbot.com/fake-it">Fake Objects</a></li>
+<li><a href="https://robots.thoughtbot.com/a-closer-look-at-test-spies">Test Spies</a></li>
+<li><a href="https://robots.thoughtbot.com/acceptance-tests-at-a-single-level-of-abstraction">Acceptance
+Tests</a></li>
+<li><a href="https://robots.thoughtbot.com/testing-and-environment-variables">Testing Environment
+Variables</a></li>
+<li><a href="https://robots.thoughtbot.com/testing-from-the-outsidein">Test Outside-In</a></li>
+<li><a href="https://robots.thoughtbot.com/speed-up-tests-by-selectively-avoiding-factory-girl">Selectively Avoid Factory
+Girl</a></li>
+</ul>
+
+
+<h2>Commands I&rsquo;ve learned</h2>
+
+<ul>
+<li><code>git log --grep</code> searches the commit messages</li>
+<li><code>git log -S</code> searches the code in the repo and can take Regex</li>
+<li><code>tar xvf archive_name.tar</code> extracting from a tar file</li>
+<li><code>unzip test.zip</code> extracting from a zip file</li>
+</ul>
+
+
+<h2>Links</h2>
+
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=5ZjwEPupybw">Functional Programming and Ruby</a>
+This video was showing functional programming principles that I&rsquo;ve been seeing
+more and more when I looked into open source projects. This mindset for
+programming has been difficult to wrap my head around but I can see a lot of
+uses for it.</p></li>
+<li><p><a href="http://vaidehijoshi.github.io/blog/2015/03/31/delegating-all-of-the-things-with-ruby-forwardable/">Using Ruby
+Forwardable</a>
+contains ways to use the delegation pattern with the Forwardable
+module.</p></li>
+<li><p><a href="https://blog.engineyard.com/2015/seven-unusual-ruby-datastores">7 Unusual
+Datastores</a>
+shows datastores I&rsquo;m not too familiar with like Marshal and ObjectSpace. I have
+read that the latter is used for finding things like memory leaks or
+benchmarking to figure out a good garbage collector setting.</p></li>
+<li><p><a href="http://www.justinweiss.com/blog/2015/03/30/fun-with-keyword-arguments/">Keyword
+Arguments</a>
+introduced a way to use keyword arguments in Ruby 2.0+. I&rsquo;ve been using the
+older syntax all this time so finding out about this one has been great. It
+also goes into different ways you could use it.</p></li>
+<li><p><a href="http://6ftdan.com/allyourdev/2015/03/31/rails-4s-awesome-enums/">Rails enums</a>
+talks about the enum method in Rails 4 which I&rsquo;ve seen a few times but never
+really looked into completely.</p></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Raymond Sapida</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-04-02T00:00:00-07:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://raysapida.github.io/rspec-quick-ref/" data-via="" data-counturl="http://raysapida.github.io/rspec-quick-ref/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/more-debugging/" title="Previous Post: More debugging with deployment">&laquo; More debugging with deployment</a>
+      
+      
+        <a class="basic-alignment right" href="/resources-for-learning-ruby/" title="Next Post: Resources for Learning Ruby">Resources for Learning Ruby &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/thinkful-front-end-developer-course/">Going Through Thinkful's Front End Course</a>
+      </li>
+    
+      <li class="post">
+        <a href="/preparing-a-resume/">Preparing a Resume</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vim-snippets-cheatsheet/">Snippets Cheat Sheet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vim-cheatsheet/">Vim Cheat Sheet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/going-thrugh-tutorials/">Learning From Tutorials</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/raysapida">@raysapida</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'raysapida',
+            count: 31,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Raymond Sapida -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'raysapida';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

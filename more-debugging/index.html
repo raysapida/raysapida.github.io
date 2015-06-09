@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>More Debugging With Deployment - Ray's Blog</title>
+  <meta name="author" content="Raymond Sapida">
+
+  
+  <meta name="description" content="While I was experimenting with the
+dotenv-heroku gem, the app I
+was deploying started showing the app crashed error message. I ran all my tests &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://raysapida.github.io/more-debugging/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ray's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-57189071-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Ray's Blog</a></h1>
+  
+    <h2>All About Web Development</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="raysapida.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">More Debugging With Deployment</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-03-29T00:00:00-07:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>While I was experimenting with the
+<a href="https://github.com/sideshowcoder/dotenv-heroku">dotenv-heroku</a> gem, the app I
+was deploying started showing the app crashed error message. I ran all my tests
+before pushing the code to heroku so I was sure that the problem had something
+to do with the configuration.</p>
+
+<h2>First suspect: Devise secret key</h2>
+
+<p>Since I had just extracted the secret key for Devise into an environment
+variable, I thought that the problem was because the Rails app was throwing an
+error since Devise couldn&rsquo;t read the environment variable. I undid my commit
+but the app still wouldn&rsquo;t start. I added
+<a href="https://github.com/heroku/heroku-repo">heroku-repo</a> to see if the problem could
+be fixed by rebuilding the repository with different keys for the environment variable.</p>
+
+<h2>Second suspect: database.yml</h2>
+
+<p>I tried to see if I could access the app from the command line. I ran <code>heroku run rails console</code>
+and received the error:</p>
+
+<ul>
+<li>active_record/connection_adapters/connection_specification.rb:37:in `initialize': undefined method `tr' for nil:NilClass (NoMethodError)</li>
+</ul>
+
+
+<p>That led me to question if my configuration in the <code>database.yml</code> was wrong or that
+the yaml file wasn&rsquo;t properly formatted. I played around with different settings
+with no luck. After searching through articles and Heroku&rsquo;s
+<a href="https://devcenter.heroku.com/articles/heroku-postgresql#connecting-in-ruby">devcenter</a>, I
+found out that Heroku bypasses that file and only needs the url for the
+database.</p>
+
+<h2>Third suspect: DATABASE_URL</h2>
+
+<p>The corresponding method was:</p>
+
+<pre><code>def initialize(url)
+  raise "Database URL cannot be empty" if url.blank?
+  @uri     = uri_parser.parse(url)
+  @adapter = @uri.scheme.tr('-', '_')
+  @adapter = "postgresql" if @adapter == "postgres"
+  if @uri.opaque
+    @uri.opaque, @query = @uri.opaque.split('?', 2)
+  else
+    @query = @uri.query
+  end
+end
+</code></pre>
+
+<p>Since the first line wasn&rsquo;t raised, the url was not blank. The method was
+reading the <code>DATABASE_URL</code> variable but was having problems afterwards. Something
+was happening in the next two lines. The instance variable <code>@uri</code> was calling a
+method:</p>
+
+<pre><code>def uri_parser
+    @uri_parser ||= URI::Parser.new
+end
+</code></pre>
+
+<p><code>URI::Parser</code> is part of a Ruby standard library that deals with a string of
+characters representing a <a href="http://en.wikipedia.org/wiki/Uniform_resource_identifier">uniform resource
+identifier</a>. The
+<code>uri_parser</code> method instantiates a new URI object and the <code>parse</code> method then
+tries to create a uri object from the <code>url</code> passed in. The <code>@adapter</code> tries to read
+the resulting variable with the <code>scheme</code> method and that was when the <code>tr</code> method
+throws an error because scheme can&rsquo;t read the object. After reading the
+documention for the <a href="http://ruby-doc.org/stdlib-2.2.1/libdoc/uri/rdoc/URI/RFC2396_Parser.html#method-i-parse">parse
+method</a>,
+I realized that the <code>DATABASE_URL</code> variable that was set in the environment was
+not properly formatted.</p>
+
+<h2>Solution</h2>
+
+<p>At some point when I first tried to push the <code>.env</code> file to Heroku, the url
+changed and the colon characters turned into equal characters. I&rsquo;m not sure
+if the dotenv-heroku gem did this but I exchanged the gem for
+<a href="https://github.com/ddollar/heroku-config">heroku-config</a>
+instead and set the variables that way.</p>
+
+<h2>Easier way to debug</h2>
+
+<p>I realized later that above the initialize method was an example comment:</p>
+
+<pre><code>    # == Example
+    #
+    #   url = "postgresql://foo:bar@localhost:9000/foo_test?pool=5&amp;timeout=3000"
+    #   ConnectionUrlResolver.new(url).to_hash
+    #   # =&gt; {
+    #     "adapter"  =&gt; "postgresql",
+    #     "host"     =&gt; "localhost",
+    #     "port"     =&gt; 9000,
+    #     "database" =&gt; "foo_test",
+    #     "username" =&gt; "foo",
+    #     "password" =&gt; "bar",
+    #     "pool"     =&gt; "5",
+    #     "timeout"  =&gt; "3000"
+    #   }
+</code></pre>
+
+<p>If I read the example for the url I would have seen that the <code>DATABASE_URL</code> was
+not properly formatted. I appreciate that I&rsquo;m now able to dig into Rails to figure out
+what&rsquo;s wrong, but reading the error message and corresponding comments carefully could have
+saved me hours of time. A lesson learned for the next time I have problems
+pushing environment variables.</p>
+
+<h2>Links</h2>
+
+<ul>
+<li><p><a href="http://6ftdan.com/allyourdev/2015/03/26/different-collection-types-in-ruby/">Summary of Ruby
+Collections</a>
+This was an interesting article on Ruby collections, which I feel is the type
+of object that I use the most. Most of it is a refresher but I did learn that
+Ruby has tuples in one of its libraries and how it could be used.</p></li>
+<li><p><a href="http://www.sitepoint.com/devise-authentication-in-depth/">Intro to Devise</a>
+This link was also a little bit of a refresher but it&rsquo;s very thorough and it did
+go through how to configure the mailer with <a href="https://github.com/collectiveidea/delayed_job">delayed
+job</a>. Also, the
+<a href="http://www.sitepoint.com/author/ibodrov/">author</a> is
+doing a whole series on authentication with Rails and I&rsquo;m looking forward to the
+next one.</p></li>
+<li><p><a href="https://blog.jalada.co.uk/tips-when-writing-an-api-in-ruby-on-rails/">Rails API
+tips</a>
+I&rsquo;ve been trying to learn more about creating a Rails API that could go with a
+Javascript frontend and this artcle gave really good tips about problems I
+didn&rsquo;t consider. I&rsquo;m particularly interested in learning about the two
+Rack middlewares he suggested; <a href="https://github.com/cyu/rack-cors">rack-cors</a> and
+<a href="https://github.com/romanbsd/heroku-deflater">heroku-deflator</a>.</p></li>
+<li><p><a href="http://tom-lord.weebly.com/blog/reverse-engineering-regular-expressions">Regex</a>
+This post goes deep into how a regular expression is parsed. The author was
+explaining how he structured his
+<a href="https://github.com/tom-lord/regexp-examples">gem</a> to create regex examples.</p></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Raymond Sapida</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-03-29T00:00:00-07:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://raysapida.github.io/more-debugging/" data-via="" data-counturl="http://raysapida.github.io/more-debugging/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/easy-wins-vs-hard-wins/" title="Previous Post: Easy Wins versus Hard Wins">&laquo; Easy Wins versus Hard Wins</a>
+      
+      
+        <a class="basic-alignment right" href="/rspec-quick-ref/" title="Next Post: Rspec Quick Reference">Rspec Quick Reference &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/thinkful-front-end-developer-course/">Going Through Thinkful's Front End Course</a>
+      </li>
+    
+      <li class="post">
+        <a href="/preparing-a-resume/">Preparing a Resume</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vim-snippets-cheatsheet/">Snippets Cheat Sheet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vim-cheatsheet/">Vim Cheat Sheet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/going-thrugh-tutorials/">Learning From Tutorials</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/raysapida">@raysapida</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'raysapida',
+            count: 31,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Raymond Sapida -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'raysapida';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

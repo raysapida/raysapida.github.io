@@ -1,0 +1,1652 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Ray's Blog]]></title>
+  <link href="http://raysapida.github.io/atom.xml" rel="self"/>
+  <link href="http://raysapida.github.io/"/>
+  <updated>2015-06-08T23:36:48-07:00</updated>
+  <id>http://raysapida.github.io/</id>
+  <author>
+    <name><![CDATA[Raymond Sapida]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Going Through Thinkful's Front End Course]]></title>
+    <link href="http://raysapida.github.io/thinkful-front-end-developer-course/"/>
+    <updated>2015-06-08T00:00:00-07:00</updated>
+    <id>http://raysapida.github.io/thinkful-front-end-developer-course</id>
+    <content type="html"><![CDATA[<p>For the past three weeks, I&rsquo;ve been going through <a href="https://www.thinkful.com/courses/learn-web-development-online/">Thinkful&rsquo;s Front End
+Course</a>. A major
+reason that I chose this course was information I heard from an
+<a href="http://5by5.tv/rubyonrails/186">episode</a> of the Ruby on Rails podcast where
+their CEO talked about programming schools in general and their program specifically.
+I liked the fact that they made their program more accessible to people and that
+they place an emphasis on students pacing themselves instead of requiring the
+maximum time possible.
+Even though the payments are still relatively
+expensive compared to other online courses, the fact that it doesn&rsquo;t require a
+long term commitment was a huge plus. That and the
+chance to talk to a professional web developer about my code was what sealed it
+for me.</p>
+
+<p>For a long time, I knew the basics of CSS and front end development when I read
+it, but I wasn&rsquo;t able to use it off the top of my head. I liken it to being
+able to answer a multiple choice question but failing on the free response ones.
+Most of what I did before this course was limited to using bootstrap, adding
+markup to html to correspond with the grids and using their stylings for common
+components like navigation and form fields.</p>
+
+<p>A lot of the starting material was stuff that I&rsquo;ve seen before but using it in
+practice without a step by step guide made a huge difference. This was also a
+time when another person was actually critiquing my programs and giving me
+constructive feedback on how to make it better. That feedback alone encouraged
+me to work at least twice as hard as I would have otherwise because
+I had someone else to keep me accountable.</p>
+
+<p>I was able to make a static <a href="http://raysapida.github.io/raymond-sapida-portfolio/">portfolio
+site</a> that I&rsquo;m planning to
+migrate to its own domain in the future along with multiple projects to showcase
+with it. I&rsquo;ve already included two demo Rails app I made and I&rsquo;m planning to
+add more once I deploy them to heroku. All of this is still a work in progress
+but it&rsquo;s really invigorating to see my work displayed like that. I&rsquo;m looking
+forward writing a blog post on each project I made in the course and also using
+the things I learned to edit the css for this blog.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Preparing a Resume]]></title>
+    <link href="http://raysapida.github.io/preparing-a-resume/"/>
+    <updated>2015-05-28T00:00:00-07:00</updated>
+    <id>http://raysapida.github.io/preparing-a-resume</id>
+    <content type="html"><![CDATA[<p>My first try on an elevator pitch about myself:</p>
+
+<p>On the server side, I enjoy working with Ruby on Rails. I write tests using
+rspec but I don&rsquo;t follow a strict Test Driven Development
+workflow. The best advise I was given is that I should
+never let my own inexperience stop me from writing code and exploring what happens when I run
+it. Tests are great to give myself immediate feedback on what I&rsquo;m programming
+but there&rsquo;s nothing wrong with admitting that I don&rsquo;t know enough to ensure that
+my tests are actually useful or that it&rsquo;s hindering me from learning at some
+points.
+I use Bootstrap or Foundation to start positioning sections of html along grids
+and styling common elements like navigitaion bars and form inputs but I know how
+to work with css without relying on them. I use jquery to include behavior in the client
+side and I have enough exposure with the ember that I&rsquo;m very excited to
+learn more about what I can build with it.</p>
+
+<h2>Links of resources that I&rsquo;ve been reading</h2>
+
+<ul>
+<li><a href="http://skillcrush.com/2015/05/08/elevator-pitch-proud-of/">Making an elevator pitch along with examples</a></li>
+<li><a href="http://www.slideshare.net/perlcareers/how-to-write-a-developer-cvrsum-that-will-get-you-hired">Recruiter/ Developer Presentation</a></li>
+<li><a href="http://www.barryclark.co/your-resume-wont-get-you-hired/">Importance of things outside the resume</a></li>
+<li><a href="http://skillcrush.com/2014/11/18/skillcrushtv-resumes/?hvid=bDD85">Skillcrush video on how to write a resume</a></li>
+<li><a href="http://jobs.rubynow.com/create-a-great-rails-resume">Rails specific tips</a></li>
+<li><a href="http://www.livecareer.com/resume-tips/resume-components/education/3-dos-donts-for-your-education-section-in-your-resume">General tips on the education section</a></li>
+</ul>
+
+
+<h1>General notes from those links</h1>
+
+<h2>Elevator Pitch</h2>
+
+<ul>
+<li>Don&rsquo;t sound one dimentional and include your personal passions.</li>
+<li>Say as little as possible.</li>
+<li>Decide what kind of work you&rsquo;re looking for.</li>
+<li>Figure out who you&rsquo;re talking to.</li>
+<li>Ask yourself what problem you solve rather than what you do.</li>
+<li>Describe what you do in one day.</li>
+<li>Include numbers and concrete detail.</li>
+<li>Be quirky or unexpected.</li>
+<li>Take something out.</li>
+<li>Turn it into a conversation.</li>
+</ul>
+
+
+<h2>Six steps towards a resume</h2>
+
+<ul>
+<li>Identify the job requirements</li>
+<li>Pick a Resume Type</li>
+<li>Create a tailored summary</li>
+<li>List of previous experiences</li>
+<li>Include relevant skills</li>
+<li>Review Format and Feel</li>
+</ul>
+
+
+<h2>Things to consider</h2>
+
+<ul>
+<li>A screener&rsquo;s job is to quickly screen out the worst resumes.</li>
+<li>Don&rsquo;t use more than one font.</li>
+<li>Check for spelling and grammar mistakes.</li>
+<li>Double checke the dates.</li>
+<li>Delineate sections.</li>
+<li>Don&rsquo;t include an overview section since a cover letter is better for it.</li>
+<li>Include keywords carefully.</li>
+<li>The tech and hr review is further screened by quick decisions and more
+detailed reading. Ensure you pass those quick ones since they&rsquo;re deal breakers</li>
+<li>The three major resume adaptions are tech, hr and a mix of both, figure out
+which once a job post is leaning towards.</li>
+</ul>
+
+
+<h2>The Three people who read the cover letter</h2>
+
+<ul>
+<li>HR Person / Recruiter - Appropriate skills, Employable, and Eligible</li>
+<li>Hiring Manager - Do you have actual experience, Do you have the other required
+skills, Do you have any open source work</li>
+<li>The Interviewing Developers - Do you know programming, Could they work with
+you, Give them interesting things to talk about you</li>
+</ul>
+
+
+<h2>Summary Section</h2>
+
+<ul>
+<li>Help tell them that you&rsquo;re in the right place.</li>
+<li>Demonstrate understanding by being descriptive about your toolset.</li>
+<li>Give interesting topics that other programmers could talk to you about -
+personal development projects.</li>
+</ul>
+
+
+<h2>Skills</h2>
+
+<ul>
+<li>Talk about important things first.</li>
+<li>Talk about experiences as proof that you&rsquo;ve actually used the tools you talk
+about.</li>
+<li>Insights gained from experience and something you could talk about in an
+interview.</li>
+<li>Talk about something slightly contentious and this gives an interviewer
+something to ask and something you can prepare for.</li>
+<li>&lsquo;some exposure&rsquo; is a great phrase to point to something you&rsquo;ve played with
+before but aren&rsquo;t prepared to answer in detail.</li>
+<li>Certain skills in bold for recruiters.</li>
+<li>User the same approach for non language specific skills.</li>
+<li>Demonstrate understanding by giving opinions.</li>
+<li>Throw in a little bit of personality but don&rsquo;t go overboard.</li>
+<li>Throw in other things that aren&rsquo;t too important at the end.</li>
+</ul>
+
+
+<h2>Open Source Experience</h2>
+
+<ul>
+<li>Make it prominent if you have a lot of it.</li>
+<li>Link to your blog if you have great content and only mention it if you don&rsquo;t.</li>
+<li>If you don&rsquo;t have a lot of it, talk about things you&rsquo;ve done outside of work
+or what you&rsquo;ve learned like online courses.</li>
+</ul>
+
+
+<h2>Other stuff</h2>
+
+<ul>
+<li>Unless you have something awesome to share, leave out Education</li>
+<li>If you did not finish your degree, then write in the amount of credits that
+you obtained, what major you pursued, and relevant coursework taken.</li>
+</ul>
+
+
+<h2>Outside the resume</h2>
+
+<ul>
+<li>Have an online footprint</li>
+<li>Links to portfolio, projects, and GitHub then review them</li>
+<li>Prioritize work that&rsquo;s relevant to the position</li>
+<li>A bulleted list of links in your cover email</li>
+<li>Employers will google you</li>
+</ul>
+
+
+<h2>Commands I&rsquo;ve learned</h2>
+
+<ul>
+<li><code>git commit --amend</code></li>
+<li><code>git log --pretty=oneline</code> shows a terse history mapping containing the commit
+id and the summary</li>
+<li><code>git rebase --interactive</code> provides the summary for each commit in the editor
+it invokes</li>
+<li><code>git config --global alias.home 'rev-parse --show-toplevel'</code> - <code>cd 'git home'</code></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Snippets Cheat Sheet]]></title>
+    <link href="http://raysapida.github.io/vim-snippets-cheatsheet/"/>
+    <updated>2015-05-16T00:00:00-07:00</updated>
+    <id>http://raysapida.github.io/vim-snippets-cheatsheet</id>
+    <content type="html"><![CDATA[<p>I&rsquo;m currently trying to use more of snippets in vim and this is a group of
+commands that I think would help me out. These snippets are provided by two
+different repositories and I installed
+<a href="https://github.com/tpope/vim-pathogen">vim-pathogern</a> to add more of my own in
+the future.</p>
+
+<h2><a href="https://github.com/honza/vim-snippets">honza vim-snippets</a></h2>
+
+<h3>Rails</h3>
+
+<ul>
+<li><code>snippet resources</code> - Create resources controller class</li>
+<li><code>snippet befc</code> - before create</li>
+<li><code>snippet befd</code> - before destroy</li>
+<li><code>snippet befu</code> - before update</li>
+<li><code>snippet befv</code> - before validation</li>
+<li><code>snippet defcreate</code> - def create - resource</li>
+<li><code>snippet fina</code> - find(:all)</li>
+<li><code>snippet defi</code> - def initialize</li>
+<li><code>snippet class</code> - class <class_name> def initialize &hellip; end end</li>
+</ul>
+
+
+<h3>Markdown</h3>
+
+<ul>
+<li><code>snippet link</code> - Link to something</li>
+<li><code>snippet img</code> - Image</li>
+<li><code>snippet ilc</code> - Inline Code</li>
+<li><code>snippet cbl</code> - Codeblock</li>
+</ul>
+
+
+<h3>Html</h3>
+
+<ul>
+<li><code>snippet body</code> - body tags</li>
+<li><code>snippet div</code> - div tags</li>
+<li><code>snippet div.</code> - div tags with class</li>
+<li><code>snippet div#</code> - div tags with class and id</li>
+<li><code>snippet p</code> - paragraph tags</li>
+<li><code>snippet ul</code> - unordered list tags</li>
+<li><code>snippet li</code> - list item tags</li>
+</ul>
+
+
+<h2><a href="https://github.com/r00k/dotfiles">r00k dotfiles</a></h2>
+
+<h3>Ruby</h3>
+
+<ul>
+<li><code>snippet =b</code> - comment code block</li>
+<li><code>snippet req</code> - reuire statement</li>
+<li><code>snippet case</code> - case when statements</li>
+<li><code>snippet def</code> - def method with end</li>
+<li><code>snippet if</code> - if statement</li>
+<li><code>snippet ife</code> - if else statement</li>
+<li><code>snippet elsif</code> - elsif statement</li>
+<li><code>snippet Enum</code> - include Enumerable and create each method</li>
+<li><code>snippet Comp</code> - include Comparable and create spaceship method</li>
+<li><code>snippet defs</code> - def self. statement</li>
+<li><code>snippet ea</code> - each method</li>
+<li><code>snippet eai</code> - each with index method</li>
+<li><code>snippet inj</code> - inject method</li>
+<li><code>snippet map</code> - map method</li>
+</ul>
+
+
+<h3>ERB</h3>
+
+<ul>
+<li><code>snippet p</code></li>
+<li><code>snippet pe</code></li>
+<li><code>snippet end</code></li>
+</ul>
+
+
+<h3>Rspec</h3>
+
+<ul>
+<li><code>snippet new</code> - test double with allow</li>
+<li><code>snippet desc</code> - describe block</li>
+<li><code>snippet it</code> - it block</li>
+<li><code>snippet con</code> - context block</li>
+<li><code>snippet bed</code> - before block</li>
+<li><code>snippet hc</code> - expect page have content</li>
+<li><code>snippet let</code> - let block</li>
+<li><code>snippet ex</code> - expect to</li>
+<li><code>snippet scen</code> - scenario block</li>
+<li><code>snippet rrh</code> - require rails helper</li>
+</ul>
+
+
+<h2>Commands I&rsquo;ve learned</h2>
+
+<ul>
+<li><code>rails new api -T -d postgresql</code> - The -T is the same as  &ndash;skip-test-unit</li>
+<li><code>rails new bostonember -B -S</code> - Skips bundle install and sprockets</li>
+<li><code>FactoryGirl.create_list(:contact, 10)</code></li>
+<li><code>rails g model Account name:string subdomain:string --skip</code></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vim Cheat Sheet]]></title>
+    <link href="http://raysapida.github.io/vim-cheatsheet/"/>
+    <updated>2015-05-02T00:00:00-07:00</updated>
+    <id>http://raysapida.github.io/vim-cheatsheet</id>
+    <content type="html"><![CDATA[<p>Lately, I&rsquo;ve been envious of graphic text editors and the way they navigate
+through project files. I&rsquo;ve been doing a lot of tutorial projects in Ruby and
+Javascript along with cloning documentation from github as a reference offline.
+I downloaded <a href="https://atom.io/">atom</a> to accomplish this but I&rsquo;m sacrificing the
+speed of working with a vim/tmux setup. After watching Upcase&rsquo;s latest Weekly
+Iteration on Vim, I decided to try achieving a deeper understanding of Vim&rsquo;s
+capabilities.</p>
+
+<h2><a href="http://www.sitepoint.com/effective-rails-development-vim/">Rails Vim commands</a></h2>
+
+<ul>
+<li><p><code>:PluginInstall</code> - Install Vundle plugins</p></li>
+<li><p><code>gf</code> - Go to File</p></li>
+<li><p><code>CTRL + o</code> - Go back to the previous file</p></li>
+<li><p><code>CTRL + i</code> - Go forward in visited files</p></li>
+<li><p><code>:jumps</code> - List visited files</p></li>
+<li><p><code>RcontrollerJump</code> - to relevant controller, as if you are in a model file, and you want to jump to its controller.</p></li>
+<li><p><code>RmodelJump</code> - to the model</p></li>
+<li><p><code>RviewJust</code> - add the name of the view like (index, show, edit) to jump to the relevant view.</p></li>
+<li><p><code>RunittestJump</code> - to the relevant unit test.</p></li>
+<li><p><code>RfunctionaltestJump</code> - to the relevant test.</p></li>
+<li><p><code>RintegrationtestJump</code> - to the integration test, integration spec, or cucumber feature specified.</p></li>
+<li><p><code>RspecJump</code> - to the given spec.</p></li>
+<li><p><code>RmigrationUse</code> - tab completion to choose from the available migrations and jump to one of them.</p></li>
+<li><p><code>RschemaJump</code> - to the project schema.</p></li>
+<li><p><code>RmailerJump</code> - to the given mailer.</p></li>
+<li><p><code>RhelperJump</code> - to the given helper.</p></li>
+<li><p><code>RjavascriptJump</code> - to given JavaScript or CoffeScript file.</p></li>
+<li><p><code>RstylesheetJump</code> - to given stylesheet.</p></li>
+<li><p><code>RtaskJump</code> - to given task.</p></li>
+<li><p><code>RlibJump</code> - to given lib, if no arguments specified it jumps to the Gemfile.</p></li>
+<li><p><code>RlayoutJump</code> - to the layout of the current controller.</p></li>
+<li><p><code>:RV</code> - Open files in vertical split windows</p></li>
+<li><p><code>:RS</code> - Open files in horizontal splits</p></li>
+<li><p><code>:RT</code> - Open files in new tabs</p></li>
+<li><p><code>:RD</code> - Open files in current buffer</p></li>
+<li><p><code>:Rgenerate migration add_something_to_tablename</code></p></li>
+<li><p><code>:Rserver</code>, <code>:Rserver!</code> and <code>:Rserver!-</code> - Running, Restarting, and Killing the Serve</p></li>
+<li><p><code>:Rpreview</code> - Open the correct URL for the current file</p></li>
+</ul>
+
+
+<h2><a href="https://github.com/thoughtbot/vim-rspec">Vim-rspec</a></h2>
+
+<ul>
+<li><p><code>map &lt;Leader&gt;t :call RunCurrentSpecFile()&lt;CR&gt;</code></p></li>
+<li><p><code>map &lt;Leader&gt;s :call RunNearestSpec()&lt;CR&gt;</code></p></li>
+<li><p><code>map &lt;Leader&gt;l :call RunLastSpec()&lt;CR&gt;</code></p></li>
+<li><p><code>map &lt;Leader&gt;a :call RunAllSpecs()&lt;CR&gt;</code></p></li>
+</ul>
+
+
+<h2>Vim plugins to checkout</h2>
+
+<ul>
+<li><p><a href="https://github.com/garbas/vim-snipmate">vim-snipmate</a> - Creates code
+templates</p></li>
+<li><p><a href="https://github.com/rking/ag.vim">ag.vim</a> - Searching similar to grep and ack</p></li>
+<li><p><a href="https://github.com/tomtom/tcomment_vim">tcomment_vim</a> - A plugin to comment
+out blocks of code</p></li>
+<li><p><a href="https://github.com/ecomba/vim-ruby-refactoring">vim-ruby-refactoring</a> -
+Shortcuts for common ruby refactoring techniques</p></li>
+<li><p><a href="https://github.com/tpope/vim-bundler">vim-bundler</a> - Ability to run bundler
+from vim</p></li>
+</ul>
+
+
+<h2>Commands I&rsquo;ve learned</h2>
+
+<ul>
+<li><p><code>gem pristine --all --only-executables</code></p></li>
+<li><p><code>rails _4.1.0_ new respond_to_4.</code></p></li>
+<li><p><code>gem install rails -v "~&gt;4.0.0"</code></p></li>
+<li><p><code>rake paperclip:refresh:missing_styles</code></p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Learning From Tutorials]]></title>
+    <link href="http://raysapida.github.io/going-thrugh-tutorials/"/>
+    <updated>2015-04-23T00:00:00-07:00</updated>
+    <id>http://raysapida.github.io/going-thrugh-tutorials</id>
+    <content type="html"><![CDATA[<p>For the past two weeks, I&rsquo;ve been going through as many Ruby tutorial projects
+as I could. Many of them were easy to follow but this time around, I&rsquo;ve been
+trying my best to practice test-driven development as I go through the
+exercises. The <a href="http://tutorials.jumpstartlab.com/projects/contact_manager.html">contact
+manager</a>
+tutorial by Jumpstart Lab was a great starting point for this because they
+follow this workflow.</p>
+
+<p>I&rsquo;ve been trying out different
+tools including <a href="https://github.com/rspec/rspec-rails">rspec-rails</a>,
+<a href="https://github.com/thoughtbot/shoulda-matchers">shoulda-matchers</a>,
+<a href="https://github.com/thoughtbot/factory_girl_rails">factory_girl_rails</a>,
+<a href="https://github.com/paulelliott/fabrication">fabrication</a>,
+<a href="https://github.com/seattlerb/minitest">minitest</a>, and
+<a href="http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html">fixtures</a>. So
+far, I&rsquo;ve been using rspec more because of how it
+integrates with rails generators like scaffolding. Scaffolding generates
+the usual CRUD actions and rspec generates the associated test in the controller
+specs. I felt like I was cheating a little bit by using generators so much but
+the speed I was working through tutorials that used to take me multiple days was
+difficult to overlook. I found myself setting model fields and
+associations through the command line instead of migrations. Rspec&rsquo;s syntax
+feels very natural and as familiar now as
+minitest&rsquo;s assertions. At this point, I can appreciate what the generators do
+and I don&rsquo;t have to build up Rails controller from the bottom up as long as I
+understand what is going on which each action and I&rsquo;m testing throughout the
+whole process.</p>
+
+<h2>Commands I&rsquo;ve learned</h2>
+
+<ul>
+<li><p><code>rails g model sports_category --parent category</code></p></li>
+<li><p><code>rails g scaffold Comment content:text user:belongs_to post:belongs_to</code></p></li>
+<li><p><code>heroku git:clone -a myapp</code></p></li>
+<li><p><a href="https://agilewarrior.wordpress.com/2014/10/12/rails-generators-cheat-sheet/"><code>rails g scaffold Foo foo_string:string foo_text:text foo_integer:integer
+foo_float:float foo_decimal:decimal foo_timestamp:timestamp foo_time:time
+foo_date:date foo_binary:binary
+foo_boolean:boolean</code></a></p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Resources for Learning Ruby]]></title>
+    <link href="http://raysapida.github.io/resources-for-learning-ruby/"/>
+    <updated>2015-04-06T00:00:00-07:00</updated>
+    <id>http://raysapida.github.io/resources-for-learning-ruby</id>
+    <content type="html"><![CDATA[<p>Since I&rsquo;ve been learning on my own, I&rsquo;ve found that there are many resources
+online to help me chart a syllabus and figure out what skills I would
+specifically need. These are some of the links I bookmarked to figure out what I have to
+start learning next or what I need to work on more.</p>
+
+<h2><a href="http://www.theodinproject.com/courses">Odin Project</a></h2>
+
+<p>This was one of the first free resources I found online about web development.
+The format for this was similar to Treehouse&rsquo;s tracks except that this one is
+written instead of as video tutorials.</p>
+
+<h2><a href="https://github.com/thoughtbot/guides">Thoughtbot Guides</a></h2>
+
+<p>This covered a lot of detail about the tools thoughtbot uses. I&rsquo;m not familiar
+with all of them but I found that the ones I do know are covered very well here.
+It&rsquo;s not an introduction to them but, if you just started working with it, the
+guides offer general guidelines to follow until their purposes are better
+understood.</p>
+
+<h2><a href="http://www.sitepoint.com/ruby/">Sitepoint Ruby</a></h2>
+
+<p>Sitepoint has a lot of introductory material or tutorials on how to use
+libraries or frameworks. There&rsquo;s a great variety in what they&rsquo;ve written about
+and they publish frequently enough that there are a lot of material to go
+through that is very up to date.</p>
+
+<h2><a href="http://tutorials.jumpstartlab.com/">Jumpstart Lab Tutorials</a></h2>
+
+<p>This site has a lot of projects a person could go through and create. I found
+their github repository a while back and saw a lot of sample apps that could be
+used to learn about a specific functionality.</p>
+
+<h2><a href="http://standards.turing.io/">Turing Standards</a></h2>
+
+<p>This site has a lot of questions a Ruby on Rails developer could be reasonable
+asked. I go
+through them because I feel like they&rsquo;re a very good example of interview questions.</p>
+
+<h2><a href="https://practicingruby.com/">Practicing Ruby</a></h2>
+
+<p>These articles are very in-depth and valuable to learning more than just the
+basics of different Ruby categories. In particular, my favorite was the
+<a href="https://practicingruby.com/articles/building-enumerable-and-enumerator">article</a>
+ about building the Enumerable module from scratch. I consider that module as one
+of the most important in Ruby&rsquo;s standard library since it&rsquo;s used a lot by Ruby
+programmers.</p>
+
+<h2><a href="http://railsdiff.org/">Rails Diff</a></h2>
+
+<p>Since a lot of Rails tutorials can include previous versions of Rails, I use
+this a lot to make sure the ones I&rsquo;m following could be easily migrated to a
+more current version.</p>
+
+<h2><a href="http://rubular.com/">Ruby Regex</a></h2>
+
+<p>This is an interactive app to check Ruby regular expressions and their results.
+I use this a lot to make sure the regular expressions I&rsquo;m using are correct.
+When I first started learning about regex, I used this website to practice
+different characters and shortcuts.</p>
+
+<h2><a href="http://marcanguera.net/awesome-ruby/">Awesome Ruby</a></h2>
+
+<p>This is a collection of libraries and tools that are written in Ruby. Looking at
+all of this was overwhelming at first but it&rsquo;s a really great way to see what&rsquo;s
+out there and what you could use. The first thing I looked at from here was the
+coding style guides which include resources for Ruby, Rails, and Rspec.</p>
+
+<h2><a href="http://bigocheatsheet.com/">Big O</a></h2>
+
+<p>This was a good introduction on data structures and algorithms in Computer
+Science. I don&rsquo;t use the specific things in here very much but having a working
+understanding of these concepts are helpful to decide which methods to use.
+Also, I&rsquo;ve been told this is a common interview question that could stump entry
+level programmers especially self taught ones.</p>
+
+<h2>Commands I&rsquo;ve learned</h2>
+
+<ul>
+<li><code>find / -type d -name 'folder_name'</code></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rspec Quick Reference]]></title>
+    <link href="http://raysapida.github.io/rspec-quick-ref/"/>
+    <updated>2015-04-02T00:00:00-07:00</updated>
+    <id>http://raysapida.github.io/rspec-quick-ref</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been working to rewrite the test suite for one of the apps I&rsquo;ve made from
+Minitest/Fixtures to Rspec/Factory Girl. My favorite thing about Minitest is
+that it&rsquo;s simple to understand since it&rsquo;s just Ruby, but I wanted to explore what
+Rspec has to offer. I&rsquo;ve seen alot of
+Rspec in the open source projects I&rsquo;ve looked into and in many of the tutorials
+I follow. Even though the syntax is easy to understand, using it to code was
+harder than I thought. I started a quick reference sheet from cheat sheats I
+found on the internet and the documentation for the gems. They don&rsquo;t give a full
+explanation on what they do, but I found that the syntax is expressive enough
+that being able to see an example is enough to use it.</p>
+
+<h2>Structure</h2>
+
+<pre><code>describe &lt;class&gt; do
+  it "description of what happens" do 
+    &lt;setup code&gt;
+    &lt;exercise code&gt;
+    &lt;expectation code&gt;
+    &lt;cleanup code&gt;
+  end
+end
+</code></pre>
+
+<h2>Setup code</h2>
+
+<pre><code>before { &lt;setup code&gt; }
+let( &lt;variable&gt; ) { &lt;object instantiate&gt; }
+
+## Test doubles
+book = double("book")
+book = instance_double("book")
+allow(book).to receive(:title).and_return("The Rspec Book")
+allow_any_instance_of(Widget).to receive(:name).and_return("Wibble")
+spy("invitation")
+instance_spy("invitation")
+class_spy("invitation")
+object_spy("invitation")
+</code></pre>
+
+<h2>Exercise code</h2>
+
+<pre><code>## Model Tests from shoulda-matchers gem documentation
+
+it { should &lt;should-matchers code&gt; }
+
+allow_value('http://foo.com', 'http://bar.com/baz').for(:website_url)
+validate_confirmation_of(:email)
+validate_length_of(:password).is_at_least(10).on(:create)
+validate_numericality_of(:age).only_integer
+validate_presence_of(:password)
+belong_to(:organization)
+accept_nested_attributes_for(:mirrors).allow_destroy(true)
+have_many(:friends)
+have_one(:partner)
+have_and_belong_to_many(:awards)
+
+## Controller Tests
+
+get :new
+
+Article.should_receive(:new).with(title: 'The New Article Title').and_return(article)
+post :create, message: { title: 'The New Article Title' }
+
+article.should_receive(:save)
+post :create
+
+article.stub(:save)
+post :create
+response.should redirect_to(action: 'index')
+flash[:notice].should eq('The article was saved successfully.')
+
+## Feature Tests with Capybara
+
+visit book_path
+fill_in 'Email', :with =&gt; 'user@example.com'
+click_on "Submit"
+click_link('Link Text')
+choose('A Radio Button')
+check('A Checkbox')
+uncheck('A Checkbox')
+find_field('First Name').value
+find_link('Hello').visible?
+find_button('Send').click
+</code></pre>
+
+<h2>Expectation code</h2>
+
+<pre><code>expect(&lt;expectation code&gt;).to      eq(&lt;value&gt;)
+expect(&lt;expectation code&gt;).not_to  eq(&lt;value&gt;)
+
+## Paired with spy
+
+expect(invitation).to have_received(:accept).with(mailer)
+
+# Values that can be used 
+
+be_true
+be_false
+be_nil
+match /regex/
+start_with 
+end_with
+match_array [array]
+be_a_kind_of &lt;class name&gt;
+be_an_instance_of &lt;class name&gt;
+have(&lt;number&gt;).things
+have_at_least(&lt;number&gt;).things
+have_at_most(&lt;number&gt;).things
+raise_error &lt;optional error&gt;
+
+## Controller specific
+
+assigns[:article].should be_a_new Article
+response.should render_template :new
+</code></pre>
+
+<h2>Thoughtbot articles on testing</h2>
+
+<p>I&rsquo;ve been reading about testing philosophies and watching tutorials on
+TDD. I&rsquo;ve been going through a lot of the blog posts on the thoughtbot because I
+started learning about Rspec in general from their Upcase trails and using many
+of their tools. These are a few of the articles I&rsquo;ve read that helped me get a
+grip on the way people test and the terms they use.</p>
+
+<ul>
+<li><a href="https://robots.thoughtbot.com/back-to-basics-writing-unit-tests-first">Unit
+Tests</a></li>
+<li><a href="https://robots.thoughtbot.com/how-we-test-rails-applications">How to test Rails apps</a></li>
+<li><a href="https://robots.thoughtbot.com/mystery-guest">Mystery Guest</a></li>
+<li><a href="https://robots.thoughtbot.com/how-to-stub-external-services-in-tests">Stub External
+Services</a></li>
+<li><a href="https://robots.thoughtbot.com/fake-it">Fake Objects</a></li>
+<li><a href="https://robots.thoughtbot.com/a-closer-look-at-test-spies">Test Spies</a></li>
+<li><a href="https://robots.thoughtbot.com/acceptance-tests-at-a-single-level-of-abstraction">Acceptance
+Tests</a></li>
+<li><a href="https://robots.thoughtbot.com/testing-and-environment-variables">Testing Environment
+Variables</a></li>
+<li><a href="https://robots.thoughtbot.com/testing-from-the-outsidein">Test Outside-In</a></li>
+<li><a href="https://robots.thoughtbot.com/speed-up-tests-by-selectively-avoiding-factory-girl">Selectively Avoid Factory
+Girl</a></li>
+</ul>
+
+
+<h2>Commands I&rsquo;ve learned</h2>
+
+<ul>
+<li><code>git log --grep</code> searches the commit messages</li>
+<li><code>git log -S</code> searches the code in the repo and can take Regex</li>
+<li><code>tar xvf archive_name.tar</code> extracting from a tar file</li>
+<li><code>unzip test.zip</code> extracting from a zip file</li>
+</ul>
+
+
+<h2>Links</h2>
+
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=5ZjwEPupybw">Functional Programming and Ruby</a>
+This video was showing functional programming principles that I&rsquo;ve been seeing
+more and more when I looked into open source projects. This mindset for
+programming has been difficult to wrap my head around but I can see a lot of
+uses for it.</p></li>
+<li><p><a href="http://vaidehijoshi.github.io/blog/2015/03/31/delegating-all-of-the-things-with-ruby-forwardable/">Using Ruby
+Forwardable</a>
+contains ways to use the delegation pattern with the Forwardable
+module.</p></li>
+<li><p><a href="https://blog.engineyard.com/2015/seven-unusual-ruby-datastores">7 Unusual
+Datastores</a>
+shows datastores I&rsquo;m not too familiar with like Marshal and ObjectSpace. I have
+read that the latter is used for finding things like memory leaks or
+benchmarking to figure out a good garbage collector setting.</p></li>
+<li><p><a href="http://www.justinweiss.com/blog/2015/03/30/fun-with-keyword-arguments/">Keyword
+Arguments</a>
+introduced a way to use keyword arguments in Ruby 2.0+. I&rsquo;ve been using the
+older syntax all this time so finding out about this one has been great. It
+also goes into different ways you could use it.</p></li>
+<li><p><a href="http://6ftdan.com/allyourdev/2015/03/31/rails-4s-awesome-enums/">Rails enums</a>
+talks about the enum method in Rails 4 which I&rsquo;ve seen a few times but never
+really looked into completely.</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[More Debugging With Deployment]]></title>
+    <link href="http://raysapida.github.io/more-debugging/"/>
+    <updated>2015-03-29T00:00:00-07:00</updated>
+    <id>http://raysapida.github.io/more-debugging</id>
+    <content type="html"><![CDATA[<p>While I was experimenting with the
+<a href="https://github.com/sideshowcoder/dotenv-heroku">dotenv-heroku</a> gem, the app I
+was deploying started showing the app crashed error message. I ran all my tests
+before pushing the code to heroku so I was sure that the problem had something
+to do with the configuration.</p>
+
+<h2>First suspect: Devise secret key</h2>
+
+<p>Since I had just extracted the secret key for Devise into an environment
+variable, I thought that the problem was because the Rails app was throwing an
+error since Devise couldn&rsquo;t read the environment variable. I undid my commit
+but the app still wouldn&rsquo;t start. I added
+<a href="https://github.com/heroku/heroku-repo">heroku-repo</a> to see if the problem could
+be fixed by rebuilding the repository with different keys for the environment variable.</p>
+
+<h2>Second suspect: database.yml</h2>
+
+<p>I tried to see if I could access the app from the command line. I ran <code>heroku run rails console</code>
+and received the error:</p>
+
+<ul>
+<li>active_record/connection_adapters/connection_specification.rb:37:in `initialize': undefined method `tr' for nil:NilClass (NoMethodError)</li>
+</ul>
+
+
+<p>That led me to question if my configuration in the <code>database.yml</code> was wrong or that
+the yaml file wasn&rsquo;t properly formatted. I played around with different settings
+with no luck. After searching through articles and Heroku&rsquo;s
+<a href="https://devcenter.heroku.com/articles/heroku-postgresql#connecting-in-ruby">devcenter</a>, I
+found out that Heroku bypasses that file and only needs the url for the
+database.</p>
+
+<h2>Third suspect: DATABASE_URL</h2>
+
+<p>The corresponding method was:</p>
+
+<pre><code>def initialize(url)
+  raise "Database URL cannot be empty" if url.blank?
+  @uri     = uri_parser.parse(url)
+  @adapter = @uri.scheme.tr('-', '_')
+  @adapter = "postgresql" if @adapter == "postgres"
+  if @uri.opaque
+    @uri.opaque, @query = @uri.opaque.split('?', 2)
+  else
+    @query = @uri.query
+  end
+end
+</code></pre>
+
+<p>Since the first line wasn&rsquo;t raised, the url was not blank. The method was
+reading the <code>DATABASE_URL</code> variable but was having problems afterwards. Something
+was happening in the next two lines. The instance variable <code>@uri</code> was calling a
+method:</p>
+
+<pre><code>def uri_parser
+    @uri_parser ||= URI::Parser.new
+end
+</code></pre>
+
+<p><code>URI::Parser</code> is part of a Ruby standard library that deals with a string of
+characters representing a <a href="http://en.wikipedia.org/wiki/Uniform_resource_identifier">uniform resource
+identifier</a>. The
+<code>uri_parser</code> method instantiates a new URI object and the <code>parse</code> method then
+tries to create a uri object from the <code>url</code> passed in. The <code>@adapter</code> tries to read
+the resulting variable with the <code>scheme</code> method and that was when the <code>tr</code> method
+throws an error because scheme can&rsquo;t read the object. After reading the
+documention for the <a href="http://ruby-doc.org/stdlib-2.2.1/libdoc/uri/rdoc/URI/RFC2396_Parser.html#method-i-parse">parse
+method</a>,
+I realized that the <code>DATABASE_URL</code> variable that was set in the environment was
+not properly formatted.</p>
+
+<h2>Solution</h2>
+
+<p>At some point when I first tried to push the <code>.env</code> file to Heroku, the url
+changed and the colon characters turned into equal characters. I&rsquo;m not sure
+if the dotenv-heroku gem did this but I exchanged the gem for
+<a href="https://github.com/ddollar/heroku-config">heroku-config</a>
+instead and set the variables that way.</p>
+
+<h2>Easier way to debug</h2>
+
+<p>I realized later that above the initialize method was an example comment:</p>
+
+<pre><code>    # == Example
+    #
+    #   url = "postgresql://foo:bar@localhost:9000/foo_test?pool=5&amp;timeout=3000"
+    #   ConnectionUrlResolver.new(url).to_hash
+    #   # =&gt; {
+    #     "adapter"  =&gt; "postgresql",
+    #     "host"     =&gt; "localhost",
+    #     "port"     =&gt; 9000,
+    #     "database" =&gt; "foo_test",
+    #     "username" =&gt; "foo",
+    #     "password" =&gt; "bar",
+    #     "pool"     =&gt; "5",
+    #     "timeout"  =&gt; "3000"
+    #   }
+</code></pre>
+
+<p>If I read the example for the url I would have seen that the <code>DATABASE_URL</code> was
+not properly formatted. I appreciate that I&rsquo;m now able to dig into Rails to figure out
+what&rsquo;s wrong, but reading the error message and corresponding comments carefully could have
+saved me hours of time. A lesson learned for the next time I have problems
+pushing environment variables.</p>
+
+<h2>Links</h2>
+
+<ul>
+<li><p><a href="http://6ftdan.com/allyourdev/2015/03/26/different-collection-types-in-ruby/">Summary of Ruby
+Collections</a>
+This was an interesting article on Ruby collections, which I feel is the type
+of object that I use the most. Most of it is a refresher but I did learn that
+Ruby has tuples in one of its libraries and how it could be used.</p></li>
+<li><p><a href="http://www.sitepoint.com/devise-authentication-in-depth/">Intro to Devise</a>
+This link was also a little bit of a refresher but it&rsquo;s very thorough and it did
+go through how to configure the mailer with <a href="https://github.com/collectiveidea/delayed_job">delayed
+job</a>. Also, the
+<a href="http://www.sitepoint.com/author/ibodrov/">author</a> is
+doing a whole series on authentication with Rails and I&rsquo;m looking forward to the
+next one.</p></li>
+<li><p><a href="https://blog.jalada.co.uk/tips-when-writing-an-api-in-ruby-on-rails/">Rails API
+tips</a>
+I&rsquo;ve been trying to learn more about creating a Rails API that could go with a
+Javascript frontend and this artcle gave really good tips about problems I
+didn&rsquo;t consider. I&rsquo;m particularly interested in learning about the two
+Rack middlewares he suggested; <a href="https://github.com/cyu/rack-cors">rack-cors</a> and
+<a href="https://github.com/romanbsd/heroku-deflater">heroku-deflator</a>.</p></li>
+<li><p><a href="http://tom-lord.weebly.com/blog/reverse-engineering-regular-expressions">Regex</a>
+This post goes deep into how a regular expression is parsed. The author was
+explaining how he structured his
+<a href="https://github.com/tom-lord/regexp-examples">gem</a> to create regex examples.</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Easy Wins Versus Hard Wins]]></title>
+    <link href="http://raysapida.github.io/easy-wins-vs-hard-wins/"/>
+    <updated>2015-03-25T00:00:00-07:00</updated>
+    <id>http://raysapida.github.io/easy-wins-vs-hard-wins</id>
+    <content type="html"><![CDATA[<p>One of the most difficult things for me was keeping up my motivation while learning how
+to code. My biggest solution to this was something I learned from <a href="http://www.amazon.com/The-Habits-Highly-Effective-People/dp/1455892823">The 7 Habits
+of Highly Effective
+People</a>
+and that was a four quadrant chart separated into:</p>
+
+<ul>
+<li>Important and Urgent</li>
+<li>Important but not Urgent</li>
+<li>Not Important but Urgent</li>
+<li>Not Important and not Urgent</li>
+</ul>
+
+
+<p>I used to write this chart every day as a way to manage my time but I focus on
+the first two now and created two todo lists. The important and urgent category is always the
+priority but I further split the last one into easy wins and hard wins because
+those are the challenges you can be flexible with it.</p>
+
+<p>One of
+the things a lot of people have suggested is taking a deep dive into
+programming, program 10 hours straight per day to quickly reach the 10,000 hours for mastery
+mentioned in
+<a href="http://www.amazon.com/Outliers-Story-Success-Malcolm-Gladwell/dp/0316017930">Outliers</a>.
+That mindset disregards burnout and that is especially discouraging for a beginner.
+It&rsquo;s one of those cases where the process is much more important than the goal
+because of how overwhelming programming can be; there are a lot of things to
+learn, it&rsquo;s important to be able to decide what abstractions are ok to work with
+as is and what topics are uncomfortable enough to stretch your abilities
+without breaking your motivations. Easy wins and hard wins is a way I manage
+that. I focus on harder problems but I would do something from the easy category when I
+knew that I needed a little break but also stay productive. It&rsquo;s very important
+though to make sure that everything in that category is still important to
+make sure that it&rsquo;s not another form of procrastination.</p>
+
+<h2>Example grouping for the categories</h2>
+
+<p>For me, the important and urgent category was filled with services I&rsquo;m paying
+for which included Treehouse, Codeschool, Upcase, and any other online
+subscription or working on an app I can show as a code sample in the future. The important but not urgent category
+had two subclasses. The easy wins includes learning a single command, an easy
+code kata/exercise, or reading a chapter for a programming book. The hard wins
+include reading source code to figure out how a method works, learning a
+design pattern, or learning a new tool like a text editor or tmux.</p>
+
+<h2>Commands I learned recently</h2>
+
+<ul>
+<li><p><code>sudo update-alternatives --config editor</code>
+The default editor for my laptop was nano and I wanted to switch to vim.</p></li>
+<li><p>When I was working on Windows 8 and Vagrant, I used a <a href="https://windows.github.com/">program</a>
+that GitHub provided. I knew a handful of commands
+but I&rsquo;m trying to learn enough so that I won&rsquo;t depend on the GUI.</p></li>
+<li><p><code>git branch -a</code>
+This list all the branches for a git repo.</p></li>
+<li><p><code>git branch -d branch_to_delete</code>
+This deletes a branch.</p></li>
+<li><p><code>git remote add origin remote repository_URL</code>
+This adds a remote repository I can push and pull to.</p></li>
+<li><p><code>git blame directory/to/file.rb</code>
+I learned this from Justin Weiss&rsquo;s <a href="http://www.justinweiss.com/blog/2015/03/24/go-beyond-the-easy-fix-with-code-archaeology/">blog
+post</a>
+and it&rsquo;s been useful to track down changes in git&rsquo;s history.</p></li>
+</ul>
+
+
+<h2>Links</h2>
+
+<ul>
+<li><p><a href="https://www.digitalocean.com/community/tutorials/how-to-create-remove-manage-tables-in-postgresql-on-a-cloud-server">Postgres management</a>
+A lot of the things in this article is taken care of by rails but I wanted to
+learn more commands in psql so that I can poke around the database when I need
+to.</p></li>
+<li><p><a href="http://railscasts.com/episodes/342-migrating-to-postgresql?view=asciicast">Migrating Rails to Postgres</a>
+I knew how to set up Postgres but this page also added how to migrate data
+from sqlite to postgres through the <a href="https://github.com/ricardochimal/taps">taps gem</a>.</p></li>
+<li><p><a href="https://exceptiontrap.com/blog/4-create-a-simple-jekyll-like-blog-in-your-rails-4-app">Adding blog to a rails app</a>
+I followed this article to add a blog into a rails app that uses markdown syntax.</p></li>
+<li><p><a href="https://github.com/presidentbeef/brakeman">Brakeman gem</a>
+I was seeing this gem a lot in different blog posts and I wanted to try it out.
+I still need to learn the <a href="http://brakemanscanner.org/docs/warning_types/">warnings</a>
+and what they mean but I was able to fix unsafe redirects and cross site
+scripting with the first pass through.</p></li>
+<li><p><a href="http://www.gotealeaf.com/blog/handling-emails-in-rails">Setting up email in rails</a>
+This article went through how to set up emails in a rails app through Gmail or
+Mailgun. I went through the first part and I want to see how to set up the other
+in the future.</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sorcerer's Apprentice - Problems With Deploying]]></title>
+    <link href="http://raysapida.github.io/sorcerers-apprentice/"/>
+    <updated>2015-03-22T00:00:00-07:00</updated>
+    <id>http://raysapida.github.io/sorcerers-apprentice</id>
+    <content type="html"><![CDATA[<p>I was browsing through Netflix trying to find something to fill the
+room with white noise while I studied when I decided on Fantasia. At one point during the movie, the
+conductor turns towards the audience to explain the concept behind one of the
+pieces; Sorcerer&rsquo;s Apprentice. An apprentice tried to use magic that he
+couldn&rsquo;t control and wasn&rsquo;t stopped until his master came to fix the situation.
+I think programming has a lot of these situations and the scariest mistake for
+me is deployment.</p>
+
+<p>Even little tests apps scare me because of the possibility that I&rsquo;m sharing api
+keys or passwords. Right now, the only key I&rsquo;m using that shouldn&rsquo;t be in the
+repository is the <code>SECRET_KEY_BASE</code> generated by <code>rake secret</code>. I&rsquo;m currently
+learning about the use of <a href="https://github.com/bkeepers/dotenv">dotenv</a> which
+extracts the key into a <code>.env</code> file and substitutes an environment variable in
+<a href="http://guides.rubyonrails.org/4_1_release_notes.html#config-secrets-yml">config/secrets.yml</a>.
+Before this method, I wouldn&rsquo;t commit the <code>secrets.yml</code> into the repository.</p>
+
+<p>With a particular <a href="https://github.com/raysapida/mustached-octo-robot">app</a>, I was
+having problems with deploying it after I updated the gems. I incrementally
+updated Rails and Ruby versions making sure that all the tests pass. Because
+of this process, I was sure that the problem involves the database or
+gem/feature I added but didn&rsquo;t test. The app was hosted on heroku and the first
+thing I did was look at the log by running <code>heroku logs --tail</code>. I wasn&rsquo;t sure
+what the error message was saying so my first instinct was to reproduce the situation on my
+computer.</p>
+
+<p>Before this, I was using vagrant to configure my environment and the Vagrantfile
+was configuring the database for me. Now that I&rsquo;ve installed <a href="http://ubuntugnome.org/">Ubuntu Gnome</a>
+on my computer, I needed to create a Postgres database for a local
+development environment along with an associated user. After <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04">installing Postgres</a>,
+I created a database and  an associated user for the app.</p>
+
+<h2>Postgres commands I needed to use: <a href="http://stackoverflow.com/questions/19953653/how-to-set-up-postgres-database-for-local-rails-project">Stackoverflow link</a></h2>
+
+<p><code>create user username with password 'password';</code></p>
+
+<p><code>alter user username superuser;</code></p>
+
+<p><code>create database projectname_development;</code></p>
+
+<p><code>grant all privileges on database projectname_development to username;</code></p>
+
+<h2>Fixing the problem</h2>
+
+<p>After going through these steps and connecting Postgres with the development
+environment by editing the <code>database.yml</code> file, I found the same error recorded
+at the heroku logs. The error message was saying that it was using a Ruby version 2.2.0 when I was
+using 2.2.1 and that there was a problem parsing the yaml file of the Jekyll
+blog. I was able to fix it on my computer by resetting rvm and making sure it
+was using the correct Ruby version, but I didn&rsquo;t know how to do the same thing for
+heroku. Based on the messages during deployment, the problem seems like it
+originates from my <code>Gemfile.lock</code> file. I originally started working on the app in
+a Windows environment, migrating it to a virtual machine through Vagrant, and
+then to an Ubuntu laptop now. Heroku had to redo <code>bundle install</code> after each
+deployment because of the fact that it doesn&rsquo;t use the <code>Gemfile.lock</code> file due to the
+Windows line endings.</p>
+
+<p>I deleted that file and reran
+<code>bundle install</code>. Also, since the <a href="https://github.com/zbruhnke/bloggy">bloggy gem</a>
+was throwing the error and I was already planning to remove it in the future, I decided
+to uninstall it as well. I&rsquo;m aiming to add a different blogging engine or a basic
+Rails one so that the layouts would not be separate from the Rails app. This way,
+I would be able to write unit tests for it in the future. Jekyll is a static site generator and I
+don&rsquo;t know how to create a proper test for it besides making sure that
+<code>jekyll build</code> wasn&rsquo;t throwing any errors. Afterwards,
+<code>heroku run rake db:migrate</code> was successful and the app was running again.</p>
+
+<h2>Links I&rsquo;ve been reading</h2>
+
+<ul>
+<li><p><a href="http://genua.github.io/ruby/2015/03/04/underscores-ampersands-asterisks/">Ruby 2.1 - Fun with underscores, ampersands and
+asterisks</a>:
+I&rsquo;ve used asterisks as a splat operator and ampersands for blocks but this is the first time that
+I&rsquo;ve seen underscores used to fill in for an unneeded argument.</p></li>
+<li><p><a href="https://robots.thoughtbot.com/a-closer-look-at-test-spies">A Closer Look at Test Spies</a>:
+This article is exploring the use of the <code>spy</code> method instead of <code>double</code> to
+set up tests. The main difference is using the <code>spy</code> method
+would automatically spy on all methods without having to stub it out. The main
+issue is that stubbing is usually a good indicator of the class&rsquo;s design. You
+should&rsquo;t have to stub multiple methods to pass a test for classes that are designed
+well because it would have to many responsibilities</p></li>
+<li><p><a href="http://6ftdan.com/allyourdev/2015/03/20/hooks/">Hooks</a>:
+I&rsquo;ve only seen <code>extended</code> and <code>included</code> as hooks and this blog post provides a whole list of hooks used in Ruby.</p></li>
+<li><p><a href="https://blog.engineyard.com/2015/understanding-rack-apps-and-middleware">Understanding Rack Apps and Middleware</a>:
+This is an in-depth post about Rack. I&rsquo;ve read about them from different
+articles before but this one incorporates a lot of information into a single
+post.</p></li>
+<li><p><a href="http://code.tutsplus.com/articles/nginx-guide-introduction--cms-21877">Nginx Guide:
+Introduction</a>:
+This article is an introduction of what Nginx is and its advantages. I&rsquo;m not
+familiar with how servers are set up because Heroku handles it&rsquo;s management
+but it&rsquo;s something I want to learn more about in the future.</p></li>
+<li><p><a href="https://cssanimation.rocks/principles/">Animation Principles for the Web</a>:
+This article applies Disney&rsquo;s 12 Principles of Animation to CSS. I was
+introduced to those CSS properties in Upcase&rsquo;s CSS trails and this article was
+trying to illustrate how to use those properties effectively.</p></li>
+<li><p><a href="http://5by5.tv/rubyonrails/186">Ruby on Rails Podcast: Darrell Silver from Thinkful</a>:
+I was listening to this podcast and the part where Sean Devine talked about his
+experience trying a service that helps beginners resonated with me. He
+talked about the other person&rsquo;s guilt because they had been working so much and
+they felt like they should already know the answer. Even though the solution was
+technically simple, the host was saying most of the problem was dealing with
+that guilt and leading them to a place where they could program again.</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Accounts I Should Have Had From the Beginning]]></title>
+    <link href="http://raysapida.github.io/essential-online-accounts/"/>
+    <updated>2015-03-18T00:00:00-07:00</updated>
+    <id>http://raysapida.github.io/essential-online-accounts</id>
+    <content type="html"><![CDATA[<p>When I first started learning about coding, I was reading through Zed Shaw&rsquo;s
+<a href="http://learnpythonthehardway.org/">book</a> about Python. The very first program I
+made was based on the text game in one of the <a href="http://learnpythonthehardway.org/book/ex31.html">exercises</a>. It was
+a game that would give me suggestions or try to motivate me in some way based on
+how I answered questions. It was a really bad example of programming with
+many nested <code>if..else</code> statements, but I believe that working through that game
+was ultimately the reason why I kept trying to learn. Unfortunately, I lost that
+game when my computer was stolen. Which brings me to the first thing I should
+have gotten when I started, a way to backup my files.</p>
+
+<p><a href="http://github.com">Github</a> is the most popular
+choice from but I was always afraid to show really bad code or
+accidently sharing something personal like passwords or api keys. That&rsquo;s the reason that I
+put off starting one for a long time. I became more diligent about backups after losing all the tutorial applications
+and links that I was saving. Around that time, I created an account at <a href="http://bitbucket.org">Bitbucket</a> because it allowed free
+private repositories and it helped me get started using <a href="http://gitref.org/">git</a>
+commands. Starting with Github first would have helped me get over the hump about
+sharing or talking with other programmers but if that barrier is too big at the
+moment, it&rsquo;s better to go with the alternative than not at all.</p>
+
+<p>Another thing I should have started from the beginning was working through an
+app from <code>rails new appname</code> to deploying it. I put off this part for awhile
+and it was a huge detriment later on. Personally, my fear of
+deploying a demo was similar to my fear of the command line in the
+beginning. A major part of that was connecting and using a Database that wasn&rsquo;t
+<a href="https://sqlite.org/">sqlite</a> along with the other configurations.
+I knew enough about SQL and databases in general
+to work with it in a Rails app but that was different from having
+to configure it outside a development environment. For demos and trying to deploy the first time, <a href="http://heroku.com">heroku</a>
+is my number one choice because it was the most painless for me, the most that I
+had to do was extract out some keys to environment variables and add a
+different Ruby server besides WEBrick. Their articles
+guided me on how to deploy for the first time and the reasons why they require
+programs to be deployed in that way.</p>
+
+<p>The last thing I focused on in the beginning was that I put a lot of time doing
+exercises like <a href="http://rubykoans.com/">ruby koans</a> and <a href="http://exercism.io/">exercism</a>
+because it abstracted out a lot of parts that I couldn&rsquo;t get my head around yet.
+I only found these exercises through GitHub and in the latter&rsquo;s case, it&rsquo;s the
+only way to access the exercises and let other users comment on your work.
+I was ignorant to the design patterns other people were using since I was so
+focused on just making the tests pass, but I used them to become familiar with the
+syntax and the way Ruby solved problems. Aiming to work on one problem a day was
+an attainable enough goal to create a habit and eventually fall in love with the
+process. As an added benefit, those exercises
+gave me a great appreciation of testing in general because that was the only way
+I knew if I was doing the right things.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Taking the Simple Programmer Blog Course]]></title>
+    <link href="http://raysapida.github.io/simple-programmer-blog-course/"/>
+    <updated>2015-03-16T00:00:00-07:00</updated>
+    <id>http://raysapida.github.io/simple-programmer-blog-course</id>
+    <content type="html"><![CDATA[<p>For the past few weeks I&rsquo;ve been taking an <a href="http://devcareerboost.com/blog-course/">email course</a> by
+<a href="http://simpleprogrammer.com">John Somez</a> on blogging and it has been a great
+way to refocus on the possible content for this site. One of the first suggestions I
+ever heard about learning how to program was that I should blog as much as possible, but
+I kept struggling with deciding what I should write about and being consistent with it.</p>
+
+<h2>Choosing a theme</h2>
+
+<p>When I started exploring web development and programming, there were so many choices and
+possible paths that I became hesitant and afraid to make the wrong decision. I tried a
+little bit of everything because of that fear. I would try all the beginner courses on Treehouse
+covering JavaScript, Python, PHP, and Ruby when I should have stuck with one.
+Choosing a theme reminded me of that indecisiveness. It eventually came down to
+writing about something I&rsquo;m familiar with (Ruby on Rails) or something that I need to learn more about (JavaScript frameworks).
+I eventually decided to write about Ruby because its the topic I&rsquo;m most
+confident in and a language I really enjoy using. I also believe that there is a big jump between
+introductory tutorials on Rails and intermediate level stuff that I could help
+fill with my blog posts. If I&rsquo;m able to, I want to incorporate a magic theme because
+I always hear about the magic that goes in the background of a Rails
+application. One of my favorite Ruby books, called Metaprogramming Ruby 2,
+had a section called spell book that prompted me to record and study design patterns or quirky
+Ruby behavior in notebooks as if I was writing my own Ruby spellbooks. While
+learning on my own, little motivations like that can sometimes help the most and
+it&rsquo;s a fun way to think about programming.</p>
+
+<h2>Creating the blog</h2>
+
+<p>I had already created this blog by forking a pre-made <a href="https://github.com/barryclark/jekyll-now">jekyll
+repo</a>, following its instructions
+and reading an <a href="http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/">article</a> on setting it up.
+I was able to host it on my account&rsquo;s <a href="https://pages.github.com/">github page</a>
+and the repo itself included plugins for disqus and most common social media accounts.
+I read a blog post about the <a href="http://www.digital-results.com/static-site-generators/">advantages</a>
+of a static site generators and since <a href="http://jekyllrb.com/">jekyll</a> was written in Ruby, I was more inclined
+to use it as a blogging platform instead of Wordpress. I&rsquo;m aiming to improve the
+styling for this blog in the future or even migrate it to a <a href="https://middlemanapp.com/">Middleman</a> project since that one more
+closely resembles a Rails app.</p>
+
+<h2>Blog post ideas</h2>
+
+<p>When I was struggling to come up with blog post ideas
+before this course, I don&rsquo;t know why I didn&rsquo;t think of sitting down and brainstorming 30 to 50 ideas at once. It
+seems obvious now and I can definitely see it helping in a lot of ways.
+I can start writing drafts days before I need to publish them or
+even create drafts for other posts. This will enable me to check my work and
+add more relevant details that come up after multiple proofreadings. This reduces the fear
+I have with putting my writing out there and would encourage more creative ideas. Also, I
+came up with a lot of things I wish I knew when I started and those
+are the blog posts I want to write first.</p>
+
+<h2>Consistency</h2>
+
+<p>Consistency might be the most difficult part of writing a blog. Staying consistent and
+forming good habits is very important because if I can&rsquo;t be disciplined enough to write
+regularly, why should the readers care about following my posts? I want to
+publish as much as I can to show and share how much I&rsquo;ve learned, become better
+as a writer, and get called out if I don&rsquo;t fully understand what I&rsquo;m
+talking about. In a way, writing without comments or feedback is like coding
+without tests, you won&rsquo;t really know if what you&rsquo;re doing is wrong until a bigger problem
+occurs down the road.</p>
+
+<h2>Web traffic</h2>
+
+<p>This is another tough one. There are so many blogs out there and standing out
+will take a lot of time and effort. It involves following other
+people&rsquo;s blogs, commenting with relevant information, and providing value in
+some way. I&rsquo;m still figuring out how to engage with the comments section for blogs
+that I follow and trusting myself enough to voice an opinion, but everything is
+always a work in progress. Writing more blog posts would probably help in that
+department too.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Commands I Needed to Start Using the Command Line]]></title>
+    <link href="http://raysapida.github.io/essential-commands/"/>
+    <updated>2015-03-15T00:00:00-07:00</updated>
+    <id>http://raysapida.github.io/essential-commands</id>
+    <content type="html"><![CDATA[<h2>Basic Commands</h2>
+
+<p>The <a href="http://ss64.com/bash/ls.html">ls</a> command list the contents of the current directory. A more detailed
+  form would be <code>ls -la</code> which lists the contents along with their file permissions.</p>
+
+<p>The <a href="http://ss64.com/bash/cd.html">cd</a> command lets you move back and forth from folders by adding the
+  folder name afterwards. <code>cd ..</code> lets you move back by one folder and <code>cd -</code>
+lets you jump back and forth between the last changed spots.</p>
+
+<p>The <a href="http://ss64.com/bash/mkdir.html">mkdir</a> command makes a folder while <a href="http://ss64.com/bash/rmdir.html">rmdir</a> removes an empty folder.</p>
+
+<p><a href="http://ss64.com/bash/cp.html">cp</a> can copy files where the the first group is the target and the second
+  group is the destination.</p>
+
+<p><a href="http://ss64.com/bash/mv.html">mv</a> moves files and works similarly to <code>cp</code> except the first group is
+  deleted afterwards.</p>
+
+<p>The <a href="http://ss64.com/bash/rm.html">rm</a> command deletes a file and passing in additional flags like <code>rm
+  -rf</code> would delete a whole folder along with its contents.</p>
+
+<h2>Useful Commands</h2>
+
+<p><a href="http://ss64.com/bash/man.html">man</a> followed by another command would show the complete help
+  section on how to use that command. Whenever I&rsquo;m lost or forgot how to use a
+particular command, I would use this to figure out how it works.</p>
+
+<p><a href="http://ss64.com/bash/sudo.html">sudo</a> can be prepended to other commands that need super user
+  permission to execute.</p>
+
+<p><a href="http://ss64.com/bash/chmod.html">chmod</a> can change the file permissions of a file enabling you to edit or use
+  thE FIle.</p>
+
+<p><a href="http://ss64.com/bash/grep.html">grep</a> lets you search through the file&rsquo;s or output&rsquo;s contents using a regular
+  expression. There are other commands that other people use to perform the same
+function but this is the most common one.</p>
+
+<p><a href="http://ss64.com/bash/head.html">head</a> and <a href="http://ss64.com/bash/tail.html">tail</a> - Shows the first of last ten lines for a file or output.
+  They&rsquo;re useful for logs and when piping a string of commands.</p>
+
+<p><a href="http://guides.rubyonrails.org/command_line.html">rails</a> has their own set of
+  commands along with
+<a href="http://edgeguides.rubyonrails.org/active_record_migrations.html#running-migrations">rake</a> commands for migrations. I end up using <a href="http://guides.rubyonrails.org/command_line.html#rails-console">rails
+console</a> the most
+when debugging a problem or exploring an application.</p>
+
+<h2>Optional Commands</h2>
+
+<p><a href="http://docs.vagrantup.com/v2/cli/up.html">vagrant up</a> and <a href="http://docs.vagrantup.com/v2/cli/ssh.html">vagrant ssh</a> - I had a lot of trouble with setting up a development environment since I had a Windows 8 laptop. I
+learned that <a href="https://www.vagrantup.com/">Vagrant</a> was the easiest way to start
+using a virtual machine at the time and I started with the <a href="https://github.com/rails/rails-dev-box">rails dev box</a>.</p>
+
+<p><a href="https://rvm.io/rvm/cli">rvm</a> was how I managed my environments and it helped
+  me separate incompatible gems. A Gemfile should manage most of
+these but I had trouble figuring out where errors were coming from when
+installing gems and this was an easier solution at the time.</p>
+
+<p><a href="http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html">vim</a> - I started with vim because I couldn&rsquo;t figure out how to share
+  folders between the virtual machine and the local machine but I ended up
+enjoying being able to quickly switch between the editor and shell so much that I stuck
+with it.</p>
+
+<p><a href="https://robots.thoughtbot.com/a-tmux-crash-course">tmux</a> - I began learning this on an Upcase trail and using it finally
+  convinced me to install a Linux distribution. It became more evident that developing in a virtual
+machine was the bottleneck for me when I became comfortable
+enough in a tmux session, especially when running tests.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Reading the Rails 4 Way - Part 1]]></title>
+    <link href="http://raysapida.github.io/reading-the-rails-4-way/"/>
+    <updated>2015-02-20T00:00:00-08:00</updated>
+    <id>http://raysapida.github.io/reading-the-rails-4-way</id>
+    <content type="html"><![CDATA[<p>When I was getting deeper into reading <a href="https://pragprog.com/book/achbd/the-rspec-book">The Rspec
+Book</a> a few weeks ago, I found
+that I had difficulties when it came to information that wasn&rsquo;t included in the
+<a href="http://guides.rubyonrails.org/">rails guides</a>. I picked up <a href="https://leanpub.com/tr4w">The Rails 4
+Way</a> to rectify that. The book felt more like
+documentation while I was reading it and that&rsquo;s very intentional. The breadth and
+depth was impressive and I wanted to get a book that I could carry with me as a
+physical documentation of the framework. I knew before reading it that I
+couldn&rsquo;t memorize everything the book had to offer so I read it like I would
+when I read Google Map directions, finding the general routes I needed and
+making a mental note for things that I didn&rsquo;t need to know now but would
+definitely look into once I reached that landmark.</p>
+
+<p>The first chapter dealt with a rails environment and configuration. Most of it
+dealt with things I learned from other sources but I was introduced into the
+specifics of bundler and other configuration details. This is the section I
+learned to add gems into the vendor directory which I wanted to do because I
+recently learned about ctags from Upcase&rsquo;s vim trail. This enabled me to jump
+around my app figuring out how methods are called throughout the application.
+The next three chapters after that were also refreshers on routes, REST in
+Rails, and controllers.</p>
+
+<p>There were five full chapters that dealt with active record split into general
+active record uses, migrations, associations, validations and advance active
+record uses. Active record deals with so many parts of Rails that I remember looking at the
+source code before and not getting where to begin. The book delved into the
+database adapters for the most common relational databases and how Rails
+interprets the types of data they use. During the rest of the chapters, what
+stood out to me the most where how callback were used in the model, how
+associations are made particularly polymorphic associations, and using indexes.</p>
+
+<p>The tenth chapter dealt with the action view part of Rails and introduced the
+decent exposure gem. Most of it was a refresher dealing with methods available
+in the view diretory, using partials, and rendering objects or collections. The
+most useful part I learned was the <code>assigns</code> instance variable which shows what
+is being communicated between the controller and view.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Learning Specifics About Testing]]></title>
+    <link href="http://raysapida.github.io/specifcs-about-testing/"/>
+    <updated>2015-02-18T00:00:00-08:00</updated>
+    <id>http://raysapida.github.io/specifcs-about-testing</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been working through the testing trails in upcase for test doubles and
+testing fundamentals. The most difficult part for me was understanding mocks and spies along with how to
+structure them to make sure the right behavior is being tested. I&rsquo;ve
+written unit tests and a few acceptance tests in the past but I&rsquo;ve never used
+test doubles before the upcase trail. I had to research the differences between
+fakes, dummies, stubs, spies and mocks. Upcase provided an
+<a href="http://www.martinfowler.com/bliki/TestDouble.html">aricle</a> by Martin Fowler as
+an introduction to those ideas. From my understanding, the advantages
+of using test doubles are clarity and speed. The unit tests should already tests
+that the proper answers are being given in the model or controller level which
+makes stubs a good way to improve them. Mocks ensure that specific method calls
+are being used and spies take that a step further by recording how the method
+calls are used. For example, spies could say that a method call was used twice
+instead of the expected once.</p>
+
+<p>I&rsquo;ve learned the definitions for different kinds of testing; unit,
+integration, feature, and functional tests. Unit tests are for a small subset of the
+application and I closely associate it with tests for a specific controller or
+model. Integration tests go from end to end and I&rsquo;ve used it to test that
+logging in to an application or using the user interface. Functional tests are
+integration tests that actually run the application from end to end similar to
+making sure that an email is sent when a person is trying to recover a forgotten
+password. Feature tests are for things that change the functionality of the
+application like changing a status update from text only to including image
+attachments.</p>
+
+<p>I&rsquo;m also still getting used to rspec and capybara. The most prevalent comments I would receive from the
+exercises were the different shortcuts people use in their tests and other
+improvements on readability to make sure that the reader can better understand
+the intent behind the tests. Most of my
+tests in the past was using Minitest because it was included by default and
+it was the framework most of the tutorials I followed use; it&rsquo;s the testing framework included with the exercism
+exercises and the Treehouse tutorials for the Treebook application. I&rsquo;ve never
+really thought of tests outside unit testing but I&rsquo;m appreciating what testing
+adds to the application. I&rsquo;m starting to see why tests can function as
+documentation instead of comments and how bugs can be recreated to better
+understand where edge cases are coming from.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[My Month of January, the Cliff Notes Version]]></title>
+    <link href="http://raysapida.github.io/january/"/>
+    <updated>2015-02-06T00:00:00-08:00</updated>
+    <id>http://raysapida.github.io/january</id>
+    <content type="html"><![CDATA[<p>I spent most of January working on exercism challenges and refamiliarizing myself with Rails. I haven&rsquo;t been able to pair program with other people yet and online
+exercises have been the only way I&rsquo;ve gotten feedback for the programs I&rsquo;ve written. It&rsquo;s been a good way to learn more about design patterns and subtleties in the Ruby language. Out of all the exercises there, I enjoyed the one about Binary Search Trees the most. Another user on the site turned me towards using the Null Object Pattern and my research into the topic led me to an <a href="http://devblog.avdi.org/2011/05/30/null-objects-and-falsiness/">article</a> that illustrated how it could be used in Ruby. In the end, I ended up with code that looked like this:</p>
+
+<pre><code class="ruby">class Bst
+  attr_accessor :left, :right, :data
+
+  def initialize(data)
+    @data = data
+    @left = NullObject.new
+    @right = NullObject.new
+  end
+
+  def insert(number)
+    if number &gt; @data
+      in_right(number)
+    elsif number &lt;= @data
+      in_left(number)
+    end
+  end
+
+  def each(&amp;block)
+    left.each(&amp;block)
+    block.call(data)
+    right.each(&amp;block)
+  end
+
+  private
+
+  def in_right(number)
+    right.insert(number) or @right = Bst.new(number)
+  end
+
+  def in_left(number)
+    left.insert(number) or @left = Bst.new(number)
+  end
+end
+class NullObject
+  def data
+    nil
+  end
+
+  def insert(*)
+    false
+  end
+
+  def each(*)
+    self
+  end
+end
+</code></pre>
+
+<p>The exercism website also had challenges that involved other data structures
+like linked lists and matrices. I&rsquo;ve been reading more and more about how to
+become job ready as a programmer and there have been a lot of advice on being
+familiar with common data structures and how to implement them as well as
+recognizing the <a href="http://bigocheatsheet.com/">Big-O</a> complexities of different algorithms. I&rsquo;ve mostly been teaching
+myself and I know that I need to spend time on subjects that other programmers
+would have been exposed to in school. I want to do my best to expose my
+ignorance now.</p>
+
+<p> I&rsquo;ve also started a membership at <a href="upcase.com">upcase</a> so that I could become
+more familiar with the tools that Ruby on Rails developers use. I&rsquo;ve learned
+more about how to use vim and testing use rspec/capybara. I&rsquo;m amazed by how
+efficient I could be using while vim and how easy it could be to learn when I&rsquo;m
+pointed in the right direction. I&rsquo;ve neglected how to write my own tests in the
+past and I&rsquo;m trying to remedy that by learning how to use the tools other
+developers employ. Currently, I&rsquo;m also trying to learn how to use tmux in one of
+upcase&rsquo;s new trails.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Jumpstarting the New Year Through Books]]></title>
+    <link href="http://raysapida.github.io/reading/"/>
+    <updated>2014-12-31T00:00:00-08:00</updated>
+    <id>http://raysapida.github.io/reading</id>
+    <content type="html"><![CDATA[<p>When I started learning more and more about Rails, I became very aware that my programming skills in Ruby was lacking. I would read the code examples and I would find many methods and concepts that I repeatedly had to look up online in order to understand. I started to panic a little bit then because I was afraid that what I was doing wasn&rsquo;t working and that I wasn&rsquo;t internalizing what I was learning.  A lot of times I feel like I&rsquo;m fumbling around trying to find a way to reach out and find something to hold on to and effectively learn. The main way I&rsquo;ve been doing this is through code challenges and tutorials but I&rsquo;ve been finding that there is a huge gap between the code that I was writing and the code that I would read on open source projects.</p>
+
+<p>Because of that gap, I&rsquo;ve been reading as many Ruby Books as I can. This past month, I&rsquo;ve gone through <a href="http://www.amazon.com/Program-Second-Edition-Facets-Series/dp/1934356360">Learn to Program</a>, <a href="http://www.amazon.com/The-Well-Grounded-Rubyist-David-Black/dp/1617291692">Well-Grounded Rubyist</a>, <a href="http://www.amazon.com/Metaprogramming-Ruby-Program-Like-Facets/dp/1941222129">Metaprogramming Ruby 2: Program Like the Ruby Pros</a> and I&rsquo;m also halfway through <a href="http://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional-Series/dp/0321584104">Eloquent Ruby</a>. These four books had a lot of intersections and they were a great starting point for the techniques that I was coming across while trying to read open source code. Along with those books, I&rsquo;ve also read <a href="http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X">Secrets of the Javascript Ninja</a> so that I could learn more about the Web API/DOM and how Javascript fits into that picture. A lot of the tutorials I&rsquo;ve been finding uses Javascript extensively and my lack of understanding in that subject was becoming a bigger problem.</p>
+
+<p>Because of these issues, I decided that December was the month that I would hunker down and challenge these glaring holes in my understanding. I dove deeper into Ruby and Javascript than I have before and ensured that I knew as much as I could before I buried myself even more into the various frameworks I was running across. Most of this renewed enthusiasm towards the language instead of the framework was because I was hearing over and over again about people learning frameworks without knowing what problems those frameworks were trying to solve.</p>
+
+<p>In my head, I have a clearer picture of Ruby&rsquo;s object model and order for it&rsquo;s method lookup. I have a clearer idea of how an object inherits it&rsquo;s methods and how monkeypatching works. I&rsquo;ve learned more about the techniques Rubyist use in their code including <code>method_missing</code> and the <code>eval</code> family to create scopes or get around them. I&rsquo;ve gone through them too quickly to fully understand their importance but I&rsquo;m going to use what I&rsquo;ve learned to understand the open source projects that I&rsquo;m using.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[What's Still on My Todo List]]></title>
+    <link href="http://raysapida.github.io/todo-list/"/>
+    <updated>2014-12-01T00:00:00-08:00</updated>
+    <id>http://raysapida.github.io/todo-list</id>
+    <content type="html"><![CDATA[<p>There are a lot of resources I need to go through and many things I need to learn. I&rsquo;m aiming to go through a big chunk of them this month and start better habits before the new year.</p>
+
+<h2>Continuous Todo List</h2>
+
+<ul>
+<li><a href="http://ejohn.org/blog/write-code-every-day/">Code everyday</a> inspired by <a href="http://jenniferdewalt.com/">Jennifer Dewalt</a>.</li>
+<li>Better git commit messages</li>
+<li>Contribute to open source tools that I&rsquo;ve been using, possibly using <a href="http://24pullrequests.com/">24pullrequests</a>.</li>
+</ul>
+
+
+<h2>General Todo List</h2>
+
+<ul>
+<li>Learn more about Rspec and fixtures/factories.</li>
+<li>Learn about functional programming through JavaScript and see how it can be applied with Ruby&rsquo;s procs and lambdas.</li>
+<li>Learn how to use Linux commands like <code>tar</code> and <code>grep</code> effectively.</li>
+</ul>
+
+
+<h2>Books to read</h2>
+
+<ul>
+<li>Pragmatic Programmer</li>
+<li>Mythical Man Month</li>
+<li>Learn to Program</li>
+<li>Secrets of the Javascript Ninja</li>
+<li>Well Grounded Rubyist</li>
+<li>Metaprogramming Ruby: Program Like the Ruby Pros</li>
+<li>Practical Object-Oriented Design in Ruby: An Agile Primer</li>
+<li>Ruby Science</li>
+<li>The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends</li>
+</ul>
+
+
+<h2>Even more questions</h2>
+
+<ul>
+<li>What is NGINX?</li>
+<li>What is Mongrel&rsquo;s parser?</li>
+<li>What is Event Machine network I/O library and how does it work?</li>
+<li>How does Rack middleware and Rack in general work with Ruby web applications?</li>
+<li>What is the difference between multi-threaded servers and multi-process servers?</li>
+<li>What is the difference between eager loading and lazy loading?</li>
+<li>How could I use capistrano, chef or puppet ?</li>
+<li>What is the difference between authentication and authorization in a Rails app?</li>
+<li>What is and how does garbage collection work in Ruby?</li>
+<li>How does the Rails asset pipeline differ from other pipelines in frameworks like Middleman ?</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Further Questions]]></title>
+    <link href="http://raysapida.github.io/further-questions/"/>
+    <updated>2014-11-30T00:00:00-08:00</updated>
+    <id>http://raysapida.github.io/further-questions</id>
+    <content type="html"><![CDATA[<p>I&rsquo;m finally sitting down and trying to look into the questions that built up from the past week</p>
+
+<ul>
+<li><h3>Why adding the ruby gem foreman into the Gemfile is not recommended?</h3>
+
+<p>This ruby gem is used for organizing apps with multiple components and uses a Procfile. The Procfile lists which processes foreman is suppose to manage. Heroku has an <a href="https://devcenter.heroku.com/articles/procfile#process-types-as-templates">article</a> that provides further details on Procfiles and the github page for foreman also has an extensive <a href="http://ddollar.github.io/foreman/">manual</a>. What jumped out the most from the foreman manual were the flags for port and concurrency which managed how many workers would be used for each process. From the heroku article , the most basic command in the Procfile was <code>bundle exec rails server -p $PORT</code> but more processes can be added. From what I can find, Heroku didn&rsquo;t suggest adding foreman into the Gemfile because its already added by default.</p></li>
+<li><h3>How does Unicorn interact with Rack Applications ?</h3>
+
+<p>I found an <a href="https://blog.engineyard.com/2010/everything-you-need-to-know-about-unicorn">article</a> that clarified the features that Unicorn has. There was also another article on how they can be configured at <a href="https://www.digitalocean.com/community/tutorials/how-to-optimize-unicorn-workers-in-a-ruby-on-rails-app">Digitial Ocean</a>. Both articles wrote about the advantages of using Unicorn but I didn&rsquo;t start seeing how it could be implemented until I looked at the <a href="http://guides.rubyonrails.org/initialization.html#loading-rails-rack-lib-rack-server-rb">guide</a> for the Rails Initialization Process. At the end of the guide, it mentioned that the process would be handed off to the specific server implementaion and that led me to the <a href="http://bogomips.org/unicorn.git/tree/lib/unicorn/http_server.rb">Unicorn::HttpServer</a> class. I&rsquo;m not sure how the process goes after it reaches this point, but I&rsquo;ll read the source code more in detail to find out. I do know from the comments that a server could be run using <code>HttpServer::run</code>. In the future, I want to write a blog post that extends the guide to how Unicorn would handle the last line <code>server.run wrapped_app, options, &amp;blk</code>.</p></li>
+<li><h3>What are the major differences between Unicorn, Thin , Puma and other Rack web servers ?</h3>
+
+<p>This <a href="https://www.digitalocean.com/community/tutorials/a-comparison-of-rack-web-servers-for-ruby-web-applications">article</a> was a great start on figuring out the differences between the servers. The answer produced even more questions though. Specifically on what is NGINX, Mongrel&rsquo;s parser, Event Machine network I/O library, and the specifics of Rack middleware for HTTP requests.</p></li>
+<li><h3>How does concurrency and thread-safe work in a Rails?</h3>
+
+<p>I started looking at stackoverflow to find out what <a href="http://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference">concurrency</a> and <a href="http://stackoverflow.com/questions/261683/what-is-meant-by-thread-safe-code">thread-safe</a> means. There was also another <a href="http://stackoverflow.com/questions/15184338/how-to-know-what-is-not-thread-safe-in-ruby">post</a> on what isn&rsquo;t thread safe in Ruby. Rails has a specific <a href="http://www.sitepoint.com/config-threadsafe/">configuration</a> that is turned on by default and this <a href="http://tenderlovemaking.com/2012/06/18/removing-config-threadsafe.html">post</a> went into through an indepth discussion about what that configuration did. The most interesting parts was when he said that &ldquo;We know that loading the framework isn’t threadsafe, so the strategy is to load it all up before any threads are ready to handle requests&rdquo; and that the <code>@allow_concurrency</code> option turns off a Rack Middleware called <code>Rack::Lock</code>. Again, this opened up more questions about the difference between multi-threaded servers and multi-process servers along with the difference between eager loading and lazy loading.</p>
+
+<pre><code>  def threadsafe!
+      @preload_frameworks = true
+      @cache_classes      = true
+      @dependency_loading = false
+      @allow_concurrency  = true
+      self
+  end
+</code></pre></li>
+<li><h3>How to configure a deployment through environment variables?</h3>
+
+<p>After finding two articles about it from <a href="http://railsapps.github.io/rails-environment-variables.html">railsapps</a> and <a href="http://www.gotealeaf.com/blog/managing-environment-configuration-variables-in-rails">tealeaf</a>, the best ways I read to manage environment variables centers around two gems; <a href="https://github.com/laserlemon/figaro">figaro</a> and <a href="https://github.com/bkeepers/dotenv-deployment">dotenv-development</a>. Both use a separate file, <code>.env</code> and <code>application.yml</code> respectively, that can be used to set environment variables and should not added to the public repository.</p></li>
+<li><h3>What are the best practices for deploying a Rails application?</h3>
+
+<p>There were many articles about this and I found that the best practices revolve around where you&rsquo;re deploying to and the specific requirements for your app. A common thread I found was using a tool to standardize the process like <a href="http://capistranorb.com/documentation/overview/what-is-capistrano/">capistrano</a>, <a href="https://www.getchef.com/chef/">chef</a>, or <a href="http://puppetlabs.com/">puppet</a>.</p></li>
+</ul>
+
+
+<h2>Even more questions</h2>
+
+<ul>
+<li>What is NGINX?</li>
+<li>What is Mongrel&rsquo;s parser?</li>
+<li>What is Event Machine network I/O library and how does it work?</li>
+<li>How does Rack middleware and Rack in general work with Ruby web applications?</li>
+<li>What is the difference between multi-threaded servers and multi-process servers?</li>
+<li>What is the difference between eager loading and lazy loading?</li>
+<li>How could I use capistrano, chef or puppet ?</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[12 Factor Apps]]></title>
+    <link href="http://raysapida.github.io/twelve-factor/"/>
+    <updated>2014-11-29T00:00:00-08:00</updated>
+    <id>http://raysapida.github.io/twelve-factor</id>
+    <content type="html"><![CDATA[<p>I was researching the ideas behind the 12 factor app and I learned a lot about deploying an application.</p>
+
+<ol>
+<li><h3>Codebase</h3>
+
+<p>The main idea behind this factor is using a version control system and that one app corresponds to one codebase. Codebases should not share code and if it does, they should be refactored into a shared library that can be included with dependencies.</p></li>
+<li><h3>Dependencies</h3>
+
+<p>Manage dependencies within an app and for a Rails application, this can be done through the Gemfile with locked versions.</p></li>
+<li><h3>Config</h3>
+
+<p>The configuration should be separate from the code and preferrably set in the environment&rsquo;s variables. For a Rails app, there&rsquo;s an explicit directory where configurations can be defined but this definition does not include routes or other internal configurations. Does this mean that the configurations in the yaml files should not be stated? This <a href="http://blog.doismellburning.co.uk/2014/10/06/twelve-factor-config-misunderstandings-and-advice/">article</a> cleared up some of those things for me. Things like the secret key and database configuration can be managed from the command line or with a <code>config/secrets.yml</code> that&rsquo;s not added to a repository. I still had more questions about managing secret keys outside of Rails with engines like Devise. I searched more and found answers in <a href="https://github.com/plataformatec/devise/issues/2554">one</a> of Devise&rsquo;s issues page. I still need to do more research into this because it sounds specific to what an app is using.</p></li>
+<li><h3>Backing Services</h3>
+
+<p>These services include the database, messaging and cache systems. The main idea behind this is that each service should be loosely coupled with the app and that would enable a deployment to easily swap them. My only experience with this so far is through database configurations.</p></li>
+<li><h3>Build, Release, Run</h3>
+
+<p>This factor encourages the separation betweem the build, release, and run stages. The build stage occurs during deployment, the release stage combines the build stage with configurations, and the run stage occurs while the environment is proccessing requests. I&rsquo;m still figuring out the best way to do this for a Rails app. Most of the articles I&rsquo;ve read used scripts to simplify these stages.</p></li>
+<li><h3>Processes</h3>
+
+<p>Each process should be stateless, share nothing with each other, and persistent data should be stored in a database. Specifically, the state is transfered in requests and not stored in the web server. From my understanding, these states don&rsquo;t apply to sessions which are stored in clients as cookies. This concept seems to go in line with a REST applications and helps with scaling the application.</p></li>
+<li><h3>Port Binding</h3>
+
+<p>The app should be self-contained and should not depend on runtime execution. It listens to requests and sends data through the port bindings. Along with processes, this one seems to be similar to a REST application and Rails can usually do this for free.</p></li>
+<li><h3>Concurrency</h3>
+
+<p>The application should be thread-safe or support concurrency meaning multiple processes could be added. I&rsquo;m still struggling with the idea of what kind of code is thread-safe in Rails and how Rails implements concurrency. I&rsquo;ve read that Rails uses concurrency by making sure that threads don&rsquo;t share the same data when they&rsquo;re run or lock them when they do to reduce interference but I don&rsquo;t know where this happens in the framework.</p></li>
+<li><h3>Disposability</h3>
+
+<p>Apps should have a fast startup and graceful shutdown. The former implies that less data or processes would be needed for the application to start and the latter implies that the app won&rsquo;t need a specific process every time it shuts down. Both parts make concurrent requests more effective and durable from errors. Specific implementations of this would include blocking a new request if the older one is still going or reconnecting  when the connection is lost.</p></li>
+<li><h3>Dev/prod parity</h3>
+
+<p>This involves keeping development and production as similar as possible. This helps with continuous deployment by keeping changes small so they can be pushed to development quickly, having developers work on both stages, and keeping the tools/dependencies as similar as possible. For example, the development side should use the same type of database and the environment could be handled by a virtual machine through vagrant to make sure that everything works on the same machine.</p></li>
+<li><h3>Logs</h3>
+
+<p>Treating logs as an event stream enables them to be stored in a third party service instead of a specific log file. This is useful when the app is deployed to multiple places and all the logs would be handle by one service.</p></li>
+<li><h3>Admin Processes</h3>
+
+<p>Administration processes like migrations should be handled as a one off process and in an identical environment as production. This is usually done through deployment scripts. I&rsquo;m still learning how to deploy an app effectively so this one is still a work in progress.</p></li>
+</ol>
+
+
+<h2>Further questions</h2>
+
+<ul>
+<li>Why adding the ruby gem foreman into the Gemfile is not recommended?</li>
+<li>How does Unicorn interact with Rack Applications ?</li>
+<li>What are the major differences between Unicorn, Thin , Puma and other Rack web servers ?</li>
+<li>How does concurrency and thread-safe work in a Rails?</li>
+<li>How to configure a deployment through environment variables?</li>
+<li>What are the best practices for deploying a Rails application?</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

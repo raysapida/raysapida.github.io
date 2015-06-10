@@ -4,7 +4,7 @@
   <title><![CDATA[Ray's Blog]]></title>
   <link href="http://raysapida.github.io/atom.xml" rel="self"/>
   <link href="http://raysapida.github.io/"/>
-  <updated>2015-06-09T01:30:08-07:00</updated>
+  <updated>2015-06-10T12:24:10-07:00</updated>
   <id>http://raysapida.github.io/</id>
   <author>
     <name><![CDATA[Raymond Sapida]]></name>
@@ -12,6 +12,45 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Writing Html and Css From a Specific Design]]></title>
+    <link href="http://raysapida.github.io/writing-html-and-css-from-a-specific-design/"/>
+    <updated>2015-06-09T13:29:40-07:00</updated>
+    <id>http://raysapida.github.io/writing-html-and-css-from-a-specific-design</id>
+    <content type="html"><![CDATA[<p>The first <a href="http://raysapida.github.io/startup_landing_page-clone/">project</a>
+I went through in Thinkful was creating a landing page from a
+design they gave me. I&rsquo;ve been accustomed to using bootstrap to setup navigation
+and positioning elements throughout the page so this excercise was relatively
+simple and also extremely useful.</p>
+
+<p>I did not realize how much of the basics of html and css I had forgotten
+until I was unable to use concepts like padding and nested elements. The
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model">box</a> model is the
+basis for a lot of styles and
+<a href="http://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048">selectors</a>
+are just as important since you would not be able to apply those styles without
+knowing which one to declare. Being reintroduced to those two details alone made
+the project worth it.</p>
+
+<p>Also, I found tools like <a href="http://fontface.ninja/">FontFaceNinja</a> and
+<a href="http://www.colorzilla.com/">ColorZilla</a> very useful. I knew how to use the
+Chrome Developer tools to check the html markup and styles for the page but that
+felt like I would be cheating myself from learning.</p>
+
+<p>The next step would be learning more about how to organize those styles. After
+including so many to each individual element, I kept on feeling like there
+should be a better way to go about it. Even after one day away from that
+stylesheet, it was very difficult to come back and add more styles without
+declaring new statements at the bottom. I know that overriding styles is the
+main idea behind CSS, but I always thought that it should be for inherited
+styles instead of multiple selectors for the same element.</p>
+
+<p>Another step after that would be learning a preproccessor like
+<a href="http://sass-lang.com/">Sass</a> along with libraries such as
+<a href="http://compass-style.org/">Compass</a> and <a href="http://bourbon.io/">Bourbon</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Going Through Thinkful's Front End Course]]></title>
@@ -1583,67 +1622,6 @@ upcase&rsquo;s new trails.</p>
 <li>What is the difference between multi-threaded servers and multi-process servers?</li>
 <li>What is the difference between eager loading and lazy loading?</li>
 <li>How could I use capistrano, chef or puppet ?</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[12 Factor Apps]]></title>
-    <link href="http://raysapida.github.io/twelve-factor/"/>
-    <updated>2014-11-29T00:00:00-08:00</updated>
-    <id>http://raysapida.github.io/twelve-factor</id>
-    <content type="html"><![CDATA[<p>I was researching the ideas behind the 12 factor app and I learned a lot about deploying an application.</p>
-
-<ol>
-<li><h3>Codebase</h3>
-
-<p>The main idea behind this factor is using a version control system and that one app corresponds to one codebase. Codebases should not share code and if it does, they should be refactored into a shared library that can be included with dependencies.</p></li>
-<li><h3>Dependencies</h3>
-
-<p>Manage dependencies within an app and for a Rails application, this can be done through the Gemfile with locked versions.</p></li>
-<li><h3>Config</h3>
-
-<p>The configuration should be separate from the code and preferrably set in the environment&rsquo;s variables. For a Rails app, there&rsquo;s an explicit directory where configurations can be defined but this definition does not include routes or other internal configurations. Does this mean that the configurations in the yaml files should not be stated? This <a href="http://blog.doismellburning.co.uk/2014/10/06/twelve-factor-config-misunderstandings-and-advice/">article</a> cleared up some of those things for me. Things like the secret key and database configuration can be managed from the command line or with a <code>config/secrets.yml</code> that&rsquo;s not added to a repository. I still had more questions about managing secret keys outside of Rails with engines like Devise. I searched more and found answers in <a href="https://github.com/plataformatec/devise/issues/2554">one</a> of Devise&rsquo;s issues page. I still need to do more research into this because it sounds specific to what an app is using.</p></li>
-<li><h3>Backing Services</h3>
-
-<p>These services include the database, messaging and cache systems. The main idea behind this is that each service should be loosely coupled with the app and that would enable a deployment to easily swap them. My only experience with this so far is through database configurations.</p></li>
-<li><h3>Build, Release, Run</h3>
-
-<p>This factor encourages the separation betweem the build, release, and run stages. The build stage occurs during deployment, the release stage combines the build stage with configurations, and the run stage occurs while the environment is proccessing requests. I&rsquo;m still figuring out the best way to do this for a Rails app. Most of the articles I&rsquo;ve read used scripts to simplify these stages.</p></li>
-<li><h3>Processes</h3>
-
-<p>Each process should be stateless, share nothing with each other, and persistent data should be stored in a database. Specifically, the state is transfered in requests and not stored in the web server. From my understanding, these states don&rsquo;t apply to sessions which are stored in clients as cookies. This concept seems to go in line with a REST applications and helps with scaling the application.</p></li>
-<li><h3>Port Binding</h3>
-
-<p>The app should be self-contained and should not depend on runtime execution. It listens to requests and sends data through the port bindings. Along with processes, this one seems to be similar to a REST application and Rails can usually do this for free.</p></li>
-<li><h3>Concurrency</h3>
-
-<p>The application should be thread-safe or support concurrency meaning multiple processes could be added. I&rsquo;m still struggling with the idea of what kind of code is thread-safe in Rails and how Rails implements concurrency. I&rsquo;ve read that Rails uses concurrency by making sure that threads don&rsquo;t share the same data when they&rsquo;re run or lock them when they do to reduce interference but I don&rsquo;t know where this happens in the framework.</p></li>
-<li><h3>Disposability</h3>
-
-<p>Apps should have a fast startup and graceful shutdown. The former implies that less data or processes would be needed for the application to start and the latter implies that the app won&rsquo;t need a specific process every time it shuts down. Both parts make concurrent requests more effective and durable from errors. Specific implementations of this would include blocking a new request if the older one is still going or reconnecting  when the connection is lost.</p></li>
-<li><h3>Dev/prod parity</h3>
-
-<p>This involves keeping development and production as similar as possible. This helps with continuous deployment by keeping changes small so they can be pushed to development quickly, having developers work on both stages, and keeping the tools/dependencies as similar as possible. For example, the development side should use the same type of database and the environment could be handled by a virtual machine through vagrant to make sure that everything works on the same machine.</p></li>
-<li><h3>Logs</h3>
-
-<p>Treating logs as an event stream enables them to be stored in a third party service instead of a specific log file. This is useful when the app is deployed to multiple places and all the logs would be handle by one service.</p></li>
-<li><h3>Admin Processes</h3>
-
-<p>Administration processes like migrations should be handled as a one off process and in an identical environment as production. This is usually done through deployment scripts. I&rsquo;m still learning how to deploy an app effectively so this one is still a work in progress.</p></li>
-</ol>
-
-
-<h2>Further questions</h2>
-
-<ul>
-<li>Why adding the ruby gem foreman into the Gemfile is not recommended?</li>
-<li>How does Unicorn interact with Rack Applications ?</li>
-<li>What are the major differences between Unicorn, Thin , Puma and other Rack web servers ?</li>
-<li>How does concurrency and thread-safe work in a Rails?</li>
-<li>How to configure a deployment through environment variables?</li>
-<li>What are the best practices for deploying a Rails application?</li>
 </ul>
 
 ]]></content>

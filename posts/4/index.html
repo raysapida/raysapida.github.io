@@ -9,7 +9,8 @@
   <meta name="author" content="Raymond Sapida">
 
   
-  <meta name="description" content="There are a lot of resources I need to go through and many things I need to learn. I&rsquo;m aiming to go through a big chunk of them this month and &hellip;">
+  <meta name="description" content="I&rsquo;ve been working through the testing trails in upcase for test doubles and
+testing fundamentals. The most difficult part for me was &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +78,202 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/specifcs-about-testing/">Learning Specifics About Testing</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-02-18T00:00:00-08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;ve been working through the testing trails in upcase for test doubles and
+testing fundamentals. The most difficult part for me was understanding mocks and spies along with how to
+structure them to make sure the right behavior is being tested. I&rsquo;ve
+written unit tests and a few acceptance tests in the past but I&rsquo;ve never used
+test doubles before the upcase trail. I had to research the differences between
+fakes, dummies, stubs, spies and mocks. Upcase provided an
+<a href="http://www.martinfowler.com/bliki/TestDouble.html">aricle</a> by Martin Fowler as
+an introduction to those ideas. From my understanding, the advantages
+of using test doubles are clarity and speed. The unit tests should already tests
+that the proper answers are being given in the model or controller level which
+makes stubs a good way to improve them. Mocks ensure that specific method calls
+are being used and spies take that a step further by recording how the method
+calls are used. For example, spies could say that a method call was used twice
+instead of the expected once.</p>
+
+<p>I&rsquo;ve learned the definitions for different kinds of testing; unit,
+integration, feature, and functional tests. Unit tests are for a small subset of the
+application and I closely associate it with tests for a specific controller or
+model. Integration tests go from end to end and I&rsquo;ve used it to test that
+logging in to an application or using the user interface. Functional tests are
+integration tests that actually run the application from end to end similar to
+making sure that an email is sent when a person is trying to recover a forgotten
+password. Feature tests are for things that change the functionality of the
+application like changing a status update from text only to including image
+attachments.</p>
+
+<p>I&rsquo;m also still getting used to rspec and capybara. The most prevalent comments I would receive from the
+exercises were the different shortcuts people use in their tests and other
+improvements on readability to make sure that the reader can better understand
+the intent behind the tests. Most of my
+tests in the past was using Minitest because it was included by default and
+it was the framework most of the tutorials I followed use; it&rsquo;s the testing framework included with the exercism
+exercises and the Treehouse tutorials for the Treebook application. I&rsquo;ve never
+really thought of tests outside unit testing but I&rsquo;m appreciating what testing
+adds to the application. I&rsquo;m starting to see why tests can function as
+documentation instead of comments and how bugs can be recreated to better
+understand where edge cases are coming from.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/january/">My Month of January, the Cliff Notes Version</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-02-06T00:00:00-08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I spent most of January working on exercism challenges and refamiliarizing myself with Rails. I haven&rsquo;t been able to pair program with other people yet and online
+exercises have been the only way I&rsquo;ve gotten feedback for the programs I&rsquo;ve written. It&rsquo;s been a good way to learn more about design patterns and subtleties in the Ruby language. Out of all the exercises there, I enjoyed the one about Binary Search Trees the most. Another user on the site turned me towards using the Null Object Pattern and my research into the topic led me to an <a href="http://devblog.avdi.org/2011/05/30/null-objects-and-falsiness/">article</a> that illustrated how it could be used in Ruby. In the end, I ended up with code that looked like this:</p>
+
+<pre><code class="ruby">class Bst
+  attr_accessor :left, :right, :data
+
+  def initialize(data)
+    @data = data
+    @left = NullObject.new
+    @right = NullObject.new
+  end
+
+  def insert(number)
+    if number &gt; @data
+      in_right(number)
+    elsif number &lt;= @data
+      in_left(number)
+    end
+  end
+
+  def each(&amp;block)
+    left.each(&amp;block)
+    block.call(data)
+    right.each(&amp;block)
+  end
+
+  private
+
+  def in_right(number)
+    right.insert(number) or @right = Bst.new(number)
+  end
+
+  def in_left(number)
+    left.insert(number) or @left = Bst.new(number)
+  end
+end
+class NullObject
+  def data
+    nil
+  end
+
+  def insert(*)
+    false
+  end
+
+  def each(*)
+    self
+  end
+end
+</code></pre>
+
+<p>The exercism website also had challenges that involved other data structures
+like linked lists and matrices. I&rsquo;ve been reading more and more about how to
+become job ready as a programmer and there have been a lot of advice on being
+familiar with common data structures and how to implement them as well as
+recognizing the <a href="http://bigocheatsheet.com/">Big-O</a> complexities of different algorithms. I&rsquo;ve mostly been teaching
+myself and I know that I need to spend time on subjects that other programmers
+would have been exposed to in school. I want to do my best to expose my
+ignorance now.</p>
+
+<p> I&rsquo;ve also started a membership at <a href="upcase.com">upcase</a> so that I could become
+more familiar with the tools that Ruby on Rails developers use. I&rsquo;ve learned
+more about how to use vim and testing use rspec/capybara. I&rsquo;m amazed by how
+efficient I could be using while vim and how easy it could be to learn when I&rsquo;m
+pointed in the right direction. I&rsquo;ve neglected how to write my own tests in the
+past and I&rsquo;m trying to remedy that by learning how to use the tools other
+developers employ. Currently, I&rsquo;m also trying to learn how to use tmux in one of
+upcase&rsquo;s new trails.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/reading/">Jumpstarting the New Year Through Books</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-12-31T00:00:00-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When I started learning more and more about Rails, I became very aware that my programming skills in Ruby was lacking. I would read the code examples and I would find many methods and concepts that I repeatedly had to look up online in order to understand. I started to panic a little bit then because I was afraid that what I was doing wasn&rsquo;t working and that I wasn&rsquo;t internalizing what I was learning.  A lot of times I feel like I&rsquo;m fumbling around trying to find a way to reach out and find something to hold on to and effectively learn. The main way I&rsquo;ve been doing this is through code challenges and tutorials but I&rsquo;ve been finding that there is a huge gap between the code that I was writing and the code that I would read on open source projects.</p>
+
+<p>Because of that gap, I&rsquo;ve been reading as many Ruby Books as I can. This past month, I&rsquo;ve gone through <a href="http://www.amazon.com/Program-Second-Edition-Facets-Series/dp/1934356360">Learn to Program</a>, <a href="http://www.amazon.com/The-Well-Grounded-Rubyist-David-Black/dp/1617291692">Well-Grounded Rubyist</a>, <a href="http://www.amazon.com/Metaprogramming-Ruby-Program-Like-Facets/dp/1941222129">Metaprogramming Ruby 2: Program Like the Ruby Pros</a> and I&rsquo;m also halfway through <a href="http://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional-Series/dp/0321584104">Eloquent Ruby</a>. These four books had a lot of intersections and they were a great starting point for the techniques that I was coming across while trying to read open source code. Along with those books, I&rsquo;ve also read <a href="http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X">Secrets of the Javascript Ninja</a> so that I could learn more about the Web API/DOM and how Javascript fits into that picture. A lot of the tutorials I&rsquo;ve been finding uses Javascript extensively and my lack of understanding in that subject was becoming a bigger problem.</p>
+
+<p>Because of these issues, I decided that December was the month that I would hunker down and challenge these glaring holes in my understanding. I dove deeper into Ruby and Javascript than I have before and ensured that I knew as much as I could before I buried myself even more into the various frameworks I was running across. Most of this renewed enthusiasm towards the language instead of the framework was because I was hearing over and over again about people learning frameworks without knowing what problems those frameworks were trying to solve.</p>
+
+<p>In my head, I have a clearer picture of Ruby&rsquo;s object model and order for it&rsquo;s method lookup. I have a clearer idea of how an object inherits it&rsquo;s methods and how monkeypatching works. I&rsquo;ve learned more about the techniques Rubyist use in their code including <code>method_missing</code> and the <code>eval</code> family to create scopes or get around them. I&rsquo;ve gone through them too quickly to fully understand their importance but I&rsquo;m going to use what I&rsquo;ve learned to understand the open source projects that I&rsquo;m using.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -310,131 +507,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/deploying-to-heroku/">Deploying to Heroku</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-11-26T00:00:00-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&rsquo;ve recently deployed an <a href="https://github.com/raysapida/mustached-octo-robot">app</a> I was working on to Heroku and the process of matching the development environment to the production environment was very interesting. Heroku itself provided an <a href="https://devcenter.heroku.com/articles/getting-started-with-rails4">article</a> to set up a Rails app and an additonal <a href="https://devcenter.heroku.com/articles/rails-unicorn">article</a> to set up a unicorn server.</p>
-
-<h3>The two specific gems I added to the Gemfile</h3>
-
-<ul>
-<li><a href="https://rubygems.org/gems/unicorn">unicorn</a></li>
-<li><a href="https://github.com/heroku/rails_12factor">rails_12factor</a> which includes the gems <a href="https://github.com/heroku/rails_stdout_logging">rails_stdout_logging</a> and <a href="https://github.com/heroku/rails_serve_static_assets">rails_serve_static_assets</a></li>
-</ul>
-
-
-<p>The rails_12factor gem enables the app to improve on two factors in the <a href="http://12factor.net/">12 factor app</a>; treating logs as an event stream instead of writing them to a single file and serving static assets through Rails instead of a proxy server. This was my first experience with the term twelve factor app and I&rsquo;m taking the time to learn as much as I can about it before writing any more on the topic.</p>
-
-<p>To use the unicorn gem, I added a file to <code>config/unicorn.rb</code> and I used the basic configuration that heroku provided. The default web server in rails, Webrick, can only handle one request at a time so a different server is needed in production. From my understanding, Unicorn emulates a thread safe app by prioritizing fast requests over slower ones.</p>
-
-<p>The biggest problem I came across was applying the database migrations to the Heroku database. Running <code>heroku run rake db:migrate</code> produced an error and it might have been because I started the app from an older version of Rails. The older migrations could have started conflicting. As a workaround, I switched my development database to Posgresql, ran the migrations on my computer, and pushed the schema through the command  <code>heroku pg:push &lt;LOCAL DB&gt; &lt;HEROKU DB&gt;</code>.</p>
-
-<h3>Further questions I had</h3>
-
-<ul>
-<li>What are the practical ramifications of the 12 factors to a web developer ?</li>
-<li>Why shouldn&rsquo;t I add the ruby gem foreman into the Gemfile ?</li>
-<li>How does Unicorn interact with Rack Applications ?</li>
-<li>What are the major differences between Unicorn, Thin , Puma and other Rack web servers ?</li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/favorite-ruby-gem/">My Favorite Ruby Gem</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-11-25T00:00:00-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>If I could tell myself one thing when I first started learning about Ruby and Rails, I would say use <a href="https://github.com/pry/pry">pry</a>. There are so many tutorials that I stopped halfway through because I couldn&rsquo;t debug it properly and Pry ended up helping me with most of them. In Rails, I&rsquo;ve used <code>binding.pry</code> so much that I sometimes leave it as a comment in case I have to go through it again. The only misstep I&rsquo;ve had while using it is including <code>binding.pry</code> directly into a <code>for</code> or <code>while</code> loop. In that case, each <code>step</code> usually goes through one iteration of the loop and using the <code>finish</code> command does the same thing.</p>
-
-<p>Also, since I&rsquo;ve started doing coding challenges like <a href="http://exercism.io/">exercism</a> and <a href="codewars.com">codewars</a>, I&rsquo;ve used Pry to explore what I can do when solving problems. What I love the most about using it is that I can create a variable with the methods I&rsquo;m using, <code>cd</code> into it, and use the <code>ls</code> command to view all the methods available. I could then use the <code>?</code> or <code>show-doc</code> commands to explore what each method can do. While learning how to use methods, I have a hard time figuring out how the object I pass changes and which methods could then be called on it. In my first iteration, I usually group methods by the type of object they become since the most common type of errors I&rsquo;ve had are <code>ArgumentError</code> and <code>TypeError</code>.  As an added benefit, I could try out any code I want to write in the Pry before adding it to my project. That way, I could be sure that a problem exists somewhere other than the code I&rsquo;m working on.</p>
-
-<p>I was introduced to both of these approaches in Rails Conference videos I&rsquo;ve seen from YouTube and if either interest you, you can follow the following links below to learn more about it.</p>
-
-<p><a href="https://www.youtube.com/watch?v=D9j_Mf91M0I">Ruby Conf 2013 - REPL driven development with Pry by Conrad Irwin</a></p>
-
-<p><a href="https://www.youtube.com/watch?v=4hfMUP5iTq8">RailsConf 2014 - Debugger Driven Developement with Pry by Joel Turnbull</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/setup/">Setup in the Beginning</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-11-24T00:00:00-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>When I first started learning , the biggest hurdle I had to overcome was setting up my computer. A lot of online courses had ways to try out code in the browser but I had to learn how to create a similar set up on my own computer at some point. <a href="http://railsinstaller.org/en">RailsInstaller</a> was a good start for me. I had and still use a Windows laptop. On a recent Ruby Rogues <a href="http://devchat.tv/ruby-rogues/181-rr-rubyinstaller-with-luis-lavena">episode</a>, it&rsquo;s creator Luis Lavena said that he wanted to help users that used Windows and I mention it because his project was a big help for me. Eventually though, I wanted to use the same tools as the tutorials I was following and include gems that weren&rsquo;t available for Windows. The solution came with <a href="https://www.vagrantup.com/">Vagrant</a>. I found enough tutorials online and treehouse has a specific course for it that it was enough for me to give it a try.</p>
-
-<p>There was a specific <a href="https://www.virtualbox.org/ticket/11709">bug</a> on VirtualBox version 4.2.12 that I encountered but that was the only big problem I had when installing it. I was also having difficulties using existing vagrant boxes that other people have pubished on github until <a href="http://www.barryclark.co/">Barry Clark</a> sent me a link for a rails development <a href="https://github.com/gofullstack/cocoon">box</a> that finally worked.</p>
-
-<p>Using vagrant forced me to become more familiar with the command line but it gave me access to tools like rvm which I appreciate now more than ever. I&rsquo;ve read that a Gemfile is really all you need with a Ruby project but I kept on having so many issues with different gems that it was easier to isolate projects using gemsets instead. I think that when you&rsquo;re starting to learn something, the best thing is to minimize the number of things you have to look into to isolate problems. I knew that it would have been amazing to understand what was happening between the gems, but it was better to prioritize learning ruby programming and rails configuration.</p>
-
-<p>The last thing I needed to remember when I started was balancing when it was time to go deeper into the subject matter or opt for an easier solution. As a beginner, it was easy to feel like I wasn&rsquo;t being productive and ultimitely feel overwhelmed by what I was getting myself in to. I needed to be my own coach as a consequence of that. I pushed myself when I was really getting behind and went easy when I knew that I was starting to become too discouraged. I think that this is something fundamental to anyone teaching themselves, they learn more about their own motivations and what can sustain them for the next sprint.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/5">&larr; Older</a>
@@ -452,23 +524,23 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/creating-a-shopping-list-with-jquery/">Creating a Shopping List With jQuery</a>
+      </li>
+    
+      <li class="post">
+        <a href="/a-little-bit-of-jquery-animation/">A Little Bit of jQuery Animation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/using-the-chrome-developer-tools/">Using the Chrome Developer Tools</a>
+      </li>
+    
+      <li class="post">
         <a href="/writing-html-and-css-from-a-specific-design/">Writing Html and Css From a Specific Design</a>
       </li>
     
       <li class="post">
         <a href="/thinkful-front-end-developer-course/">Going Through Thinkful's Front End Course</a>
-      </li>
-    
-      <li class="post">
-        <a href="/preparing-a-resume/">Preparing a Resume</a>
-      </li>
-    
-      <li class="post">
-        <a href="/vim-snippets-cheatsheet/">Snippets Cheat Sheet</a>
-      </li>
-    
-      <li class="post">
-        <a href="/vim-cheatsheet/">Vim Cheat Sheet</a>
       </li>
     
   </ul>

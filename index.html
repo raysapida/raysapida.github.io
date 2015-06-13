@@ -9,9 +9,10 @@
   <meta name="author" content="Raymond Sapida">
 
   
-  <meta name="description" content="The first project
-I went through in Thinkful was creating a landing page from a
-design they gave me. I&rsquo;ve been accustomed to using bootstrap to &hellip;">
+  <meta name="description" content="This shopping list project is an
+example of creating a basic todo list. I used
+materialpalette
+to pick out the color combinations I included and the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +80,337 @@ design they gave me. I&rsquo;ve been accustomed to using bootstrap to &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/creating-a-shopping-list-with-jquery/">Creating a Shopping List With jQuery</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-06-12T07:06:02-07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:06 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This shopping list <a href="http://raysapida.github.io/ShoppingCart/">project</a> is an
+example of creating a basic todo list. I used
+<a href="http://www.materialpalette.com/">materialpalette</a>
+to pick out the color combinations I included and the process involved
+appending and removing nodes in the app for the list.</p>
+
+<p>I was creating the list items dynamically and I created variables to hold the
+string for the three types of button; to delete the item, to mark the item as
+acquired, and to undo that mark.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  var del_btn = "&lt;button class='fa fa-trash-o'&gt;&lt;/button&gt;";
+</span><span class='line'>  var check_btn = "&lt;button class='fa fa-check-circle-o'&gt;&lt;/button&gt;";
+</span><span class='line'>  var times_btn = "&lt;button class='fa fa-times'&gt;&lt;/button&gt;";</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The next part of the script was the <code>submit</code> event handler appends a new item to
+the list unordered list.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$( "#item" ).submit(function( event ) {
+</span><span class='line'>  var x = $("input").val();
+</span><span class='line'>  $('.list').append("&lt;li&gt;"+x+del_btn+check_btn+"&lt;/li&gt;");
+</span><span class='line'>  event.preventDefault();
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The next three statements were created using the <code>on</code> event handler and
+attaching them to the three variable buttons created. I used <code>on</code> instead of
+<code>click</code> because the latter would only attach the click function if the button
+exists when the page is first loaded.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$('.list').on('click', '.fa-trash-o', function(){
+</span><span class='line'>  $(this).parent().remove();
+</span><span class='line'>});
+</span><span class='line'>
+</span><span class='line'>$('.list').on('click', '.fa-check-circle-o', function(){
+</span><span class='line'>  var item = $(this).parent().text();
+</span><span class='line'>  $(this).parent().remove();
+</span><span class='line'>  $('.complete-list').append("&lt;li class='complete'&gt;"+item+del_btn+times_btn+"&lt;/li&gt;");
+</span><span class='line'>});
+</span><span class='line'>
+</span><span class='line'>$('.complete-list').on('click', '.fa-times', function(){
+</span><span class='line'>  var item = $(this).parent().text();
+</span><span class='line'>  $(this).parent().remove();
+</span><span class='line'>  $('.list').append("&lt;li&gt;"+item+del_btn+check_btn+"&lt;/li&gt;");
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The last <code>on</code> click handler removes the whole list and basically restarts the
+whole app.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$('.complete-list').on('click', '.fa-trash-o', function(){
+</span><span class='line'>  $(this).parent().remove();
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/a-little-bit-of-jquery-animation/">A Little Bit of jQuery Animation</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-06-11T13:18:14-07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:18 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The third <a href="http://raysapida.github.io/jquery-streetfighter/main.html">project</a>
+introduced the idea behind click handlers in jQuery and using the
+<a href="http://api.jquery.com/animate/">animate</a>
+method. The process involved learning how images are loaded along with how
+styles can be included and hidden until Javascript includes the images.</p>
+
+<p>The whole script was relative small and involved six actions;
+<a href="http://api.jquery.com/mouseenter/">mouseenter</a>,
+<a href="http://api.jquery.com/mouseleave/">mouseleave</a>,
+<a href="http://api.jquery.com/mousedown/">mousedown</a>,
+<a href="http://api.jquery.com/mouseup/">mouseup</a>,
+<a href="http://api.jquery.com/keydown/">keydown</a>, and
+<a href="http://api.jquery.com/keyup/">keyup</a>. The first one would hide the still
+Ryu image and replace it with a looping gif of Ryu swaying in place.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$('.ryu').mouseenter(function() {
+</span><span class='line'>  $('.ryu-still').hide();
+</span><span class='line'>  $('.ryu-ready').show();
+</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>mouseleave</code> would do the opposite and change the gif back to a still Ryu.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.mouseleave(function() {
+</span><span class='line'>  $('.ryu-ready').hide();
+</span><span class='line'>  $('.ryu-still').show();
+</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>mousedown</code> animates the hadouken image, swap the ready image to Ryu
+throwing, and plays the sound script.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.mousedown(function() {
+</span><span class='line'>  playHadouken();
+</span><span class='line'>  $('.ryu-ready').hide();
+</span><span class='line'>  $('.ryu-throwing').show();
+</span><span class='line'>  $('.hadouken').show();
+</span><span class='line'>  $('.hadouken').finish().show()
+</span><span class='line'>  .animate(
+</span><span class='line'>    {'left': '1020px'},
+</span><span class='line'>    500,
+</span><span class='line'>    function() {
+</span><span class='line'>      $(this).hide();
+</span><span class='line'>      $(this).css('left', '520px');
+</span><span class='line'>    }
+</span><span class='line'>  );
+</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>mouseup</code> swaps the throwing Ryu image with the ready image/</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.mouseup(function() {
+</span><span class='line'>  $('.ryu-throwing').hide();
+</span><span class='line'>  $('.ryu-ready').show();
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>keydown</code> checks if the x key was pressed first and goes through if else
+statements to show which image to hide then show Ryu striking a pose</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$(document).keydown(function(e) {
+</span><span class='line'>  if (88 == e.which) {
+</span><span class='line'>    if ($('.ryu-ready').is(':visible')){
+</span><span class='line'>      $('.ryu-ready').hide();
+</span><span class='line'>    } else if ( $($('.ryu-throwing').is(':visible')) ) {
+</span><span class='line'>      $('.ryu-throwing').hide();
+</span><span class='line'>    } else {
+</span><span class='line'>      $('.ryu-still').hide();
+</span><span class='line'>    }
+</span><span class='line'>    $('.ryu-cool').show();
+</span><span class='line'>  }
+</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>keyup</code> does the opposite and hide Ryu striking a pose.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.keyup(function(e) {
+</span><span class='line'>  if (88 == e.which) {
+</span><span class='line'>    if ($('.ryu').mouseenter()) {
+</span><span class='line'>      $('.ryu-ready').show();
+</span><span class='line'>    } else {
+</span><span class='line'>      $('.ryu-still').show();
+</span><span class='line'>    }
+</span><span class='line'>    $('.ryu-cool').hide();
+</span><span class='line'>  }
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>During my first implementation of the project, I didn&rsquo;t differentiate between
+the different images during the keydown event and it would produce multiple
+images when it was called. I&rsquo;m not quite sure what was happening so I added the
+if else statements to check what state Ryu was in before continuing.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/using-the-chrome-developer-tools/">Using the Chrome Developer Tools</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-06-10T12:27:04-07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:27 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Chrome Developer Tools involved the next Thinkful
+<a href="http://raysapida.github.io/raymond-sapida-portfolio/images/hack_the_times.png">project</a>
+I added and it was a brief introduction to what was available to a developer.
+There&rsquo;s a lot of tools available from there, and I know I&rsquo;ve only scratched the
+surface, but it&rsquo;s great how useful that little bit of knowledge has been.</p>
+
+<p>I spent most of my time using the
+<a href="https://developer.chrome.com/devtools/docs/dom-and-styles">elements</a> tab to
+view how the html tags were structure and to view the styles implemented there.
+Changing the styles also allowed me to get a glimpse on how the rest of the page
+was marked up and it was a great way to figure out the right positions without
+editing the stylesheets over and over again.</p>
+
+<p>The <a href="https://developer.chrome.com/devtools/docs/console">console</a> tab was the
+second most panel that I spend my time with because it&rsquo;s great for debugging and
+allows anyone to run a snippet of Javascript code to see how it works. I&rsquo;m
+getting into the habit of adding multiple console logs in my Javascript script
+to see how a variable changes when it&rsquo;s called. This allows me a window to see
+if the functions I write are behaving the way I expect them to.</p>
+
+<p>Other than those two, I&rsquo;ve also been using the
+<a href="https://developer.chrome.com/devtools/docs/resource-panel">resource</a> tab to
+check if the assets are being loaded correctly and the sources tab to see the
+exact scripts being loaded. I&rsquo;m looking into another add on to Chrome called
+<a href="https://github.com/dejan/rails_panel">RailsPanel</a> to see how much it could help
+me when I write Rails applications.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -388,308 +720,6 @@ it invokes</li>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/vim-snippets-cheatsheet/">Snippets Cheat Sheet</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-05-16T00:00:00-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&rsquo;m currently trying to use more of snippets in vim and this is a group of
-commands that I think would help me out. These snippets are provided by two
-different repositories and I installed
-<a href="https://github.com/tpope/vim-pathogen">vim-pathogern</a> to add more of my own in
-the future.</p>
-
-<h2><a href="https://github.com/honza/vim-snippets">honza vim-snippets</a></h2>
-
-<h3>Rails</h3>
-
-<ul>
-<li><code>snippet resources</code> - Create resources controller class</li>
-<li><code>snippet befc</code> - before create</li>
-<li><code>snippet befd</code> - before destroy</li>
-<li><code>snippet befu</code> - before update</li>
-<li><code>snippet befv</code> - before validation</li>
-<li><code>snippet defcreate</code> - def create - resource</li>
-<li><code>snippet fina</code> - find(:all)</li>
-<li><code>snippet defi</code> - def initialize</li>
-<li><code>snippet class</code> - class <class_name> def initialize &hellip; end end</li>
-</ul>
-
-
-<h3>Markdown</h3>
-
-<ul>
-<li><code>snippet link</code> - Link to something</li>
-<li><code>snippet img</code> - Image</li>
-<li><code>snippet ilc</code> - Inline Code</li>
-<li><code>snippet cbl</code> - Codeblock</li>
-</ul>
-
-
-<h3>Html</h3>
-
-<ul>
-<li><code>snippet body</code> - body tags</li>
-<li><code>snippet div</code> - div tags</li>
-<li><code>snippet div.</code> - div tags with class</li>
-<li><code>snippet div#</code> - div tags with class and id</li>
-<li><code>snippet p</code> - paragraph tags</li>
-<li><code>snippet ul</code> - unordered list tags</li>
-<li><code>snippet li</code> - list item tags</li>
-</ul>
-
-
-<h2><a href="https://github.com/r00k/dotfiles">r00k dotfiles</a></h2>
-
-<h3>Ruby</h3>
-
-<ul>
-<li><code>snippet =b</code> - comment code block</li>
-<li><code>snippet req</code> - reuire statement</li>
-<li><code>snippet case</code> - case when statements</li>
-<li><code>snippet def</code> - def method with end</li>
-<li><code>snippet if</code> - if statement</li>
-<li><code>snippet ife</code> - if else statement</li>
-<li><code>snippet elsif</code> - elsif statement</li>
-<li><code>snippet Enum</code> - include Enumerable and create each method</li>
-<li><code>snippet Comp</code> - include Comparable and create spaceship method</li>
-<li><code>snippet defs</code> - def self. statement</li>
-<li><code>snippet ea</code> - each method</li>
-<li><code>snippet eai</code> - each with index method</li>
-<li><code>snippet inj</code> - inject method</li>
-<li><code>snippet map</code> - map method</li>
-</ul>
-
-
-<h3>ERB</h3>
-
-<ul>
-<li><code>snippet p</code></li>
-<li><code>snippet pe</code></li>
-<li><code>snippet end</code></li>
-</ul>
-
-
-<h3>Rspec</h3>
-
-<ul>
-<li><code>snippet new</code> - test double with allow</li>
-<li><code>snippet desc</code> - describe block</li>
-<li><code>snippet it</code> - it block</li>
-<li><code>snippet con</code> - context block</li>
-<li><code>snippet bed</code> - before block</li>
-<li><code>snippet hc</code> - expect page have content</li>
-<li><code>snippet let</code> - let block</li>
-<li><code>snippet ex</code> - expect to</li>
-<li><code>snippet scen</code> - scenario block</li>
-<li><code>snippet rrh</code> - require rails helper</li>
-</ul>
-
-
-<h2>Commands I&rsquo;ve learned</h2>
-
-<ul>
-<li><code>rails new api -T -d postgresql</code> - The -T is the same as  &ndash;skip-test-unit</li>
-<li><code>rails new bostonember -B -S</code> - Skips bundle install and sprockets</li>
-<li><code>FactoryGirl.create_list(:contact, 10)</code></li>
-<li><code>rails g model Account name:string subdomain:string --skip</code></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/vim-cheatsheet/">Vim Cheat Sheet</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-05-02T00:00:00-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Lately, I&rsquo;ve been envious of graphic text editors and the way they navigate
-through project files. I&rsquo;ve been doing a lot of tutorial projects in Ruby and
-Javascript along with cloning documentation from github as a reference offline.
-I downloaded <a href="https://atom.io/">atom</a> to accomplish this but I&rsquo;m sacrificing the
-speed of working with a vim/tmux setup. After watching Upcase&rsquo;s latest Weekly
-Iteration on Vim, I decided to try achieving a deeper understanding of Vim&rsquo;s
-capabilities.</p>
-
-<h2><a href="http://www.sitepoint.com/effective-rails-development-vim/">Rails Vim commands</a></h2>
-
-<ul>
-<li><p><code>:PluginInstall</code> - Install Vundle plugins</p></li>
-<li><p><code>gf</code> - Go to File</p></li>
-<li><p><code>CTRL + o</code> - Go back to the previous file</p></li>
-<li><p><code>CTRL + i</code> - Go forward in visited files</p></li>
-<li><p><code>:jumps</code> - List visited files</p></li>
-<li><p><code>RcontrollerJump</code> - to relevant controller, as if you are in a model file, and you want to jump to its controller.</p></li>
-<li><p><code>RmodelJump</code> - to the model</p></li>
-<li><p><code>RviewJust</code> - add the name of the view like (index, show, edit) to jump to the relevant view.</p></li>
-<li><p><code>RunittestJump</code> - to the relevant unit test.</p></li>
-<li><p><code>RfunctionaltestJump</code> - to the relevant test.</p></li>
-<li><p><code>RintegrationtestJump</code> - to the integration test, integration spec, or cucumber feature specified.</p></li>
-<li><p><code>RspecJump</code> - to the given spec.</p></li>
-<li><p><code>RmigrationUse</code> - tab completion to choose from the available migrations and jump to one of them.</p></li>
-<li><p><code>RschemaJump</code> - to the project schema.</p></li>
-<li><p><code>RmailerJump</code> - to the given mailer.</p></li>
-<li><p><code>RhelperJump</code> - to the given helper.</p></li>
-<li><p><code>RjavascriptJump</code> - to given JavaScript or CoffeScript file.</p></li>
-<li><p><code>RstylesheetJump</code> - to given stylesheet.</p></li>
-<li><p><code>RtaskJump</code> - to given task.</p></li>
-<li><p><code>RlibJump</code> - to given lib, if no arguments specified it jumps to the Gemfile.</p></li>
-<li><p><code>RlayoutJump</code> - to the layout of the current controller.</p></li>
-<li><p><code>:RV</code> - Open files in vertical split windows</p></li>
-<li><p><code>:RS</code> - Open files in horizontal splits</p></li>
-<li><p><code>:RT</code> - Open files in new tabs</p></li>
-<li><p><code>:RD</code> - Open files in current buffer</p></li>
-<li><p><code>:Rgenerate migration add_something_to_tablename</code></p></li>
-<li><p><code>:Rserver</code>, <code>:Rserver!</code> and <code>:Rserver!-</code> - Running, Restarting, and Killing the Serve</p></li>
-<li><p><code>:Rpreview</code> - Open the correct URL for the current file</p></li>
-</ul>
-
-
-<h2><a href="https://github.com/thoughtbot/vim-rspec">Vim-rspec</a></h2>
-
-<ul>
-<li><p><code>map &lt;Leader&gt;t :call RunCurrentSpecFile()&lt;CR&gt;</code></p></li>
-<li><p><code>map &lt;Leader&gt;s :call RunNearestSpec()&lt;CR&gt;</code></p></li>
-<li><p><code>map &lt;Leader&gt;l :call RunLastSpec()&lt;CR&gt;</code></p></li>
-<li><p><code>map &lt;Leader&gt;a :call RunAllSpecs()&lt;CR&gt;</code></p></li>
-</ul>
-
-
-<h2>Vim plugins to checkout</h2>
-
-<ul>
-<li><p><a href="https://github.com/garbas/vim-snipmate">vim-snipmate</a> - Creates code
-templates</p></li>
-<li><p><a href="https://github.com/rking/ag.vim">ag.vim</a> - Searching similar to grep and ack</p></li>
-<li><p><a href="https://github.com/tomtom/tcomment_vim">tcomment_vim</a> - A plugin to comment
-out blocks of code</p></li>
-<li><p><a href="https://github.com/ecomba/vim-ruby-refactoring">vim-ruby-refactoring</a> -
-Shortcuts for common ruby refactoring techniques</p></li>
-<li><p><a href="https://github.com/tpope/vim-bundler">vim-bundler</a> - Ability to run bundler
-from vim</p></li>
-</ul>
-
-
-<h2>Commands I&rsquo;ve learned</h2>
-
-<ul>
-<li><p><code>gem pristine --all --only-executables</code></p></li>
-<li><p><code>rails _4.1.0_ new respond_to_4.</code></p></li>
-<li><p><code>gem install rails -v "~&gt;4.0.0"</code></p></li>
-<li><p><code>rake paperclip:refresh:missing_styles</code></p></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/going-thrugh-tutorials/">Learning From Tutorials</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-04-23T00:00:00-07:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>For the past two weeks, I&rsquo;ve been going through as many Ruby tutorial projects
-as I could. Many of them were easy to follow but this time around, I&rsquo;ve been
-trying my best to practice test-driven development as I go through the
-exercises. The <a href="http://tutorials.jumpstartlab.com/projects/contact_manager.html">contact
-manager</a>
-tutorial by Jumpstart Lab was a great starting point for this because they
-follow this workflow.</p>
-
-<p>I&rsquo;ve been trying out different
-tools including <a href="https://github.com/rspec/rspec-rails">rspec-rails</a>,
-<a href="https://github.com/thoughtbot/shoulda-matchers">shoulda-matchers</a>,
-<a href="https://github.com/thoughtbot/factory_girl_rails">factory_girl_rails</a>,
-<a href="https://github.com/paulelliott/fabrication">fabrication</a>,
-<a href="https://github.com/seattlerb/minitest">minitest</a>, and
-<a href="http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html">fixtures</a>. So
-far, I&rsquo;ve been using rspec more because of how it
-integrates with rails generators like scaffolding. Scaffolding generates
-the usual CRUD actions and rspec generates the associated test in the controller
-specs. I felt like I was cheating a little bit by using generators so much but
-the speed I was working through tutorials that used to take me multiple days was
-difficult to overlook. I found myself setting model fields and
-associations through the command line instead of migrations. Rspec&rsquo;s syntax
-feels very natural and as familiar now as
-minitest&rsquo;s assertions. At this point, I can appreciate what the generators do
-and I don&rsquo;t have to build up Rails controller from the bottom up as long as I
-understand what is going on which each action and I&rsquo;m testing throughout the
-whole process.</p>
-
-<h2>Commands I&rsquo;ve learned</h2>
-
-<ul>
-<li><p><code>rails g model sports_category --parent category</code></p></li>
-<li><p><code>rails g scaffold Comment content:text user:belongs_to post:belongs_to</code></p></li>
-<li><p><code>heroku git:clone -a myapp</code></p></li>
-<li><p><a href="https://agilewarrior.wordpress.com/2014/10/12/rails-generators-cheat-sheet/"><code>rails g scaffold Foo foo_string:string foo_text:text foo_integer:integer
-foo_float:float foo_decimal:decimal foo_timestamp:timestamp foo_time:time
-foo_date:date foo_binary:binary
-foo_boolean:boolean</code></a></p></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -705,23 +735,23 @@ foo_boolean:boolean</code></a></p></li>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/creating-a-shopping-list-with-jquery/">Creating a Shopping List With jQuery</a>
+      </li>
+    
+      <li class="post">
+        <a href="/a-little-bit-of-jquery-animation/">A Little Bit of jQuery Animation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/using-the-chrome-developer-tools/">Using the Chrome Developer Tools</a>
+      </li>
+    
+      <li class="post">
         <a href="/writing-html-and-css-from-a-specific-design/">Writing Html and Css From a Specific Design</a>
       </li>
     
       <li class="post">
         <a href="/thinkful-front-end-developer-course/">Going Through Thinkful's Front End Course</a>
-      </li>
-    
-      <li class="post">
-        <a href="/preparing-a-resume/">Preparing a Resume</a>
-      </li>
-    
-      <li class="post">
-        <a href="/vim-snippets-cheatsheet/">Snippets Cheat Sheet</a>
-      </li>
-    
-      <li class="post">
-        <a href="/vim-cheatsheet/">Vim Cheat Sheet</a>
       </li>
     
   </ul>

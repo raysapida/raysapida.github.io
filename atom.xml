@@ -4,7 +4,7 @@
   <title><![CDATA[Ray's Blog]]></title>
   <link href="http://raysapida.github.io/atom.xml" rel="self"/>
   <link href="http://raysapida.github.io/"/>
-  <updated>2015-06-10T12:24:10-07:00</updated>
+  <updated>2015-06-12T23:07:33-07:00</updated>
   <id>http://raysapida.github.io/</id>
   <author>
     <name><![CDATA[Raymond Sapida]]></name>
@@ -12,6 +12,277 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Creating a Shopping List With jQuery]]></title>
+    <link href="http://raysapida.github.io/creating-a-shopping-list-with-jquery/"/>
+    <updated>2015-06-12T07:06:02-07:00</updated>
+    <id>http://raysapida.github.io/creating-a-shopping-list-with-jquery</id>
+    <content type="html"><![CDATA[<p>This shopping list <a href="http://raysapida.github.io/ShoppingCart/">project</a> is an
+example of creating a basic todo list. I used
+<a href="http://www.materialpalette.com/">materialpalette</a>
+to pick out the color combinations I included and the process involved
+appending and removing nodes in the app for the list.</p>
+
+<p>I was creating the list items dynamically and I created variables to hold the
+string for the three types of button; to delete the item, to mark the item as
+acquired, and to undo that mark.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  var del_btn = "&lt;button class='fa fa-trash-o'&gt;&lt;/button&gt;";
+</span><span class='line'>  var check_btn = "&lt;button class='fa fa-check-circle-o'&gt;&lt;/button&gt;";
+</span><span class='line'>  var times_btn = "&lt;button class='fa fa-times'&gt;&lt;/button&gt;";</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The next part of the script was the <code>submit</code> event handler appends a new item to
+the list unordered list.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$( "#item" ).submit(function( event ) {
+</span><span class='line'>  var x = $("input").val();
+</span><span class='line'>  $('.list').append("&lt;li&gt;"+x+del_btn+check_btn+"&lt;/li&gt;");
+</span><span class='line'>  event.preventDefault();
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The next three statements were created using the <code>on</code> event handler and
+attaching them to the three variable buttons created. I used <code>on</code> instead of
+<code>click</code> because the latter would only attach the click function if the button
+exists when the page is first loaded.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$('.list').on('click', '.fa-trash-o', function(){
+</span><span class='line'>  $(this).parent().remove();
+</span><span class='line'>});
+</span><span class='line'>
+</span><span class='line'>$('.list').on('click', '.fa-check-circle-o', function(){
+</span><span class='line'>  var item = $(this).parent().text();
+</span><span class='line'>  $(this).parent().remove();
+</span><span class='line'>  $('.complete-list').append("&lt;li class='complete'&gt;"+item+del_btn+times_btn+"&lt;/li&gt;");
+</span><span class='line'>});
+</span><span class='line'>
+</span><span class='line'>$('.complete-list').on('click', '.fa-times', function(){
+</span><span class='line'>  var item = $(this).parent().text();
+</span><span class='line'>  $(this).parent().remove();
+</span><span class='line'>  $('.list').append("&lt;li&gt;"+item+del_btn+check_btn+"&lt;/li&gt;");
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The last <code>on</code> click handler removes the whole list and basically restarts the
+whole app.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$('.complete-list').on('click', '.fa-trash-o', function(){
+</span><span class='line'>  $(this).parent().remove();
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A Little Bit of jQuery Animation]]></title>
+    <link href="http://raysapida.github.io/a-little-bit-of-jquery-animation/"/>
+    <updated>2015-06-11T13:18:14-07:00</updated>
+    <id>http://raysapida.github.io/a-little-bit-of-jquery-animation</id>
+    <content type="html"><![CDATA[<p>The third <a href="http://raysapida.github.io/jquery-streetfighter/main.html">project</a>
+introduced the idea behind click handlers in jQuery and using the
+<a href="http://api.jquery.com/animate/">animate</a>
+method. The process involved learning how images are loaded along with how
+styles can be included and hidden until Javascript includes the images.</p>
+
+<p>The whole script was relative small and involved six actions;
+<a href="http://api.jquery.com/mouseenter/">mouseenter</a>,
+<a href="http://api.jquery.com/mouseleave/">mouseleave</a>,
+<a href="http://api.jquery.com/mousedown/">mousedown</a>,
+<a href="http://api.jquery.com/mouseup/">mouseup</a>,
+<a href="http://api.jquery.com/keydown/">keydown</a>, and
+<a href="http://api.jquery.com/keyup/">keyup</a>. The first one would hide the still
+Ryu image and replace it with a looping gif of Ryu swaying in place.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$('.ryu').mouseenter(function() {
+</span><span class='line'>  $('.ryu-still').hide();
+</span><span class='line'>  $('.ryu-ready').show();
+</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>mouseleave</code> would do the opposite and change the gif back to a still Ryu.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.mouseleave(function() {
+</span><span class='line'>  $('.ryu-ready').hide();
+</span><span class='line'>  $('.ryu-still').show();
+</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>mousedown</code> animates the hadouken image, swap the ready image to Ryu
+throwing, and plays the sound script.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.mousedown(function() {
+</span><span class='line'>  playHadouken();
+</span><span class='line'>  $('.ryu-ready').hide();
+</span><span class='line'>  $('.ryu-throwing').show();
+</span><span class='line'>  $('.hadouken').show();
+</span><span class='line'>  $('.hadouken').finish().show()
+</span><span class='line'>  .animate(
+</span><span class='line'>    {'left': '1020px'},
+</span><span class='line'>    500,
+</span><span class='line'>    function() {
+</span><span class='line'>      $(this).hide();
+</span><span class='line'>      $(this).css('left', '520px');
+</span><span class='line'>    }
+</span><span class='line'>  );
+</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>mouseup</code> swaps the throwing Ryu image with the ready image/</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.mouseup(function() {
+</span><span class='line'>  $('.ryu-throwing').hide();
+</span><span class='line'>  $('.ryu-ready').show();
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>keydown</code> checks if the x key was pressed first and goes through if else
+statements to show which image to hide then show Ryu striking a pose</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$(document).keydown(function(e) {
+</span><span class='line'>  if (88 == e.which) {
+</span><span class='line'>    if ($('.ryu-ready').is(':visible')){
+</span><span class='line'>      $('.ryu-ready').hide();
+</span><span class='line'>    } else if ( $($('.ryu-throwing').is(':visible')) ) {
+</span><span class='line'>      $('.ryu-throwing').hide();
+</span><span class='line'>    } else {
+</span><span class='line'>      $('.ryu-still').hide();
+</span><span class='line'>    }
+</span><span class='line'>    $('.ryu-cool').show();
+</span><span class='line'>  }
+</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>keyup</code> does the opposite and hide Ryu striking a pose.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.keyup(function(e) {
+</span><span class='line'>  if (88 == e.which) {
+</span><span class='line'>    if ($('.ryu').mouseenter()) {
+</span><span class='line'>      $('.ryu-ready').show();
+</span><span class='line'>    } else {
+</span><span class='line'>      $('.ryu-still').show();
+</span><span class='line'>    }
+</span><span class='line'>    $('.ryu-cool').hide();
+</span><span class='line'>  }
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>During my first implementation of the project, I didn&rsquo;t differentiate between
+the different images during the keydown event and it would produce multiple
+images when it was called. I&rsquo;m not quite sure what was happening so I added the
+if else statements to check what state Ryu was in before continuing.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using the Chrome Developer Tools]]></title>
+    <link href="http://raysapida.github.io/using-the-chrome-developer-tools/"/>
+    <updated>2015-06-10T12:27:04-07:00</updated>
+    <id>http://raysapida.github.io/using-the-chrome-developer-tools</id>
+    <content type="html"><![CDATA[<p>Chrome Developer Tools involved the next Thinkful
+<a href="http://raysapida.github.io/raymond-sapida-portfolio/images/hack_the_times.png">project</a>
+I added and it was a brief introduction to what was available to a developer.
+There&rsquo;s a lot of tools available from there, and I know I&rsquo;ve only scratched the
+surface, but it&rsquo;s great how useful that little bit of knowledge has been.</p>
+
+<p>I spent most of my time using the
+<a href="https://developer.chrome.com/devtools/docs/dom-and-styles">elements</a> tab to
+view how the html tags were structure and to view the styles implemented there.
+Changing the styles also allowed me to get a glimpse on how the rest of the page
+was marked up and it was a great way to figure out the right positions without
+editing the stylesheets over and over again.</p>
+
+<p>The <a href="https://developer.chrome.com/devtools/docs/console">console</a> tab was the
+second most panel that I spend my time with because it&rsquo;s great for debugging and
+allows anyone to run a snippet of Javascript code to see how it works. I&rsquo;m
+getting into the habit of adding multiple console logs in my Javascript script
+to see how a variable changes when it&rsquo;s called. This allows me a window to see
+if the functions I write are behaving the way I expect them to.</p>
+
+<p>Other than those two, I&rsquo;ve also been using the
+<a href="https://developer.chrome.com/devtools/docs/resource-panel">resource</a> tab to
+check if the assets are being loaded correctly and the sources tab to see the
+exact scripts being loaded. I&rsquo;m looking into another add on to Chrome called
+<a href="https://github.com/dejan/rails_panel">RailsPanel</a> to see how much it could help
+me when I write Rails applications.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Writing Html and Css From a Specific Design]]></title>
@@ -1498,132 +1769,6 @@ pointed in the right direction. I&rsquo;ve neglected how to write my own tests i
 past and I&rsquo;m trying to remedy that by learning how to use the tools other
 developers employ. Currently, I&rsquo;m also trying to learn how to use tmux in one of
 upcase&rsquo;s new trails.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Jumpstarting the New Year Through Books]]></title>
-    <link href="http://raysapida.github.io/reading/"/>
-    <updated>2014-12-31T00:00:00-08:00</updated>
-    <id>http://raysapida.github.io/reading</id>
-    <content type="html"><![CDATA[<p>When I started learning more and more about Rails, I became very aware that my programming skills in Ruby was lacking. I would read the code examples and I would find many methods and concepts that I repeatedly had to look up online in order to understand. I started to panic a little bit then because I was afraid that what I was doing wasn&rsquo;t working and that I wasn&rsquo;t internalizing what I was learning.  A lot of times I feel like I&rsquo;m fumbling around trying to find a way to reach out and find something to hold on to and effectively learn. The main way I&rsquo;ve been doing this is through code challenges and tutorials but I&rsquo;ve been finding that there is a huge gap between the code that I was writing and the code that I would read on open source projects.</p>
-
-<p>Because of that gap, I&rsquo;ve been reading as many Ruby Books as I can. This past month, I&rsquo;ve gone through <a href="http://www.amazon.com/Program-Second-Edition-Facets-Series/dp/1934356360">Learn to Program</a>, <a href="http://www.amazon.com/The-Well-Grounded-Rubyist-David-Black/dp/1617291692">Well-Grounded Rubyist</a>, <a href="http://www.amazon.com/Metaprogramming-Ruby-Program-Like-Facets/dp/1941222129">Metaprogramming Ruby 2: Program Like the Ruby Pros</a> and I&rsquo;m also halfway through <a href="http://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional-Series/dp/0321584104">Eloquent Ruby</a>. These four books had a lot of intersections and they were a great starting point for the techniques that I was coming across while trying to read open source code. Along with those books, I&rsquo;ve also read <a href="http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X">Secrets of the Javascript Ninja</a> so that I could learn more about the Web API/DOM and how Javascript fits into that picture. A lot of the tutorials I&rsquo;ve been finding uses Javascript extensively and my lack of understanding in that subject was becoming a bigger problem.</p>
-
-<p>Because of these issues, I decided that December was the month that I would hunker down and challenge these glaring holes in my understanding. I dove deeper into Ruby and Javascript than I have before and ensured that I knew as much as I could before I buried myself even more into the various frameworks I was running across. Most of this renewed enthusiasm towards the language instead of the framework was because I was hearing over and over again about people learning frameworks without knowing what problems those frameworks were trying to solve.</p>
-
-<p>In my head, I have a clearer picture of Ruby&rsquo;s object model and order for it&rsquo;s method lookup. I have a clearer idea of how an object inherits it&rsquo;s methods and how monkeypatching works. I&rsquo;ve learned more about the techniques Rubyist use in their code including <code>method_missing</code> and the <code>eval</code> family to create scopes or get around them. I&rsquo;ve gone through them too quickly to fully understand their importance but I&rsquo;m going to use what I&rsquo;ve learned to understand the open source projects that I&rsquo;m using.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[What's Still on My Todo List]]></title>
-    <link href="http://raysapida.github.io/todo-list/"/>
-    <updated>2014-12-01T00:00:00-08:00</updated>
-    <id>http://raysapida.github.io/todo-list</id>
-    <content type="html"><![CDATA[<p>There are a lot of resources I need to go through and many things I need to learn. I&rsquo;m aiming to go through a big chunk of them this month and start better habits before the new year.</p>
-
-<h2>Continuous Todo List</h2>
-
-<ul>
-<li><a href="http://ejohn.org/blog/write-code-every-day/">Code everyday</a> inspired by <a href="http://jenniferdewalt.com/">Jennifer Dewalt</a>.</li>
-<li>Better git commit messages</li>
-<li>Contribute to open source tools that I&rsquo;ve been using, possibly using <a href="http://24pullrequests.com/">24pullrequests</a>.</li>
-</ul>
-
-
-<h2>General Todo List</h2>
-
-<ul>
-<li>Learn more about Rspec and fixtures/factories.</li>
-<li>Learn about functional programming through JavaScript and see how it can be applied with Ruby&rsquo;s procs and lambdas.</li>
-<li>Learn how to use Linux commands like <code>tar</code> and <code>grep</code> effectively.</li>
-</ul>
-
-
-<h2>Books to read</h2>
-
-<ul>
-<li>Pragmatic Programmer</li>
-<li>Mythical Man Month</li>
-<li>Learn to Program</li>
-<li>Secrets of the Javascript Ninja</li>
-<li>Well Grounded Rubyist</li>
-<li>Metaprogramming Ruby: Program Like the Ruby Pros</li>
-<li>Practical Object-Oriented Design in Ruby: An Agile Primer</li>
-<li>Ruby Science</li>
-<li>The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends</li>
-</ul>
-
-
-<h2>Even more questions</h2>
-
-<ul>
-<li>What is NGINX?</li>
-<li>What is Mongrel&rsquo;s parser?</li>
-<li>What is Event Machine network I/O library and how does it work?</li>
-<li>How does Rack middleware and Rack in general work with Ruby web applications?</li>
-<li>What is the difference between multi-threaded servers and multi-process servers?</li>
-<li>What is the difference between eager loading and lazy loading?</li>
-<li>How could I use capistrano, chef or puppet ?</li>
-<li>What is the difference between authentication and authorization in a Rails app?</li>
-<li>What is and how does garbage collection work in Ruby?</li>
-<li>How does the Rails asset pipeline differ from other pipelines in frameworks like Middleman ?</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Further Questions]]></title>
-    <link href="http://raysapida.github.io/further-questions/"/>
-    <updated>2014-11-30T00:00:00-08:00</updated>
-    <id>http://raysapida.github.io/further-questions</id>
-    <content type="html"><![CDATA[<p>I&rsquo;m finally sitting down and trying to look into the questions that built up from the past week</p>
-
-<ul>
-<li><h3>Why adding the ruby gem foreman into the Gemfile is not recommended?</h3>
-
-<p>This ruby gem is used for organizing apps with multiple components and uses a Procfile. The Procfile lists which processes foreman is suppose to manage. Heroku has an <a href="https://devcenter.heroku.com/articles/procfile#process-types-as-templates">article</a> that provides further details on Procfiles and the github page for foreman also has an extensive <a href="http://ddollar.github.io/foreman/">manual</a>. What jumped out the most from the foreman manual were the flags for port and concurrency which managed how many workers would be used for each process. From the heroku article , the most basic command in the Procfile was <code>bundle exec rails server -p $PORT</code> but more processes can be added. From what I can find, Heroku didn&rsquo;t suggest adding foreman into the Gemfile because its already added by default.</p></li>
-<li><h3>How does Unicorn interact with Rack Applications ?</h3>
-
-<p>I found an <a href="https://blog.engineyard.com/2010/everything-you-need-to-know-about-unicorn">article</a> that clarified the features that Unicorn has. There was also another article on how they can be configured at <a href="https://www.digitalocean.com/community/tutorials/how-to-optimize-unicorn-workers-in-a-ruby-on-rails-app">Digitial Ocean</a>. Both articles wrote about the advantages of using Unicorn but I didn&rsquo;t start seeing how it could be implemented until I looked at the <a href="http://guides.rubyonrails.org/initialization.html#loading-rails-rack-lib-rack-server-rb">guide</a> for the Rails Initialization Process. At the end of the guide, it mentioned that the process would be handed off to the specific server implementaion and that led me to the <a href="http://bogomips.org/unicorn.git/tree/lib/unicorn/http_server.rb">Unicorn::HttpServer</a> class. I&rsquo;m not sure how the process goes after it reaches this point, but I&rsquo;ll read the source code more in detail to find out. I do know from the comments that a server could be run using <code>HttpServer::run</code>. In the future, I want to write a blog post that extends the guide to how Unicorn would handle the last line <code>server.run wrapped_app, options, &amp;blk</code>.</p></li>
-<li><h3>What are the major differences between Unicorn, Thin , Puma and other Rack web servers ?</h3>
-
-<p>This <a href="https://www.digitalocean.com/community/tutorials/a-comparison-of-rack-web-servers-for-ruby-web-applications">article</a> was a great start on figuring out the differences between the servers. The answer produced even more questions though. Specifically on what is NGINX, Mongrel&rsquo;s parser, Event Machine network I/O library, and the specifics of Rack middleware for HTTP requests.</p></li>
-<li><h3>How does concurrency and thread-safe work in a Rails?</h3>
-
-<p>I started looking at stackoverflow to find out what <a href="http://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference">concurrency</a> and <a href="http://stackoverflow.com/questions/261683/what-is-meant-by-thread-safe-code">thread-safe</a> means. There was also another <a href="http://stackoverflow.com/questions/15184338/how-to-know-what-is-not-thread-safe-in-ruby">post</a> on what isn&rsquo;t thread safe in Ruby. Rails has a specific <a href="http://www.sitepoint.com/config-threadsafe/">configuration</a> that is turned on by default and this <a href="http://tenderlovemaking.com/2012/06/18/removing-config-threadsafe.html">post</a> went into through an indepth discussion about what that configuration did. The most interesting parts was when he said that &ldquo;We know that loading the framework isn’t threadsafe, so the strategy is to load it all up before any threads are ready to handle requests&rdquo; and that the <code>@allow_concurrency</code> option turns off a Rack Middleware called <code>Rack::Lock</code>. Again, this opened up more questions about the difference between multi-threaded servers and multi-process servers along with the difference between eager loading and lazy loading.</p>
-
-<pre><code>  def threadsafe!
-      @preload_frameworks = true
-      @cache_classes      = true
-      @dependency_loading = false
-      @allow_concurrency  = true
-      self
-  end
-</code></pre></li>
-<li><h3>How to configure a deployment through environment variables?</h3>
-
-<p>After finding two articles about it from <a href="http://railsapps.github.io/rails-environment-variables.html">railsapps</a> and <a href="http://www.gotealeaf.com/blog/managing-environment-configuration-variables-in-rails">tealeaf</a>, the best ways I read to manage environment variables centers around two gems; <a href="https://github.com/laserlemon/figaro">figaro</a> and <a href="https://github.com/bkeepers/dotenv-deployment">dotenv-development</a>. Both use a separate file, <code>.env</code> and <code>application.yml</code> respectively, that can be used to set environment variables and should not added to the public repository.</p></li>
-<li><h3>What are the best practices for deploying a Rails application?</h3>
-
-<p>There were many articles about this and I found that the best practices revolve around where you&rsquo;re deploying to and the specific requirements for your app. A common thread I found was using a tool to standardize the process like <a href="http://capistranorb.com/documentation/overview/what-is-capistrano/">capistrano</a>, <a href="https://www.getchef.com/chef/">chef</a>, or <a href="http://puppetlabs.com/">puppet</a>.</p></li>
-</ul>
-
-
-<h2>Even more questions</h2>
-
-<ul>
-<li>What is NGINX?</li>
-<li>What is Mongrel&rsquo;s parser?</li>
-<li>What is Event Machine network I/O library and how does it work?</li>
-<li>How does Rack middleware and Rack in general work with Ruby web applications?</li>
-<li>What is the difference between multi-threaded servers and multi-process servers?</li>
-<li>What is the difference between eager loading and lazy loading?</li>
-<li>How could I use capistrano, chef or puppet ?</li>
-</ul>
-
 ]]></content>
   </entry>
   

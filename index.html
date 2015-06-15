@@ -9,10 +9,9 @@
   <meta name="author" content="Raymond Sapida">
 
   
-  <meta name="description" content="This shopping list project is an
-example of creating a basic todo list. I used
-materialpalette
-to pick out the color combinations I included and the &hellip;">
+  <meta name="description" content="The number guessing game project
+design and the initial html was provided to allow students
+to focus solely on the logic behind the game. I&rsquo;ve &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +79,156 @@ to pick out the color combinations I included and the &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/hot-or-cold-number-guessing-game/">Hot or Cold Number Guessing Game</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-06-13T17:33:28-07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:33 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The number guessing game <a href="http://raysapida.github.io/hot-or-cold-starter/">project</a>
+design and the initial html was provided to allow students
+to focus solely on the logic behind the game.</p>
+
+<p>I&rsquo;ve created a similar
+<a href="https://github.com/raysapida/ruby_tutorial_projects/tree/master/web_guesser">game</a>
+through Sinatra before and the logic I used was very similar to that. Instead of
+a post request to the server, a submit function captures the input and calls
+several functions to check which feedback to use. The <code>event.preventDefault</code>
+was not placed in the end because the next <code>if</code> statement checks if an
+input is valid and could subsequently exit out of the function before the rest
+of the methods are called.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$( "#guess" ).submit(function( event ) {
+</span><span class='line'>  var input = +$("input").val();
+</span><span class='line'>  event.preventDefault();
+</span><span class='line'>  if (input &gt; 100 || input &lt;= 0) {
+</span><span class='line'>    return invalid();
+</span><span class='line'>  }
+</span><span class='line'>  increaseCount(input);
+</span><span class='line'>  var feedback = checkGuess(input);
+</span><span class='line'>  $('#feedback').text(feedback);
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The invalid function sets the feedback message to tell the user to enter a valid
+guess.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function invalid() {
+</span><span class='line'>  $('#feedback').text('Please make a guess between 1 and 100');
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A new game button restarts the process when
+clicked or when the maximum allowed guesses is reached. This function is also
+responsible for setting the new <code>secretNumber</code> and resetting the <code>count</code> to 0.
+This function also tells the user that the <code>count</code> has been reset and
+removes all of the old guesses.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function newGame() {
+</span><span class='line'>  secretNumber = Math.floor(Math.random() * 100) + 1;
+</span><span class='line'>  count = 0;
+</span><span class='line'>  $('#count').text(count);
+</span><span class='line'>  $('#guessList li').remove();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>increaseCount</code> function raises the <code>count</code> variable by 1 and appends the
+previous guess to the page. This function is always called by the submit button
+unless the user inputs an invalid number.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function increaseCount(guess) {
+</span><span class='line'>  count += 1;
+</span><span class='line'>  $('#count').text(count);
+</span><span class='line'>  $('#guessList').append('&lt;li&gt;'+guess+'&lt;/li&gt;');
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>checkGuess</code> function handles the game logic by giving a specific feedback
+based on how far the <code>guess</code> is from the <code>secretNumber</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function checkGuess(guess) {
+</span><span class='line'>  if (Math.abs(guess-secretNumber) &gt;= 50) {
+</span><span class='line'>    return 'Ice cold';
+</span><span class='line'>  } else if (Math.abs(guess-secretNumber) &gt; 30) {
+</span><span class='line'>    return 'cold';
+</span><span class='line'>  } else if (Math.abs(guess-secretNumber) &gt; 20) {
+</span><span class='line'>    return 'warm';
+</span><span class='line'>  } else if (Math.abs(guess-secretNumber) &gt; 10) {
+</span><span class='line'>    return 'hot';
+</span><span class='line'>  } else if (Math.abs(guess-secretNumber) &gt; 1 ) {
+</span><span class='line'>    return 'very hot';
+</span><span class='line'>  } else {
+</span><span class='line'>    newGame();
+</span><span class='line'>    return 'You got it right!';
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the future, I would like to further refactor the game so that there are less
+responsibilities in the submit handler. Also, instead of <code>Math.abs()</code>, the game
+should be able to say if the guess us too high or too low.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -535,191 +684,6 @@ the things I learned to edit the css for this blog.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/preparing-a-resume/">Preparing a Resume</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-05-28T00:00:00-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>My first try on an elevator pitch about myself:</p>
-
-<p>On the server side, I enjoy working with Ruby on Rails. I write tests using
-rspec but I don&rsquo;t follow a strict Test Driven Development
-workflow. The best advise I was given is that I should
-never let my own inexperience stop me from writing code and exploring what happens when I run
-it. Tests are great to give myself immediate feedback on what I&rsquo;m programming
-but there&rsquo;s nothing wrong with admitting that I don&rsquo;t know enough to ensure that
-my tests are actually useful or that it&rsquo;s hindering me from learning at some
-points.
-I use Bootstrap or Foundation to start positioning sections of html along grids
-and styling common elements like navigitaion bars and form inputs but I know how
-to work with css without relying on them. I use jquery to include behavior in the client
-side and I have enough exposure with the ember that I&rsquo;m very excited to
-learn more about what I can build with it.</p>
-
-<h2>Links of resources that I&rsquo;ve been reading</h2>
-
-<ul>
-<li><a href="http://skillcrush.com/2015/05/08/elevator-pitch-proud-of/">Making an elevator pitch along with examples</a></li>
-<li><a href="http://www.slideshare.net/perlcareers/how-to-write-a-developer-cvrsum-that-will-get-you-hired">Recruiter/ Developer Presentation</a></li>
-<li><a href="http://www.barryclark.co/your-resume-wont-get-you-hired/">Importance of things outside the resume</a></li>
-<li><a href="http://skillcrush.com/2014/11/18/skillcrushtv-resumes/?hvid=bDD85">Skillcrush video on how to write a resume</a></li>
-<li><a href="http://jobs.rubynow.com/create-a-great-rails-resume">Rails specific tips</a></li>
-<li><a href="http://www.livecareer.com/resume-tips/resume-components/education/3-dos-donts-for-your-education-section-in-your-resume">General tips on the education section</a></li>
-</ul>
-
-
-<h1>General notes from those links</h1>
-
-<h2>Elevator Pitch</h2>
-
-<ul>
-<li>Don&rsquo;t sound one dimentional and include your personal passions.</li>
-<li>Say as little as possible.</li>
-<li>Decide what kind of work you&rsquo;re looking for.</li>
-<li>Figure out who you&rsquo;re talking to.</li>
-<li>Ask yourself what problem you solve rather than what you do.</li>
-<li>Describe what you do in one day.</li>
-<li>Include numbers and concrete detail.</li>
-<li>Be quirky or unexpected.</li>
-<li>Take something out.</li>
-<li>Turn it into a conversation.</li>
-</ul>
-
-
-<h2>Six steps towards a resume</h2>
-
-<ul>
-<li>Identify the job requirements</li>
-<li>Pick a Resume Type</li>
-<li>Create a tailored summary</li>
-<li>List of previous experiences</li>
-<li>Include relevant skills</li>
-<li>Review Format and Feel</li>
-</ul>
-
-
-<h2>Things to consider</h2>
-
-<ul>
-<li>A screener&rsquo;s job is to quickly screen out the worst resumes.</li>
-<li>Don&rsquo;t use more than one font.</li>
-<li>Check for spelling and grammar mistakes.</li>
-<li>Double checke the dates.</li>
-<li>Delineate sections.</li>
-<li>Don&rsquo;t include an overview section since a cover letter is better for it.</li>
-<li>Include keywords carefully.</li>
-<li>The tech and hr review is further screened by quick decisions and more
-detailed reading. Ensure you pass those quick ones since they&rsquo;re deal breakers</li>
-<li>The three major resume adaptions are tech, hr and a mix of both, figure out
-which once a job post is leaning towards.</li>
-</ul>
-
-
-<h2>The Three people who read the cover letter</h2>
-
-<ul>
-<li>HR Person / Recruiter - Appropriate skills, Employable, and Eligible</li>
-<li>Hiring Manager - Do you have actual experience, Do you have the other required
-skills, Do you have any open source work</li>
-<li>The Interviewing Developers - Do you know programming, Could they work with
-you, Give them interesting things to talk about you</li>
-</ul>
-
-
-<h2>Summary Section</h2>
-
-<ul>
-<li>Help tell them that you&rsquo;re in the right place.</li>
-<li>Demonstrate understanding by being descriptive about your toolset.</li>
-<li>Give interesting topics that other programmers could talk to you about -
-personal development projects.</li>
-</ul>
-
-
-<h2>Skills</h2>
-
-<ul>
-<li>Talk about important things first.</li>
-<li>Talk about experiences as proof that you&rsquo;ve actually used the tools you talk
-about.</li>
-<li>Insights gained from experience and something you could talk about in an
-interview.</li>
-<li>Talk about something slightly contentious and this gives an interviewer
-something to ask and something you can prepare for.</li>
-<li>&lsquo;some exposure&rsquo; is a great phrase to point to something you&rsquo;ve played with
-before but aren&rsquo;t prepared to answer in detail.</li>
-<li>Certain skills in bold for recruiters.</li>
-<li>User the same approach for non language specific skills.</li>
-<li>Demonstrate understanding by giving opinions.</li>
-<li>Throw in a little bit of personality but don&rsquo;t go overboard.</li>
-<li>Throw in other things that aren&rsquo;t too important at the end.</li>
-</ul>
-
-
-<h2>Open Source Experience</h2>
-
-<ul>
-<li>Make it prominent if you have a lot of it.</li>
-<li>Link to your blog if you have great content and only mention it if you don&rsquo;t.</li>
-<li>If you don&rsquo;t have a lot of it, talk about things you&rsquo;ve done outside of work
-or what you&rsquo;ve learned like online courses.</li>
-</ul>
-
-
-<h2>Other stuff</h2>
-
-<ul>
-<li>Unless you have something awesome to share, leave out Education</li>
-<li>If you did not finish your degree, then write in the amount of credits that
-you obtained, what major you pursued, and relevant coursework taken.</li>
-</ul>
-
-
-<h2>Outside the resume</h2>
-
-<ul>
-<li>Have an online footprint</li>
-<li>Links to portfolio, projects, and GitHub then review them</li>
-<li>Prioritize work that&rsquo;s relevant to the position</li>
-<li>A bulleted list of links in your cover email</li>
-<li>Employers will google you</li>
-</ul>
-
-
-<h2>Commands I&rsquo;ve learned</h2>
-
-<ul>
-<li><code>git commit --amend</code></li>
-<li><code>git log --pretty=oneline</code> shows a terse history mapping containing the commit
-id and the summary</li>
-<li><code>git rebase --interactive</code> provides the summary for each commit in the editor
-it invokes</li>
-<li><code>git config --global alias.home 'rev-parse --show-toplevel'</code> - <code>cd 'git home'</code></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -735,6 +699,10 @@ it invokes</li>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/hot-or-cold-number-guessing-game/">Hot or Cold Number Guessing Game</a>
+      </li>
+    
+      <li class="post">
         <a href="/creating-a-shopping-list-with-jquery/">Creating a Shopping List With jQuery</a>
       </li>
     
@@ -748,10 +716,6 @@ it invokes</li>
     
       <li class="post">
         <a href="/writing-html-and-css-from-a-specific-design/">Writing Html and Css From a Specific Design</a>
-      </li>
-    
-      <li class="post">
-        <a href="/thinkful-front-end-developer-course/">Going Through Thinkful's Front End Course</a>
       </li>
     
   </ul>

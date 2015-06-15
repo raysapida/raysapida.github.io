@@ -4,7 +4,7 @@
   <title><![CDATA[Ray's Blog]]></title>
   <link href="http://raysapida.github.io/atom.xml" rel="self"/>
   <link href="http://raysapida.github.io/"/>
-  <updated>2015-06-12T23:07:33-07:00</updated>
+  <updated>2015-06-15T01:01:52-07:00</updated>
   <id>http://raysapida.github.io/</id>
   <author>
     <name><![CDATA[Raymond Sapida]]></name>
@@ -12,6 +12,136 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hot or Cold Number Guessing Game]]></title>
+    <link href="http://raysapida.github.io/hot-or-cold-number-guessing-game/"/>
+    <updated>2015-06-13T17:33:28-07:00</updated>
+    <id>http://raysapida.github.io/hot-or-cold-number-guessing-game</id>
+    <content type="html"><![CDATA[<p>The number guessing game <a href="http://raysapida.github.io/hot-or-cold-starter/">project</a>
+design and the initial html was provided to allow students
+to focus solely on the logic behind the game.</p>
+
+<p>I&rsquo;ve created a similar
+<a href="https://github.com/raysapida/ruby_tutorial_projects/tree/master/web_guesser">game</a>
+through Sinatra before and the logic I used was very similar to that. Instead of
+a post request to the server, a submit function captures the input and calls
+several functions to check which feedback to use. The <code>event.preventDefault</code>
+was not placed in the end because the next <code>if</code> statement checks if an
+input is valid and could subsequently exit out of the function before the rest
+of the methods are called.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$( "#guess" ).submit(function( event ) {
+</span><span class='line'>  var input = +$("input").val();
+</span><span class='line'>  event.preventDefault();
+</span><span class='line'>  if (input &gt; 100 || input &lt;= 0) {
+</span><span class='line'>    return invalid();
+</span><span class='line'>  }
+</span><span class='line'>  increaseCount(input);
+</span><span class='line'>  var feedback = checkGuess(input);
+</span><span class='line'>  $('#feedback').text(feedback);
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The invalid function sets the feedback message to tell the user to enter a valid
+guess.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function invalid() {
+</span><span class='line'>  $('#feedback').text('Please make a guess between 1 and 100');
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A new game button restarts the process when
+clicked or when the maximum allowed guesses is reached. This function is also
+responsible for setting the new <code>secretNumber</code> and resetting the <code>count</code> to 0.
+This function also tells the user that the <code>count</code> has been reset and
+removes all of the old guesses.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function newGame() {
+</span><span class='line'>  secretNumber = Math.floor(Math.random() * 100) + 1;
+</span><span class='line'>  count = 0;
+</span><span class='line'>  $('#count').text(count);
+</span><span class='line'>  $('#guessList li').remove();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>increaseCount</code> function raises the <code>count</code> variable by 1 and appends the
+previous guess to the page. This function is always called by the submit button
+unless the user inputs an invalid number.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function increaseCount(guess) {
+</span><span class='line'>  count += 1;
+</span><span class='line'>  $('#count').text(count);
+</span><span class='line'>  $('#guessList').append('&lt;li&gt;'+guess+'&lt;/li&gt;');
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>checkGuess</code> function handles the game logic by giving a specific feedback
+based on how far the <code>guess</code> is from the <code>secretNumber</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function checkGuess(guess) {
+</span><span class='line'>  if (Math.abs(guess-secretNumber) &gt;= 50) {
+</span><span class='line'>    return 'Ice cold';
+</span><span class='line'>  } else if (Math.abs(guess-secretNumber) &gt; 30) {
+</span><span class='line'>    return 'cold';
+</span><span class='line'>  } else if (Math.abs(guess-secretNumber) &gt; 20) {
+</span><span class='line'>    return 'warm';
+</span><span class='line'>  } else if (Math.abs(guess-secretNumber) &gt; 10) {
+</span><span class='line'>    return 'hot';
+</span><span class='line'>  } else if (Math.abs(guess-secretNumber) &gt; 1 ) {
+</span><span class='line'>    return 'very hot';
+</span><span class='line'>  } else {
+</span><span class='line'>    newGame();
+</span><span class='line'>    return 'You got it right!';
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the future, I would like to further refactor the game so that there are less
+responsibilities in the submit handler. Also, instead of <code>Math.abs()</code>, the game
+should be able to say if the guess us too high or too low.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Creating a Shopping List With jQuery]]></title>
@@ -1693,82 +1823,6 @@ really thought of tests outside unit testing but I&rsquo;m appreciating what tes
 adds to the application. I&rsquo;m starting to see why tests can function as
 documentation instead of comments and how bugs can be recreated to better
 understand where edge cases are coming from.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[My Month of January, the Cliff Notes Version]]></title>
-    <link href="http://raysapida.github.io/january/"/>
-    <updated>2015-02-06T00:00:00-08:00</updated>
-    <id>http://raysapida.github.io/january</id>
-    <content type="html"><![CDATA[<p>I spent most of January working on exercism challenges and refamiliarizing myself with Rails. I haven&rsquo;t been able to pair program with other people yet and online
-exercises have been the only way I&rsquo;ve gotten feedback for the programs I&rsquo;ve written. It&rsquo;s been a good way to learn more about design patterns and subtleties in the Ruby language. Out of all the exercises there, I enjoyed the one about Binary Search Trees the most. Another user on the site turned me towards using the Null Object Pattern and my research into the topic led me to an <a href="http://devblog.avdi.org/2011/05/30/null-objects-and-falsiness/">article</a> that illustrated how it could be used in Ruby. In the end, I ended up with code that looked like this:</p>
-
-<pre><code class="ruby">class Bst
-  attr_accessor :left, :right, :data
-
-  def initialize(data)
-    @data = data
-    @left = NullObject.new
-    @right = NullObject.new
-  end
-
-  def insert(number)
-    if number &gt; @data
-      in_right(number)
-    elsif number &lt;= @data
-      in_left(number)
-    end
-  end
-
-  def each(&amp;block)
-    left.each(&amp;block)
-    block.call(data)
-    right.each(&amp;block)
-  end
-
-  private
-
-  def in_right(number)
-    right.insert(number) or @right = Bst.new(number)
-  end
-
-  def in_left(number)
-    left.insert(number) or @left = Bst.new(number)
-  end
-end
-class NullObject
-  def data
-    nil
-  end
-
-  def insert(*)
-    false
-  end
-
-  def each(*)
-    self
-  end
-end
-</code></pre>
-
-<p>The exercism website also had challenges that involved other data structures
-like linked lists and matrices. I&rsquo;ve been reading more and more about how to
-become job ready as a programmer and there have been a lot of advice on being
-familiar with common data structures and how to implement them as well as
-recognizing the <a href="http://bigocheatsheet.com/">Big-O</a> complexities of different algorithms. I&rsquo;ve mostly been teaching
-myself and I know that I need to spend time on subjects that other programmers
-would have been exposed to in school. I want to do my best to expose my
-ignorance now.</p>
-
-<p> I&rsquo;ve also started a membership at <a href="upcase.com">upcase</a> so that I could become
-more familiar with the tools that Ruby on Rails developers use. I&rsquo;ve learned
-more about how to use vim and testing use rspec/capybara. I&rsquo;m amazed by how
-efficient I could be using while vim and how easy it could be to learn when I&rsquo;m
-pointed in the right direction. I&rsquo;ve neglected how to write my own tests in the
-past and I&rsquo;m trying to remedy that by learning how to use the tools other
-developers employ. Currently, I&rsquo;m also trying to learn how to use tmux in one of
-upcase&rsquo;s new trails.</p>
 ]]></content>
   </entry>
   

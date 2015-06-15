@@ -5,14 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Creating a Shopping List With jQuery - Ray's Blog</title>
+  <title>Hot or Cold Number Guessing Game - Ray's Blog</title>
   <meta name="author" content="Raymond Sapida">
 
   
-  <meta name="description" content="This shopping list project is an
-example of creating a basic todo list. I used
-materialpalette
-to pick out the color combinations I included and the &hellip;">
+  <meta name="description" content="The number guessing game project
+design and the initial html was provided to allow students
+to focus solely on the logic behind the game. I&rsquo;ve &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ to pick out the color combinations I included and the &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://raysapida.github.io/creating-a-shopping-list-with-jquery/">
+  <link rel="canonical" href="http://raysapida.github.io/hot-or-cold-number-guessing-game/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Ray's Blog" type="application/atom+xml">
@@ -83,7 +82,7 @@ to pick out the color combinations I included and the &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Creating a Shopping List With jQuery</h1>
+      <h1 class="entry-title">Hot or Cold Number Guessing Game</h1>
     
     
       <p class="meta">
@@ -92,50 +91,97 @@ to pick out the color combinations I included and the &hellip;">
 
 
 
-<time class='entry-date' datetime='2015-06-12T07:06:02-07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:06 am</span></time>
+<time class='entry-date' datetime='2015-06-13T17:33:28-07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:33 pm</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>This shopping list <a href="http://raysapida.github.io/ShoppingCart/">project</a> is an
-example of creating a basic todo list. I used
-<a href="http://www.materialpalette.com/">materialpalette</a>
-to pick out the color combinations I included and the process involved
-appending and removing nodes in the app for the list.</p>
+<div class="entry-content"><p>The number guessing game <a href="http://raysapida.github.io/hot-or-cold-starter/">project</a>
+design and the initial html was provided to allow students
+to focus solely on the logic behind the game.</p>
 
-<p>I was creating the list items dynamically and I created variables to hold the
-string for the three types of button; to delete the item, to mark the item as
-acquired, and to undo that mark.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  var del_btn = "&lt;button class='fa fa-trash-o'&gt;&lt;/button&gt;";
-</span><span class='line'>  var check_btn = "&lt;button class='fa fa-check-circle-o'&gt;&lt;/button&gt;";
-</span><span class='line'>  var times_btn = "&lt;button class='fa fa-times'&gt;&lt;/button&gt;";</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The next part of the script was the <code>submit</code> event handler appends a new item to
-the list unordered list.</p>
+<p>I&rsquo;ve created a similar
+<a href="https://github.com/raysapida/ruby_tutorial_projects/tree/master/web_guesser">game</a>
+through Sinatra before and the logic I used was very similar to that. Instead of
+a post request to the server, a submit function captures the input and calls
+several functions to check which feedback to use. The <code>event.preventDefault</code>
+was not placed in the end because the next <code>if</code> statement checks if an
+input is valid and could subsequently exit out of the function before the rest
+of the methods are called.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$( "#item" ).submit(function( event ) {
-</span><span class='line'>  var x = $("input").val();
-</span><span class='line'>  $('.list').append("&lt;li&gt;"+x+del_btn+check_btn+"&lt;/li&gt;");
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$( "#guess" ).submit(function( event ) {
+</span><span class='line'>  var input = +$("input").val();
 </span><span class='line'>  event.preventDefault();
+</span><span class='line'>  if (input &gt; 100 || input &lt;= 0) {
+</span><span class='line'>    return invalid();
+</span><span class='line'>  }
+</span><span class='line'>  increaseCount(input);
+</span><span class='line'>  var feedback = checkGuess(input);
+</span><span class='line'>  $('#feedback').text(feedback);
 </span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
 
 
-<p>The next three statements were created using the <code>on</code> event handler and
-attaching them to the three variable buttons created. I used <code>on</code> instead of
-<code>click</code> because the latter would only attach the click function if the button
-exists when the page is first loaded.</p>
+<p>The invalid function sets the feedback message to tell the user to enter a valid
+guess.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function invalid() {
+</span><span class='line'>  $('#feedback').text('Please make a guess between 1 and 100');
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A new game button restarts the process when
+clicked or when the maximum allowed guesses is reached. This function is also
+responsible for setting the new <code>secretNumber</code> and resetting the <code>count</code> to 0.
+This function also tells the user that the <code>count</code> has been reset and
+removes all of the old guesses.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function newGame() {
+</span><span class='line'>  secretNumber = Math.floor(Math.random() * 100) + 1;
+</span><span class='line'>  count = 0;
+</span><span class='line'>  $('#count').text(count);
+</span><span class='line'>  $('#guessList li').remove();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>increaseCount</code> function raises the <code>count</code> variable by 1 and appends the
+previous guess to the page. This function is always called by the submit button
+unless the user inputs an invalid number.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function increaseCount(guess) {
+</span><span class='line'>  count += 1;
+</span><span class='line'>  $('#count').text(count);
+</span><span class='line'>  $('#guessList').append('&lt;li&gt;'+guess+'&lt;/li&gt;');
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>checkGuess</code> function handles the game logic by giving a specific feedback
+based on how far the <code>guess</code> is from the <code>secretNumber</code>.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -152,33 +198,28 @@ exists when the page is first loaded.</p>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$('.list').on('click', '.fa-trash-o', function(){
-</span><span class='line'>  $(this).parent().remove();
-</span><span class='line'>});
-</span><span class='line'>
-</span><span class='line'>$('.list').on('click', '.fa-check-circle-o', function(){
-</span><span class='line'>  var item = $(this).parent().text();
-</span><span class='line'>  $(this).parent().remove();
-</span><span class='line'>  $('.complete-list').append("&lt;li class='complete'&gt;"+item+del_btn+times_btn+"&lt;/li&gt;");
-</span><span class='line'>});
-</span><span class='line'>
-</span><span class='line'>$('.complete-list').on('click', '.fa-times', function(){
-</span><span class='line'>  var item = $(this).parent().text();
-</span><span class='line'>  $(this).parent().remove();
-</span><span class='line'>  $('.list').append("&lt;li&gt;"+item+del_btn+check_btn+"&lt;/li&gt;");
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function checkGuess(guess) {
+</span><span class='line'>  if (Math.abs(guess-secretNumber) &gt;= 50) {
+</span><span class='line'>    return 'Ice cold';
+</span><span class='line'>  } else if (Math.abs(guess-secretNumber) &gt; 30) {
+</span><span class='line'>    return 'cold';
+</span><span class='line'>  } else if (Math.abs(guess-secretNumber) &gt; 20) {
+</span><span class='line'>    return 'warm';
+</span><span class='line'>  } else if (Math.abs(guess-secretNumber) &gt; 10) {
+</span><span class='line'>    return 'hot';
+</span><span class='line'>  } else if (Math.abs(guess-secretNumber) &gt; 1 ) {
+</span><span class='line'>    return 'very hot';
+</span><span class='line'>  } else {
+</span><span class='line'>    newGame();
+</span><span class='line'>    return 'You got it right!';
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<p>The last <code>on</code> click handler removes the whole list and basically restarts the
-whole app.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$('.complete-list').on('click', '.fa-trash-o', function(){
-</span><span class='line'>  $(this).parent().remove();
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
+<p>In the future, I would like to further refactor the game so that there are less
+responsibilities in the submit handler. Also, instead of <code>Math.abs()</code>, the game
+should be able to say if the guess us too high or too low.</p>
 </div>
 
 
@@ -194,7 +235,7 @@ whole app.</p>
 
 
 
-<time class='entry-date' datetime='2015-06-12T07:06:02-07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:06 am</span></time>
+<time class='entry-date' datetime='2015-06-13T17:33:28-07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:33 pm</span></time>
       
 
 
@@ -202,7 +243,7 @@ whole app.</p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://raysapida.github.io/creating-a-shopping-list-with-jquery/" data-via="" data-counturl="http://raysapida.github.io/creating-a-shopping-list-with-jquery/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://raysapida.github.io/hot-or-cold-number-guessing-game/" data-via="" data-counturl="http://raysapida.github.io/hot-or-cold-number-guessing-game/" >Tweet</a>
   
   
   
@@ -211,10 +252,8 @@ whole app.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/a-little-bit-of-jquery-animation/" title="Previous Post: A Little Bit of jQuery animation">&laquo; A Little Bit of jQuery animation</a>
+        <a class="basic-alignment left" href="/creating-a-shopping-list-with-jquery/" title="Previous Post: Creating a Shopping List with jQuery">&laquo; Creating a Shopping List with jQuery</a>
       
-      
-        <a class="basic-alignment right" href="/hot-or-cold-number-guessing-game/" title="Next Post: Hot or Cold Number Guessing Game">Hot or Cold Number Guessing Game &raquo;</a>
       
     </p>
   </footer>
@@ -309,8 +348,8 @@ whole app.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://raysapida.github.io/creating-a-shopping-list-with-jquery/';
-        var disqus_url = 'http://raysapida.github.io/creating-a-shopping-list-with-jquery/';
+        var disqus_identifier = 'http://raysapida.github.io/hot-or-cold-number-guessing-game/';
+        var disqus_url = 'http://raysapida.github.io/hot-or-cold-number-guessing-game/';
         var disqus_script = 'embed.js';
       
     (function () {

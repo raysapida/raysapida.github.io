@@ -9,9 +9,18 @@
   <meta name="author" content="Raymond Sapida">
 
   
-  <meta name="description" content="The number guessing game project
-design and the initial html was provided to allow students
-to focus solely on the logic behind the game. I&rsquo;ve &hellip;">
+  <meta name="description" content="I started this project by creating all
+the html forms and buttons for the quiz. Each question would have markup similar
+to this: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +88,223 @@ to focus solely on the logic behind the game. I&rsquo;ve &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/a-quiz-app-with-a-summer-theme/">A Quiz App With a Summer Theme</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-06-15T01:04:21-07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:04 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I started this <a href="http://raysapida.github.io/quiz-app/">project</a> by creating all
+the html forms and buttons for the quiz. Each question would have markup similar
+to this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;div id="question-1"&gt;
+</span><span class='line'>  &lt;h2&gt;Where does the phrase 'dog days of summer' come from ?&lt;/h2&gt;
+</span><span class='line'>  &lt;form&gt;
+</span><span class='line'>    &lt;input type="radio" name="q1" id="q1-a" value="dogs" /&gt; Lazy Dogs
+</span><span class='line'>    &lt;br&gt;
+</span><span class='line'>    &lt;input type="radio" name="q1" id="q1-b" value="movie" /&gt; Reference from a movie
+</span><span class='line'>    &lt;br&gt;
+</span><span class='line'>    &lt;input type="radio" name="q1" id="q1-c" value="novel" /&gt; A term coined from a famous novel
+</span><span class='line'>    &lt;br&gt;
+</span><span class='line'>    &lt;input type="radio" name="q1" id="q1-d" value="star" /&gt; A star
+</span><span class='line'>    &lt;br&gt;&lt;br&gt;
+</span><span class='line'>    &lt;input type="submit" value="Final answer"&gt;
+</span><span class='line'>  &lt;/form&gt;
+</span><span class='line'>&lt;/div&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The other important html markup involved elements that are initially hidden using
+the css property display. They&rsquo;re shown depending on which answer is chosen.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;aside id="wrong"&gt;
+</span><span class='line'>  &lt;img src="images/Awesome-Icons_angry.png" alt="lose icon" height="300px"/&gt;
+</span><span class='line'>  &lt;button id="w-next"&gt;Next Question&lt;/button&gt;
+</span><span class='line'>&lt;/aside&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;aside id="correct"&gt;
+</span><span class='line'>  &lt;img src="images/Awesome-Icons_winner.png" alt="win icon" height="300px"/&gt;
+</span><span class='line'>  &lt;button id="c-next"&gt;Next Question&lt;/button&gt;
+</span><span class='line'>&lt;/aside&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;ul&gt;
+</span><span class='line'>  &lt;li&gt;&lt;img src="images/summer-16.png" alt="flip-flops" id="q1-icon"/&gt;&lt;/li&gt;
+</span><span class='line'>  &lt;li&gt;&lt;img src="images/summer-12.png" alt="sand castle" id="q2-icon"/&gt;&lt;/li&gt;
+</span><span class='line'>  &lt;li&gt;&lt;img src="images/summer-25.png" alt="beachball" id="q3-icon"/&gt;&lt;/li&gt;
+</span><span class='line'>  &lt;li&gt;&lt;img src="images/summer-22.png" alt="ice cream" id="q4-icon"/&gt;&lt;/li&gt;
+</span><span class='line'>  &lt;li&gt;&lt;img src="images/summer-21.png" alt="sailboat" id="q5-icon"/&gt;&lt;/li&gt;
+</span><span class='line'>&lt;/ul&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I first used jQuery to create a submit handler for each question and show the
+separate styles.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$( " #question-1 form" ).submit(function( event ) {
+</span><span class='line'>  event.preventDefault();
+</span><span class='line'>  var input = $('input[name=q1]:checked', '#question-1').val();
+</span><span class='line'>  $("#question-1").css("display", "none");
+</span><span class='line'>  if (input == question1.answer) {
+</span><span class='line'>    $("#correct").css("display", "block");
+</span><span class='line'>    $("img#q1-icon").css("opacity", "1.0");
+</span><span class='line'>    score +=1;
+</span><span class='line'>    correctNext("question-2");
+</span><span class='line'>  } else {
+</span><span class='line'>    $("#wrong").css("display", "block");
+</span><span class='line'>    wrongNext("question-2");
+</span><span class='line'>  }
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Once the app worked, I migrated the questions into Javascript
+objects and worked towards making the functions reusable. I created each
+question by calling the <code>createQuestion</code> function.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var question1 = new createQuestion("1","Where does the phrase 'dog days of summer' come from ?",
+</span><span class='line'>                                    "Lazy dogs", "A reference", "A term coined from a famous novel", "A star",
+</span><span class='line'>"A star");
+</span><span class='line'>
+</span><span class='line'>function createQuestion(id, question, a, b, c, d, answer) {
+</span><span class='line'>  this.id = id;
+</span><span class='line'>  this.question = question;
+</span><span class='line'>  this.a = a;
+</span><span class='line'>  this.b = b;
+</span><span class='line'>  this.c = c;
+</span><span class='line'>  this.d = d;
+</span><span class='line'>  this.answer = answer;
+</span><span class='line'>  return this;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Afterwards, I added them to an array and looped through it to create the forms.
+The previous css still worked and the questions are hidden until the
+corresponding <code>submit</code> handler is called.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var questionList = [question1, question2, question3, question4, question5 ];
+</span><span class='line'>for (var i = 0, l = questionList.length; i &lt; l; i ++) {
+</span><span class='line'>  var v = questionList[i];
+</span><span class='line'>  var result = createQuestionform(questionList[i]);
+</span><span class='line'>  $('section').append(result);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>function createQuestionform(obj) {
+</span><span class='line'>  var result = $("&lt;div id='question-"+obj.id+"'&gt;"+
+</span><span class='line'>                  "&lt;h2&gt;"+obj.question+"&lt;/h2&gt;"+
+</span><span class='line'>                  "&lt;form&gt;"+
+</span><span class='line'>                  "&lt;input type='radio' name='q"+obj.id+"' value='"+obj.a+"'/&gt;"+obj.a+"&lt;br&gt;"+
+</span><span class='line'>                  "&lt;input type='radio' name='q"+obj.id+"' value='"+obj.b+"'/&gt;"+obj.b+"&lt;br&gt;"+
+</span><span class='line'>                  "&lt;input type='radio' name='q"+obj.id+"' value='"+obj.c+"'/&gt;"+obj.c+"&lt;br&gt;"+
+</span><span class='line'>                  "&lt;input type='radio' name='q"+obj.id+"' value='"+obj.d+"'/&gt;"+obj.d+"&lt;br&gt;&lt;br&gt;"+
+</span><span class='line'>                  "&lt;input type='submit' value='Final answer'&gt;"+
+</span><span class='line'>                  "&lt;/form&gt;"+
+</span><span class='line'>                  "&lt;/div&gt;");
+</span><span class='line'>  return result;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I also used <a href="http://pixlr.com/editor/">Pixlr</a> to shrink the images from
+<a href="https://unsplash.com/">Unsplash</a> so that they would be more web
+friendly.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -620,70 +846,6 @@ styles instead of multiple selectors for the same element.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/thinkful-front-end-developer-course/">Going Through Thinkful's Front End Course</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-06-08T00:00:00-07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>For the past three weeks, I&rsquo;ve been going through <a href="https://www.thinkful.com/courses/learn-web-development-online/">Thinkful&rsquo;s Front End
-Course</a>. A major
-reason that I chose this course was information I heard from an
-<a href="http://5by5.tv/rubyonrails/186">episode</a> of the Ruby on Rails podcast where
-their CEO talked about programming schools in general and their program specifically.
-I liked the fact that they made their program more accessible to people and that
-they place an emphasis on students pacing themselves instead of requiring the
-maximum time possible.
-Even though the payments are still relatively
-expensive compared to other online courses, the fact that it doesn&rsquo;t require a
-long term commitment was a huge plus. That and the
-chance to talk to a professional web developer about my code was what sealed it
-for me.</p>
-
-<p>For a long time, I knew the basics of CSS and front end development when I read
-it, but I wasn&rsquo;t able to use it off the top of my head. I liken it to being
-able to answer a multiple choice question but failing on the free response ones.
-Most of what I did before this course was limited to using bootstrap, adding
-markup to html to correspond with the grids and using their stylings for common
-components like navigation and form fields.</p>
-
-<p>A lot of the starting material was stuff that I&rsquo;ve seen before but using it in
-practice without a step by step guide made a huge difference. This was also a
-time when another person was actually critiquing my programs and giving me
-constructive feedback on how to make it better. That feedback alone encouraged
-me to work at least twice as hard as I would have otherwise because
-I had someone else to keep me accountable.</p>
-
-<p>I was able to make a static <a href="http://raysapida.github.io/raymond-sapida-portfolio/">portfolio
-site</a> that I&rsquo;m planning to
-migrate to its own domain in the future along with multiple projects to showcase
-with it. I&rsquo;ve already included two demo Rails app I made and I&rsquo;m planning to
-add more once I deploy them to heroku. All of this is still a work in progress
-but it&rsquo;s really invigorating to see my work displayed like that. I&rsquo;m looking
-forward writing a blog post on each project I made in the course and also using
-the things I learned to edit the css for this blog.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -699,6 +861,10 @@ the things I learned to edit the css for this blog.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/a-quiz-app-with-a-summer-theme/">A Quiz App With a Summer Theme</a>
+      </li>
+    
+      <li class="post">
         <a href="/hot-or-cold-number-guessing-game/">Hot or Cold Number Guessing Game</a>
       </li>
     
@@ -712,10 +878,6 @@ the things I learned to edit the css for this blog.</p>
     
       <li class="post">
         <a href="/using-the-chrome-developer-tools/">Using the Chrome Developer Tools</a>
-      </li>
-    
-      <li class="post">
-        <a href="/writing-html-and-css-from-a-specific-design/">Writing Html and Css From a Specific Design</a>
       </li>
     
   </ul>

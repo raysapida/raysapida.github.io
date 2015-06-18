@@ -9,8 +9,9 @@
   <meta name="author" content="Raymond Sapida">
 
   
-  <meta name="description" content="My first try on an elevator pitch about myself: On the server side, I enjoy working with Ruby on Rails. I write tests using
-rspec but I don&rsquo;t &hellip;">
+  <meta name="description" content="For the past three weeks, I&rsquo;ve been going through Thinkful&rsquo;s Front End
+Course. A major
+reason that I chose this course was information I &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +79,70 @@ rspec but I don&rsquo;t &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/thinkful-front-end-developer-course/">Going Through Thinkful's Front End Course</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-06-08T00:00:00-07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For the past three weeks, I&rsquo;ve been going through <a href="https://www.thinkful.com/courses/learn-web-development-online/">Thinkful&rsquo;s Front End
+Course</a>. A major
+reason that I chose this course was information I heard from an
+<a href="http://5by5.tv/rubyonrails/186">episode</a> of the Ruby on Rails podcast where
+their CEO talked about programming schools in general and their program specifically.
+I liked the fact that they made their program more accessible to people and that
+they place an emphasis on students pacing themselves instead of requiring the
+maximum time possible.
+Even though the payments are still relatively
+expensive compared to other online courses, the fact that it doesn&rsquo;t require a
+long term commitment was a huge plus. That and the
+chance to talk to a professional web developer about my code was what sealed it
+for me.</p>
+
+<p>For a long time, I knew the basics of CSS and front end development when I read
+it, but I wasn&rsquo;t able to use it off the top of my head. I liken it to being
+able to answer a multiple choice question but failing on the free response ones.
+Most of what I did before this course was limited to using bootstrap, adding
+markup to html to correspond with the grids and using their stylings for common
+components like navigation and form fields.</p>
+
+<p>A lot of the starting material was stuff that I&rsquo;ve seen before but using it in
+practice without a step by step guide made a huge difference. This was also a
+time when another person was actually critiquing my programs and giving me
+constructive feedback on how to make it better. That feedback alone encouraged
+me to work at least twice as hard as I would have otherwise because
+I had someone else to keep me accountable.</p>
+
+<p>I was able to make a static <a href="http://raysapida.github.io/raymond-sapida-portfolio/">portfolio
+site</a> that I&rsquo;m planning to
+migrate to its own domain in the future along with multiple projects to showcase
+with it. I&rsquo;ve already included two demo Rails app I made and I&rsquo;m planning to
+add more once I deploy them to heroku. All of this is still a work in progress
+but it&rsquo;s really invigorating to see my work displayed like that. I&rsquo;m looking
+forward writing a blog post on each project I made in the course and also using
+the things I learned to edit the css for this blog.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -675,214 +740,6 @@ level programmers especially self taught ones.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/rspec-quick-ref/">Rspec Quick Reference</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-04-02T00:00:00-07:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&rsquo;ve been working to rewrite the test suite for one of the apps I&rsquo;ve made from
-Minitest/Fixtures to Rspec/Factory Girl. My favorite thing about Minitest is
-that it&rsquo;s simple to understand since it&rsquo;s just Ruby, but I wanted to explore what
-Rspec has to offer. I&rsquo;ve seen alot of
-Rspec in the open source projects I&rsquo;ve looked into and in many of the tutorials
-I follow. Even though the syntax is easy to understand, using it to code was
-harder than I thought. I started a quick reference sheet from cheat sheats I
-found on the internet and the documentation for the gems. They don&rsquo;t give a full
-explanation on what they do, but I found that the syntax is expressive enough
-that being able to see an example is enough to use it.</p>
-
-<h2>Structure</h2>
-
-<pre><code>describe &lt;class&gt; do
-  it "description of what happens" do 
-    &lt;setup code&gt;
-    &lt;exercise code&gt;
-    &lt;expectation code&gt;
-    &lt;cleanup code&gt;
-  end
-end
-</code></pre>
-
-<h2>Setup code</h2>
-
-<pre><code>before { &lt;setup code&gt; }
-let( &lt;variable&gt; ) { &lt;object instantiate&gt; }
-
-## Test doubles
-book = double("book")
-book = instance_double("book")
-allow(book).to receive(:title).and_return("The Rspec Book")
-allow_any_instance_of(Widget).to receive(:name).and_return("Wibble")
-spy("invitation")
-instance_spy("invitation")
-class_spy("invitation")
-object_spy("invitation")
-</code></pre>
-
-<h2>Exercise code</h2>
-
-<pre><code>## Model Tests from shoulda-matchers gem documentation
-
-it { should &lt;should-matchers code&gt; }
-
-allow_value('http://foo.com', 'http://bar.com/baz').for(:website_url)
-validate_confirmation_of(:email)
-validate_length_of(:password).is_at_least(10).on(:create)
-validate_numericality_of(:age).only_integer
-validate_presence_of(:password)
-belong_to(:organization)
-accept_nested_attributes_for(:mirrors).allow_destroy(true)
-have_many(:friends)
-have_one(:partner)
-have_and_belong_to_many(:awards)
-
-## Controller Tests
-
-get :new
-
-Article.should_receive(:new).with(title: 'The New Article Title').and_return(article)
-post :create, message: { title: 'The New Article Title' }
-
-article.should_receive(:save)
-post :create
-
-article.stub(:save)
-post :create
-response.should redirect_to(action: 'index')
-flash[:notice].should eq('The article was saved successfully.')
-
-## Feature Tests with Capybara
-
-visit book_path
-fill_in 'Email', :with =&gt; 'user@example.com'
-click_on "Submit"
-click_link('Link Text')
-choose('A Radio Button')
-check('A Checkbox')
-uncheck('A Checkbox')
-find_field('First Name').value
-find_link('Hello').visible?
-find_button('Send').click
-</code></pre>
-
-<h2>Expectation code</h2>
-
-<pre><code>expect(&lt;expectation code&gt;).to      eq(&lt;value&gt;)
-expect(&lt;expectation code&gt;).not_to  eq(&lt;value&gt;)
-
-## Paired with spy
-
-expect(invitation).to have_received(:accept).with(mailer)
-
-# Values that can be used 
-
-be_true
-be_false
-be_nil
-match /regex/
-start_with 
-end_with
-match_array [array]
-be_a_kind_of &lt;class name&gt;
-be_an_instance_of &lt;class name&gt;
-have(&lt;number&gt;).things
-have_at_least(&lt;number&gt;).things
-have_at_most(&lt;number&gt;).things
-raise_error &lt;optional error&gt;
-
-## Controller specific
-
-assigns[:article].should be_a_new Article
-response.should render_template :new
-</code></pre>
-
-<h2>Thoughtbot articles on testing</h2>
-
-<p>I&rsquo;ve been reading about testing philosophies and watching tutorials on
-TDD. I&rsquo;ve been going through a lot of the blog posts on the thoughtbot because I
-started learning about Rspec in general from their Upcase trails and using many
-of their tools. These are a few of the articles I&rsquo;ve read that helped me get a
-grip on the way people test and the terms they use.</p>
-
-<ul>
-<li><a href="https://robots.thoughtbot.com/back-to-basics-writing-unit-tests-first">Unit
-Tests</a></li>
-<li><a href="https://robots.thoughtbot.com/how-we-test-rails-applications">How to test Rails apps</a></li>
-<li><a href="https://robots.thoughtbot.com/mystery-guest">Mystery Guest</a></li>
-<li><a href="https://robots.thoughtbot.com/how-to-stub-external-services-in-tests">Stub External
-Services</a></li>
-<li><a href="https://robots.thoughtbot.com/fake-it">Fake Objects</a></li>
-<li><a href="https://robots.thoughtbot.com/a-closer-look-at-test-spies">Test Spies</a></li>
-<li><a href="https://robots.thoughtbot.com/acceptance-tests-at-a-single-level-of-abstraction">Acceptance
-Tests</a></li>
-<li><a href="https://robots.thoughtbot.com/testing-and-environment-variables">Testing Environment
-Variables</a></li>
-<li><a href="https://robots.thoughtbot.com/testing-from-the-outsidein">Test Outside-In</a></li>
-<li><a href="https://robots.thoughtbot.com/speed-up-tests-by-selectively-avoiding-factory-girl">Selectively Avoid Factory
-Girl</a></li>
-</ul>
-
-
-<h2>Commands I&rsquo;ve learned</h2>
-
-<ul>
-<li><code>git log --grep</code> searches the commit messages</li>
-<li><code>git log -S</code> searches the code in the repo and can take Regex</li>
-<li><code>tar xvf archive_name.tar</code> extracting from a tar file</li>
-<li><code>unzip test.zip</code> extracting from a zip file</li>
-</ul>
-
-
-<h2>Links</h2>
-
-<ul>
-<li><p><a href="https://www.youtube.com/watch?v=5ZjwEPupybw">Functional Programming and Ruby</a>
-This video was showing functional programming principles that I&rsquo;ve been seeing
-more and more when I looked into open source projects. This mindset for
-programming has been difficult to wrap my head around but I can see a lot of
-uses for it.</p></li>
-<li><p><a href="http://vaidehijoshi.github.io/blog/2015/03/31/delegating-all-of-the-things-with-ruby-forwardable/">Using Ruby
-Forwardable</a>
-contains ways to use the delegation pattern with the Forwardable
-module.</p></li>
-<li><p><a href="https://blog.engineyard.com/2015/seven-unusual-ruby-datastores">7 Unusual
-Datastores</a>
-shows datastores I&rsquo;m not too familiar with like Marshal and ObjectSpace. I have
-read that the latter is used for finding things like memory leaks or
-benchmarking to figure out a good garbage collector setting.</p></li>
-<li><p><a href="http://www.justinweiss.com/blog/2015/03/30/fun-with-keyword-arguments/">Keyword
-Arguments</a>
-introduced a way to use keyword arguments in Ruby 2.0+. I&rsquo;ve been using the
-older syntax all this time so finding out about this one has been great. It
-also goes into different ways you could use it.</p></li>
-<li><p><a href="http://6ftdan.com/allyourdev/2015/03/31/rails-4s-awesome-enums/">Rails enums</a>
-talks about the enum method in Rails 4 which I&rsquo;ve seen a few times but never
-really looked into completely.</p></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/3">&larr; Older</a>
@@ -900,6 +757,10 @@ really looked into completely.</p></li>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/a-quiz-app-with-a-summer-theme/">A Quiz App With a Summer Theme</a>
+      </li>
+    
+      <li class="post">
         <a href="/hot-or-cold-number-guessing-game/">Hot or Cold Number Guessing Game</a>
       </li>
     
@@ -913,10 +774,6 @@ really looked into completely.</p></li>
     
       <li class="post">
         <a href="/using-the-chrome-developer-tools/">Using the Chrome Developer Tools</a>
-      </li>
-    
-      <li class="post">
-        <a href="/writing-html-and-css-from-a-specific-design/">Writing Html and Css From a Specific Design</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Ray's Blog]]></title>
   <link href="http://raysapida.github.io/atom.xml" rel="self"/>
   <link href="http://raysapida.github.io/"/>
-  <updated>2015-06-15T01:01:52-07:00</updated>
+  <updated>2015-06-18T01:50:17-07:00</updated>
   <id>http://raysapida.github.io/</id>
   <author>
     <name><![CDATA[Raymond Sapida]]></name>
@@ -12,6 +12,203 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A Quiz App With a Summer Theme]]></title>
+    <link href="http://raysapida.github.io/a-quiz-app-with-a-summer-theme/"/>
+    <updated>2015-06-15T01:04:21-07:00</updated>
+    <id>http://raysapida.github.io/a-quiz-app-with-a-summer-theme</id>
+    <content type="html"><![CDATA[<p>I started this <a href="http://raysapida.github.io/quiz-app/">project</a> by creating all
+the html forms and buttons for the quiz. Each question would have markup similar
+to this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;div id="question-1"&gt;
+</span><span class='line'>  &lt;h2&gt;Where does the phrase 'dog days of summer' come from ?&lt;/h2&gt;
+</span><span class='line'>  &lt;form&gt;
+</span><span class='line'>    &lt;input type="radio" name="q1" id="q1-a" value="dogs" /&gt; Lazy Dogs
+</span><span class='line'>    &lt;br&gt;
+</span><span class='line'>    &lt;input type="radio" name="q1" id="q1-b" value="movie" /&gt; Reference from a movie
+</span><span class='line'>    &lt;br&gt;
+</span><span class='line'>    &lt;input type="radio" name="q1" id="q1-c" value="novel" /&gt; A term coined from a famous novel
+</span><span class='line'>    &lt;br&gt;
+</span><span class='line'>    &lt;input type="radio" name="q1" id="q1-d" value="star" /&gt; A star
+</span><span class='line'>    &lt;br&gt;&lt;br&gt;
+</span><span class='line'>    &lt;input type="submit" value="Final answer"&gt;
+</span><span class='line'>  &lt;/form&gt;
+</span><span class='line'>&lt;/div&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The other important html markup involved elements that are initially hidden using
+the css property display. They&rsquo;re shown depending on which answer is chosen.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;aside id="wrong"&gt;
+</span><span class='line'>  &lt;img src="images/Awesome-Icons_angry.png" alt="lose icon" height="300px"/&gt;
+</span><span class='line'>  &lt;button id="w-next"&gt;Next Question&lt;/button&gt;
+</span><span class='line'>&lt;/aside&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;aside id="correct"&gt;
+</span><span class='line'>  &lt;img src="images/Awesome-Icons_winner.png" alt="win icon" height="300px"/&gt;
+</span><span class='line'>  &lt;button id="c-next"&gt;Next Question&lt;/button&gt;
+</span><span class='line'>&lt;/aside&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;ul&gt;
+</span><span class='line'>  &lt;li&gt;&lt;img src="images/summer-16.png" alt="flip-flops" id="q1-icon"/&gt;&lt;/li&gt;
+</span><span class='line'>  &lt;li&gt;&lt;img src="images/summer-12.png" alt="sand castle" id="q2-icon"/&gt;&lt;/li&gt;
+</span><span class='line'>  &lt;li&gt;&lt;img src="images/summer-25.png" alt="beachball" id="q3-icon"/&gt;&lt;/li&gt;
+</span><span class='line'>  &lt;li&gt;&lt;img src="images/summer-22.png" alt="ice cream" id="q4-icon"/&gt;&lt;/li&gt;
+</span><span class='line'>  &lt;li&gt;&lt;img src="images/summer-21.png" alt="sailboat" id="q5-icon"/&gt;&lt;/li&gt;
+</span><span class='line'>&lt;/ul&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I first used jQuery to create a submit handler for each question and show the
+separate styles.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$( " #question-1 form" ).submit(function( event ) {
+</span><span class='line'>  event.preventDefault();
+</span><span class='line'>  var input = $('input[name=q1]:checked', '#question-1').val();
+</span><span class='line'>  $("#question-1").css("display", "none");
+</span><span class='line'>  if (input == question1.answer) {
+</span><span class='line'>    $("#correct").css("display", "block");
+</span><span class='line'>    $("img#q1-icon").css("opacity", "1.0");
+</span><span class='line'>    score +=1;
+</span><span class='line'>    correctNext("question-2");
+</span><span class='line'>  } else {
+</span><span class='line'>    $("#wrong").css("display", "block");
+</span><span class='line'>    wrongNext("question-2");
+</span><span class='line'>  }
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Once the app worked, I migrated the questions into Javascript
+objects and worked towards making the functions reusable. I created each
+question by calling the <code>createQuestion</code> function.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var question1 = new createQuestion("1","Where does the phrase 'dog days of summer' come from ?",
+</span><span class='line'>                                    "Lazy dogs", "A reference", "A term coined from a famous novel", "A star",
+</span><span class='line'>"A star");
+</span><span class='line'>
+</span><span class='line'>function createQuestion(id, question, a, b, c, d, answer) {
+</span><span class='line'>  this.id = id;
+</span><span class='line'>  this.question = question;
+</span><span class='line'>  this.a = a;
+</span><span class='line'>  this.b = b;
+</span><span class='line'>  this.c = c;
+</span><span class='line'>  this.d = d;
+</span><span class='line'>  this.answer = answer;
+</span><span class='line'>  return this;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Afterwards, I added them to an array and looped through it to create the forms.
+The previous css still worked and the questions are hidden until the
+corresponding <code>submit</code> handler is called.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var questionList = [question1, question2, question3, question4, question5 ];
+</span><span class='line'>for (var i = 0, l = questionList.length; i &lt; l; i ++) {
+</span><span class='line'>  var v = questionList[i];
+</span><span class='line'>  var result = createQuestionform(questionList[i]);
+</span><span class='line'>  $('section').append(result);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>function createQuestionform(obj) {
+</span><span class='line'>  var result = $("&lt;div id='question-"+obj.id+"'&gt;"+
+</span><span class='line'>                  "&lt;h2&gt;"+obj.question+"&lt;/h2&gt;"+
+</span><span class='line'>                  "&lt;form&gt;"+
+</span><span class='line'>                  "&lt;input type='radio' name='q"+obj.id+"' value='"+obj.a+"'/&gt;"+obj.a+"&lt;br&gt;"+
+</span><span class='line'>                  "&lt;input type='radio' name='q"+obj.id+"' value='"+obj.b+"'/&gt;"+obj.b+"&lt;br&gt;"+
+</span><span class='line'>                  "&lt;input type='radio' name='q"+obj.id+"' value='"+obj.c+"'/&gt;"+obj.c+"&lt;br&gt;"+
+</span><span class='line'>                  "&lt;input type='radio' name='q"+obj.id+"' value='"+obj.d+"'/&gt;"+obj.d+"&lt;br&gt;&lt;br&gt;"+
+</span><span class='line'>                  "&lt;input type='submit' value='Final answer'&gt;"+
+</span><span class='line'>                  "&lt;/form&gt;"+
+</span><span class='line'>                  "&lt;/div&gt;");
+</span><span class='line'>  return result;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I also used <a href="http://pixlr.com/editor/">Pixlr</a> to shrink the images from
+<a href="https://unsplash.com/">Unsplash</a> so that they would be more web
+friendly.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hot or Cold Number Guessing Game]]></title>
@@ -1778,51 +1975,6 @@ decent exposure gem. Most of it was a refresher dealing with methods available
 in the view diretory, using partials, and rendering objects or collections. The
 most useful part I learned was the <code>assigns</code> instance variable which shows what
 is being communicated between the controller and view.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Learning Specifics About Testing]]></title>
-    <link href="http://raysapida.github.io/specifcs-about-testing/"/>
-    <updated>2015-02-18T00:00:00-08:00</updated>
-    <id>http://raysapida.github.io/specifcs-about-testing</id>
-    <content type="html"><![CDATA[<p>I&rsquo;ve been working through the testing trails in upcase for test doubles and
-testing fundamentals. The most difficult part for me was understanding mocks and spies along with how to
-structure them to make sure the right behavior is being tested. I&rsquo;ve
-written unit tests and a few acceptance tests in the past but I&rsquo;ve never used
-test doubles before the upcase trail. I had to research the differences between
-fakes, dummies, stubs, spies and mocks. Upcase provided an
-<a href="http://www.martinfowler.com/bliki/TestDouble.html">aricle</a> by Martin Fowler as
-an introduction to those ideas. From my understanding, the advantages
-of using test doubles are clarity and speed. The unit tests should already tests
-that the proper answers are being given in the model or controller level which
-makes stubs a good way to improve them. Mocks ensure that specific method calls
-are being used and spies take that a step further by recording how the method
-calls are used. For example, spies could say that a method call was used twice
-instead of the expected once.</p>
-
-<p>I&rsquo;ve learned the definitions for different kinds of testing; unit,
-integration, feature, and functional tests. Unit tests are for a small subset of the
-application and I closely associate it with tests for a specific controller or
-model. Integration tests go from end to end and I&rsquo;ve used it to test that
-logging in to an application or using the user interface. Functional tests are
-integration tests that actually run the application from end to end similar to
-making sure that an email is sent when a person is trying to recover a forgotten
-password. Feature tests are for things that change the functionality of the
-application like changing a status update from text only to including image
-attachments.</p>
-
-<p>I&rsquo;m also still getting used to rspec and capybara. The most prevalent comments I would receive from the
-exercises were the different shortcuts people use in their tests and other
-improvements on readability to make sure that the reader can better understand
-the intent behind the tests. Most of my
-tests in the past was using Minitest because it was included by default and
-it was the framework most of the tutorials I followed use; it&rsquo;s the testing framework included with the exercism
-exercises and the Treehouse tutorials for the Treebook application. I&rsquo;ve never
-really thought of tests outside unit testing but I&rsquo;m appreciating what testing
-adds to the application. I&rsquo;m starting to see why tests can function as
-documentation instead of comments and how bugs can be recreated to better
-understand where edge cases are coming from.</p>
 ]]></content>
   </entry>
   

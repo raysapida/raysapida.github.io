@@ -9,9 +9,8 @@
   <meta name="author" content="Raymond Sapida">
 
   
-  <meta name="description" content="While I was experimenting with the
-dotenv-heroku gem, the app I
-was deploying started showing the app crashed error message. I ran all my tests &hellip;">
+  <meta name="description" content="I&rsquo;ve been working to rewrite the test suite for one of the apps I&rsquo;ve made from
+Minitest/Fixtures to Rspec/Factory Girl. My favorite thing &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +78,214 @@ was deploying started showing the app crashed error message. I ran all my tests 
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/rspec-quick-ref/">Rspec Quick Reference</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-04-02T00:00:00-07:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;ve been working to rewrite the test suite for one of the apps I&rsquo;ve made from
+Minitest/Fixtures to Rspec/Factory Girl. My favorite thing about Minitest is
+that it&rsquo;s simple to understand since it&rsquo;s just Ruby, but I wanted to explore what
+Rspec has to offer. I&rsquo;ve seen alot of
+Rspec in the open source projects I&rsquo;ve looked into and in many of the tutorials
+I follow. Even though the syntax is easy to understand, using it to code was
+harder than I thought. I started a quick reference sheet from cheat sheats I
+found on the internet and the documentation for the gems. They don&rsquo;t give a full
+explanation on what they do, but I found that the syntax is expressive enough
+that being able to see an example is enough to use it.</p>
+
+<h2>Structure</h2>
+
+<pre><code>describe &lt;class&gt; do
+  it "description of what happens" do 
+    &lt;setup code&gt;
+    &lt;exercise code&gt;
+    &lt;expectation code&gt;
+    &lt;cleanup code&gt;
+  end
+end
+</code></pre>
+
+<h2>Setup code</h2>
+
+<pre><code>before { &lt;setup code&gt; }
+let( &lt;variable&gt; ) { &lt;object instantiate&gt; }
+
+## Test doubles
+book = double("book")
+book = instance_double("book")
+allow(book).to receive(:title).and_return("The Rspec Book")
+allow_any_instance_of(Widget).to receive(:name).and_return("Wibble")
+spy("invitation")
+instance_spy("invitation")
+class_spy("invitation")
+object_spy("invitation")
+</code></pre>
+
+<h2>Exercise code</h2>
+
+<pre><code>## Model Tests from shoulda-matchers gem documentation
+
+it { should &lt;should-matchers code&gt; }
+
+allow_value('http://foo.com', 'http://bar.com/baz').for(:website_url)
+validate_confirmation_of(:email)
+validate_length_of(:password).is_at_least(10).on(:create)
+validate_numericality_of(:age).only_integer
+validate_presence_of(:password)
+belong_to(:organization)
+accept_nested_attributes_for(:mirrors).allow_destroy(true)
+have_many(:friends)
+have_one(:partner)
+have_and_belong_to_many(:awards)
+
+## Controller Tests
+
+get :new
+
+Article.should_receive(:new).with(title: 'The New Article Title').and_return(article)
+post :create, message: { title: 'The New Article Title' }
+
+article.should_receive(:save)
+post :create
+
+article.stub(:save)
+post :create
+response.should redirect_to(action: 'index')
+flash[:notice].should eq('The article was saved successfully.')
+
+## Feature Tests with Capybara
+
+visit book_path
+fill_in 'Email', :with =&gt; 'user@example.com'
+click_on "Submit"
+click_link('Link Text')
+choose('A Radio Button')
+check('A Checkbox')
+uncheck('A Checkbox')
+find_field('First Name').value
+find_link('Hello').visible?
+find_button('Send').click
+</code></pre>
+
+<h2>Expectation code</h2>
+
+<pre><code>expect(&lt;expectation code&gt;).to      eq(&lt;value&gt;)
+expect(&lt;expectation code&gt;).not_to  eq(&lt;value&gt;)
+
+## Paired with spy
+
+expect(invitation).to have_received(:accept).with(mailer)
+
+# Values that can be used 
+
+be_true
+be_false
+be_nil
+match /regex/
+start_with 
+end_with
+match_array [array]
+be_a_kind_of &lt;class name&gt;
+be_an_instance_of &lt;class name&gt;
+have(&lt;number&gt;).things
+have_at_least(&lt;number&gt;).things
+have_at_most(&lt;number&gt;).things
+raise_error &lt;optional error&gt;
+
+## Controller specific
+
+assigns[:article].should be_a_new Article
+response.should render_template :new
+</code></pre>
+
+<h2>Thoughtbot articles on testing</h2>
+
+<p>I&rsquo;ve been reading about testing philosophies and watching tutorials on
+TDD. I&rsquo;ve been going through a lot of the blog posts on the thoughtbot because I
+started learning about Rspec in general from their Upcase trails and using many
+of their tools. These are a few of the articles I&rsquo;ve read that helped me get a
+grip on the way people test and the terms they use.</p>
+
+<ul>
+<li><a href="https://robots.thoughtbot.com/back-to-basics-writing-unit-tests-first">Unit
+Tests</a></li>
+<li><a href="https://robots.thoughtbot.com/how-we-test-rails-applications">How to test Rails apps</a></li>
+<li><a href="https://robots.thoughtbot.com/mystery-guest">Mystery Guest</a></li>
+<li><a href="https://robots.thoughtbot.com/how-to-stub-external-services-in-tests">Stub External
+Services</a></li>
+<li><a href="https://robots.thoughtbot.com/fake-it">Fake Objects</a></li>
+<li><a href="https://robots.thoughtbot.com/a-closer-look-at-test-spies">Test Spies</a></li>
+<li><a href="https://robots.thoughtbot.com/acceptance-tests-at-a-single-level-of-abstraction">Acceptance
+Tests</a></li>
+<li><a href="https://robots.thoughtbot.com/testing-and-environment-variables">Testing Environment
+Variables</a></li>
+<li><a href="https://robots.thoughtbot.com/testing-from-the-outsidein">Test Outside-In</a></li>
+<li><a href="https://robots.thoughtbot.com/speed-up-tests-by-selectively-avoiding-factory-girl">Selectively Avoid Factory
+Girl</a></li>
+</ul>
+
+
+<h2>Commands I&rsquo;ve learned</h2>
+
+<ul>
+<li><code>git log --grep</code> searches the commit messages</li>
+<li><code>git log -S</code> searches the code in the repo and can take Regex</li>
+<li><code>tar xvf archive_name.tar</code> extracting from a tar file</li>
+<li><code>unzip test.zip</code> extracting from a zip file</li>
+</ul>
+
+
+<h2>Links</h2>
+
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=5ZjwEPupybw">Functional Programming and Ruby</a>
+This video was showing functional programming principles that I&rsquo;ve been seeing
+more and more when I looked into open source projects. This mindset for
+programming has been difficult to wrap my head around but I can see a lot of
+uses for it.</p></li>
+<li><p><a href="http://vaidehijoshi.github.io/blog/2015/03/31/delegating-all-of-the-things-with-ruby-forwardable/">Using Ruby
+Forwardable</a>
+contains ways to use the delegation pattern with the Forwardable
+module.</p></li>
+<li><p><a href="https://blog.engineyard.com/2015/seven-unusual-ruby-datastores">7 Unusual
+Datastores</a>
+shows datastores I&rsquo;m not too familiar with like Marshal and ObjectSpace. I have
+read that the latter is used for finding things like memory leaks or
+benchmarking to figure out a good garbage collector setting.</p></li>
+<li><p><a href="http://www.justinweiss.com/blog/2015/03/30/fun-with-keyword-arguments/">Keyword
+Arguments</a>
+introduced a way to use keyword arguments in Ruby 2.0+. I&rsquo;ve been using the
+older syntax all this time so finding out about this one has been great. It
+also goes into different ways you could use it.</p></li>
+<li><p><a href="http://6ftdan.com/allyourdev/2015/03/31/rails-4s-awesome-enums/">Rails enums</a>
+talks about the enum method in Rails 4 which I&rsquo;ve seen a few times but never
+really looked into completely.</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -663,99 +870,6 @@ department too.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/essential-commands/">Commands I Needed to Start Using the Command Line</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-03-15T00:00:00-07:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Basic Commands</h2>
-
-<p>The <a href="http://ss64.com/bash/ls.html">ls</a> command list the contents of the current directory. A more detailed
-  form would be <code>ls -la</code> which lists the contents along with their file permissions.</p>
-
-<p>The <a href="http://ss64.com/bash/cd.html">cd</a> command lets you move back and forth from folders by adding the
-  folder name afterwards. <code>cd ..</code> lets you move back by one folder and <code>cd -</code>
-lets you jump back and forth between the last changed spots.</p>
-
-<p>The <a href="http://ss64.com/bash/mkdir.html">mkdir</a> command makes a folder while <a href="http://ss64.com/bash/rmdir.html">rmdir</a> removes an empty folder.</p>
-
-<p><a href="http://ss64.com/bash/cp.html">cp</a> can copy files where the the first group is the target and the second
-  group is the destination.</p>
-
-<p><a href="http://ss64.com/bash/mv.html">mv</a> moves files and works similarly to <code>cp</code> except the first group is
-  deleted afterwards.</p>
-
-<p>The <a href="http://ss64.com/bash/rm.html">rm</a> command deletes a file and passing in additional flags like <code>rm
-  -rf</code> would delete a whole folder along with its contents.</p>
-
-<h2>Useful Commands</h2>
-
-<p><a href="http://ss64.com/bash/man.html">man</a> followed by another command would show the complete help
-  section on how to use that command. Whenever I&rsquo;m lost or forgot how to use a
-particular command, I would use this to figure out how it works.</p>
-
-<p><a href="http://ss64.com/bash/sudo.html">sudo</a> can be prepended to other commands that need super user
-  permission to execute.</p>
-
-<p><a href="http://ss64.com/bash/chmod.html">chmod</a> can change the file permissions of a file enabling you to edit or use
-  thE FIle.</p>
-
-<p><a href="http://ss64.com/bash/grep.html">grep</a> lets you search through the file&rsquo;s or output&rsquo;s contents using a regular
-  expression. There are other commands that other people use to perform the same
-function but this is the most common one.</p>
-
-<p><a href="http://ss64.com/bash/head.html">head</a> and <a href="http://ss64.com/bash/tail.html">tail</a> - Shows the first of last ten lines for a file or output.
-  They&rsquo;re useful for logs and when piping a string of commands.</p>
-
-<p><a href="http://guides.rubyonrails.org/command_line.html">rails</a> has their own set of
-  commands along with
-<a href="http://edgeguides.rubyonrails.org/active_record_migrations.html#running-migrations">rake</a> commands for migrations. I end up using <a href="http://guides.rubyonrails.org/command_line.html#rails-console">rails
-console</a> the most
-when debugging a problem or exploring an application.</p>
-
-<h2>Optional Commands</h2>
-
-<p><a href="http://docs.vagrantup.com/v2/cli/up.html">vagrant up</a> and <a href="http://docs.vagrantup.com/v2/cli/ssh.html">vagrant ssh</a> - I had a lot of trouble with setting up a development environment since I had a Windows 8 laptop. I
-learned that <a href="https://www.vagrantup.com/">Vagrant</a> was the easiest way to start
-using a virtual machine at the time and I started with the <a href="https://github.com/rails/rails-dev-box">rails dev box</a>.</p>
-
-<p><a href="https://rvm.io/rvm/cli">rvm</a> was how I managed my environments and it helped
-  me separate incompatible gems. A Gemfile should manage most of
-these but I had trouble figuring out where errors were coming from when
-installing gems and this was an easier solution at the time.</p>
-
-<p><a href="http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html">vim</a> - I started with vim because I couldn&rsquo;t figure out how to share
-  folders between the virtual machine and the local machine but I ended up
-enjoying being able to quickly switch between the editor and shell so much that I stuck
-with it.</p>
-
-<p><a href="https://robots.thoughtbot.com/a-tmux-crash-course">tmux</a> - I began learning this on an Upcase trail and using it finally
-  convinced me to install a Linux distribution. It became more evident that developing in a virtual
-machine was the bottleneck for me when I became comfortable
-enough in a tmux session, especially when running tests.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/4">&larr; Older</a>
@@ -773,6 +887,10 @@ enough in a tmux session, especially when running tests.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/a-quiz-app-with-a-summer-theme/">A Quiz App With a Summer Theme</a>
+      </li>
+    
+      <li class="post">
         <a href="/hot-or-cold-number-guessing-game/">Hot or Cold Number Guessing Game</a>
       </li>
     
@@ -786,10 +904,6 @@ enough in a tmux session, especially when running tests.</p>
     
       <li class="post">
         <a href="/using-the-chrome-developer-tools/">Using the Chrome Developer Tools</a>
-      </li>
-    
-      <li class="post">
-        <a href="/writing-html-and-css-from-a-specific-design/">Writing Html and Css From a Specific Design</a>
       </li>
     
   </ul>

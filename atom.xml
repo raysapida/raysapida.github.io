@@ -4,7 +4,7 @@
   <title><![CDATA[Ray's Blog]]></title>
   <link href="http://raysapida.github.io/atom.xml" rel="self"/>
   <link href="http://raysapida.github.io/"/>
-  <updated>2015-06-18T01:50:17-07:00</updated>
+  <updated>2015-07-11T15:21:44-07:00</updated>
   <id>http://raysapida.github.io/</id>
   <author>
     <name><![CDATA[Raymond Sapida]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[A Quiz App With a Summer Theme]]></title>
+    <title type="html"><![CDATA[A Quiz App with a Summer Theme]]></title>
     <link href="http://raysapida.github.io/a-quiz-app-with-a-summer-theme/"/>
     <updated>2015-06-15T01:04:21-07:00</updated>
     <id>http://raysapida.github.io/a-quiz-app-with-a-summer-theme</id>
@@ -341,7 +341,7 @@ should be able to say if the guess us too high or too low.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Creating a Shopping List With jQuery]]></title>
+    <title type="html"><![CDATA[Creating a Shopping List with jQuery]]></title>
     <link href="http://raysapida.github.io/creating-a-shopping-list-with-jquery/"/>
     <updated>2015-06-12T07:06:02-07:00</updated>
     <id>http://raysapida.github.io/creating-a-shopping-list-with-jquery</id>
@@ -429,7 +429,7 @@ whole app.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[A Little Bit of jQuery Animation]]></title>
+    <title type="html"><![CDATA[A Little Bit of jQuery animation]]></title>
     <link href="http://raysapida.github.io/a-little-bit-of-jquery-animation/"/>
     <updated>2015-06-11T13:18:14-07:00</updated>
     <id>http://raysapida.github.io/a-little-bit-of-jquery-animation</id>
@@ -612,7 +612,7 @@ me when I write Rails applications.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Writing Html and Css From a Specific Design]]></title>
+    <title type="html"><![CDATA[Writing html and css from a specific design]]></title>
     <link href="http://raysapida.github.io/writing-html-and-css-from-a-specific-design/"/>
     <updated>2015-06-09T13:29:40-07:00</updated>
     <id>http://raysapida.github.io/writing-html-and-css-from-a-specific-design</id>
@@ -651,7 +651,7 @@ styles instead of multiple selectors for the same element.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Going Through Thinkful's Front End Course]]></title>
+    <title type="html"><![CDATA[Going through Thinkful's Front End Course]]></title>
     <link href="http://raysapida.github.io/thinkful-front-end-developer-course/"/>
     <updated>2015-06-08T00:00:00-07:00</updated>
     <id>http://raysapida.github.io/thinkful-front-end-developer-course</id>
@@ -1054,7 +1054,7 @@ from vim</p></li>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Learning From Tutorials]]></title>
+    <title type="html"><![CDATA[Learning from tutorials]]></title>
     <link href="http://raysapida.github.io/going-thrugh-tutorials/"/>
     <updated>2015-04-23T00:00:00-07:00</updated>
     <id>http://raysapida.github.io/going-thrugh-tutorials</id>
@@ -1379,7 +1379,7 @@ really looked into completely.</p></li>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[More Debugging With Deployment]]></title>
+    <title type="html"><![CDATA[More debugging with deployment]]></title>
     <link href="http://raysapida.github.io/more-debugging/"/>
     <updated>2015-03-29T00:00:00-07:00</updated>
     <id>http://raysapida.github.io/more-debugging</id>
@@ -1520,7 +1520,7 @@ explaining how he structured his
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Easy Wins Versus Hard Wins]]></title>
+    <title type="html"><![CDATA[Easy Wins versus Hard Wins]]></title>
     <link href="http://raysapida.github.io/easy-wins-vs-hard-wins/"/>
     <updated>2015-03-25T00:00:00-07:00</updated>
     <id>http://raysapida.github.io/easy-wins-vs-hard-wins</id>
@@ -1617,7 +1617,7 @@ in the future.</p></li>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Sorcerer's Apprentice - Problems With Deploying]]></title>
+    <title type="html"><![CDATA[Sorcerer's Apprentice - Problems with deploying]]></title>
     <link href="http://raysapida.github.io/sorcerers-apprentice/"/>
     <updated>2015-03-22T00:00:00-07:00</updated>
     <id>http://raysapida.github.io/sorcerers-apprentice</id>
@@ -1729,7 +1729,7 @@ that guilt and leading them to a place where they could program again.</p></li>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Accounts I Should Have Had From the Beginning]]></title>
+    <title type="html"><![CDATA[Accounts I should have had from the beginning]]></title>
     <link href="http://raysapida.github.io/essential-online-accounts/"/>
     <updated>2015-03-18T00:00:00-07:00</updated>
     <id>http://raysapida.github.io/essential-online-accounts</id>
@@ -1784,7 +1784,7 @@ I knew if I was doing the right things.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Taking the Simple Programmer Blog Course]]></title>
+    <title type="html"><![CDATA[Taking the simple programmer blog course]]></title>
     <link href="http://raysapida.github.io/simple-programmer-blog-course/"/>
     <updated>2015-03-16T00:00:00-07:00</updated>
     <id>http://raysapida.github.io/simple-programmer-blog-course</id>
@@ -1862,7 +1862,7 @@ department too.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Commands I Needed to Start Using the Command Line]]></title>
+    <title type="html"><![CDATA[Commands I needed to start using the Command Line]]></title>
     <link href="http://raysapida.github.io/essential-commands/"/>
     <updated>2015-03-15T00:00:00-07:00</updated>
     <id>http://raysapida.github.io/essential-commands</id>
@@ -1935,7 +1935,7 @@ enough in a tmux session, especially when running tests.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Reading the Rails 4 Way - Part 1]]></title>
+    <title type="html"><![CDATA[Reading The Rails 4 Way - part 1]]></title>
     <link href="http://raysapida.github.io/reading-the-rails-4-way/"/>
     <updated>2015-02-20T00:00:00-08:00</updated>
     <id>http://raysapida.github.io/reading-the-rails-4-way</id>
